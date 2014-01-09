@@ -32,3 +32,23 @@ Good video for early chapters of "Learn You a Haskell . . ." http://www.cs.nott.
 answers to questions in Hutton's book. http://www.cs.nott.ac.uk/~gmh/book.html
 
 Some general tips on programming in Haskell. http://www.haskell.org/haskellwiki/Haskell_programming_tips
+
+FootNotes: * the 40 cores ref: http://haskell.cs.yale.edu/wp-content/uploads/2013/08/hask035-voellmy.pdf
+
+Additonal resources. . . . Brian Hurt's wonderful explication of the why of static typing. http://vimeo.com/72870631
+
+Brian Beckman explained the monand so well even my cat gets it. http://channel9.msdn.com/Shows/Going+Deep/Brian-Beckman-Dont-fear-the-Monads
+
+Brian Beckman interviews Rich Hickey: two of the greatest explicators in a single video. http://channel9.msdn.com/Shows/Going+Deep/Expert-to-Expert-Rich-Hickey-and-Brian-Beckman-Inside-Clojure
+
+-- settings and such -- Erik Meijer makes much use of (n + k) which has been dropped from the Haskell 2010 spec. So as not to get an error when compiling you want to do either of these two steps. start the compiler with this command ghci -XNPlusKPatterns
+
+or
+
+use this at the top the module
+
+{-# LANGUAGE NPlusKPatterns #-}
+
+to kill the monomorphic resriction ghci prompt > :set -XNoMonomorphismRestriction
+
+or use this in the header of your file/module {-# LANGUAGE NoMonomorphismRestriction #-}
