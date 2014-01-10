@@ -35,7 +35,7 @@ prime n = factors n == [1,n]
 -- a number such as 15 is not prime does not require the function prime to produce all of its factors, because under lazy evaluation the result False is returned as soon as any factor other than one or the number itself is produced, which for this example is given by the factor 3.
 
 primes :: Integral t => t -> [t]
-primes n = [x | x <- [2..n],prime x] -- “sieve of Eratosthenes” is more efficient
+primes n = [x | x <- [2..n],prime x] -- â€œsieve of Eratosthenesâ€ is more efficient
  
 f3nd :: Eq a => a -> [(a, t)] -> [t]
 f3nd k t = [v|(k',v)<- t,k==k'] 
@@ -217,4 +217,4 @@ int2upp                     :: Int -> Char
 int2upp n                   = chr (ord 'A' + n) 
 
 -- letters                     :: String -> Int 
-letters xs                  = length [x|x <- xs, isAlpha x] 
+letters xs                  = genericLength [x|x <- xs, isAlpha x] 
