@@ -127,4 +127,178 @@ odds []			= []
 odds (_:xs)		= evens xs  
 
 -- 6.6 --  
+-- 6.8.1 -- 
+-- do the (^) operator  like we did for (*) 
+{- 
+mult 			:: Integer->Integer->Integer
+m `mult` 0 		= 0
+m `mult`(n+1)		= m+(m`mult`n)
 
+
+our type def. 
+(^) :: (Num a, Integral b) => a -> b -> a       -- Defined in `GHC.Real'
+-}
+eXpo :: (Integral a, Num a1) => a1 -> a -> a1
+m `eXpo`  0 = 1
+m `eXpo` (n+1) = m * m `eXpo` n
+-- > 2 `eXpo` 3
+-- 8
+{-
+2 `eXpo` 3
+= {applying `eXpo` } 
+2 * (2 `eXpo` 2)
+= {applying `eXpo` } 
+2*(2*(2 `eXpo` 1))
+= {applying `eXpo` }
+2*(2*(2*(2  `eXpo` 0)))
+= {applying `eXpo` }
+2*(2*(2*1)) 
+= {applying * }
+8
+-}
+{- 6.8.2.1 --
+length [1,2,3] 
+= {applying length}
+1+ length [2,3] 
+= {applying length}
+1+(1 + length [3])
+= {applying length}
+1 +(1+(1(1 + 0)))
+= {applying +}
+3
+-}
+{- 6.8.2.2 -- 
+drop 3 [1,2,3,4,5] 
+= {applying drop}
+drop 2 [2,3,4,5]
+= {applying drop}
+drop 1 [3,4,5]
+= {applying drop} 
+drop 0 [4,5]
+= {applying drop}
+[4,5] 
+-}
+{- 
+init [1,2,3]
+= {applying init}
+1:init [2,3] 
+= {applying init}
+1:2:init [3] 
+= {applying init}
+1:2:[]
+= { list notation}
+[1,2] 
+-}
+-- 6.8.3 --  
+ 
+-- and :: [Bool] -> Bool 	-- Defined in `GHC.List'
+aNd []					= True 
+aNd (b:bs)              = b && aNd bs
+
+c4ncat []               = [] 
+c4ncat (xs:xss)         = xs ++ c4ncat xss
+
+-- r2plicate :: Int -> a -> [a] 	-- Defined in `GHC.List'
+r2plicate 0 _           = []
+r2plicate (n+1) x       = x:r2plicate n x 
+
+-- (x:_)!!0             = x 
+-- (_:xs)!!(n+1)        = xs!!n
+
+
+
+el2m :: Eq a => a -> [a] -> Bool 
+el2m x []                   = False 
+el2m x (y:ys)   | x==y      = True
+                |otherwise  = el2m x ys 
+
+-- 6.8.4 -- 
+merge :: Ord a => [a] -> [a] -> [a]
+merge [] ys             = ys
+merge xs []             = xs 
+merge (x:xs) (y:ys)     = if x <= y then
+                            x:merge xs (y:ys) 
+                          else 
+                            y:merge (x:xs) ys 
+
+-- 6.8.5 -- 
+halve xs                = splitAt (length xs `div` 2) xs
+
+msort []                = [] 
+msort [x]               = [x]
+msort xs                = merge(msort ys) (msort zs) 
+                            where (ys, zs) = halve xs 
+
+{- 6.8.6.1 --  
+1. define type
+s5m                     :: [Int] -> Int
+2. enumerate the cases 
+
+sum []                  = 
+sum (x:xs)              = 
+
+3. define the simple case
+sum []                  = 0 
+sum(x:xs)               =
+
+4. define other cases 
+sum []                  = 0 
+sum (x:xs)              = x + sum xs
+
+5. generalise and simplify  
+sum                     :: Num a => [a] -> a 
+sum                     = foldr (+) 0 
+
+{- 6.8.6.2 -- 
+1. define type 
+take                    :: Int -> [a] -> [a] 
+
+2. enumerate the cases 
+
+take 0 []               = 
+take 0 (x:xs)           = 
+take (n+1) []           = 
+take (n+1) (x:xs)       = 
+
+3. define simple cases 
+take 0 []               = [] 
+take 0 (x:xs)           = []
+take (n+1) []           = [] 
+take (n+1) (x:xs)       =   
+
+4. define the other cases     
+take 0 []               = [] 
+take 0 (x:xs)           = []
+take (n+1) []           = [] 
+take (n+1) (x:xs)       = x:take n xs 
+
+5. generalise and simplify 
+take                    :: Int -> [a] -> [a] 
+take 0 _                = []
+take (n+1) []           = [] 
+take (n+1) (x:xs)       = x:take n xs 
+
+-- 6.8.6.3 -- 
+1. define type 
+last                    :: [a] -> [a] 
+
+2. enumerate the cases 
+
+last (x:xs)             = 
+
+3. define simple cases 
+last (x:xs)             = 
+take (x:xs)     | null xs           = x
+                | otherwise         = 
+
+4. define the other cases     
+last (x:xs)             = 
+take (x:xs)     | null xs           = x
+                | otherwise         = last xs 
+
+5. generalise and simplify 
+last                                :: [a] -> [a] 
+last [x]                            = x
+last (_:xs)                         = x
+
+-}
