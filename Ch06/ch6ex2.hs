@@ -3,9 +3,6 @@ module Ch6examp where
 -- ghci -XNPlusKPatterns
 import qualified Data.List as D 
 
- 
--- Remember order of arg evaluation doesn't matter as much in Pure FP.
-
 -- 6.1 -- 
 factorial               :: Int -> Int 
 factorial n             = product(take n [1..n])
