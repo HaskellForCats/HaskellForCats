@@ -1,6 +1,7 @@
 module Ch1ListsRecur where 
+-- : set expandtab ts=4 ruler number spell
 -- import Data.Char
--- import Test.QuickCheck 
+import Test.QuickCheck 
 {- Church of Recursion
 Recursion gets you everything you would want just as well as a Turing Machine 
 
@@ -87,4 +88,83 @@ squaresRec (x:xs)   = x*x : squaresRec xs
 -- *Ch1ListsRecur> squaresRec [1,2,3]
 -- [1,4,9]
 
+{- another way to look at this is 
+squaresRec is either [] 
+or it is built with cons (:)
 
+            squaresRec [1,2,3]
+= same as
+             squaresRec (1 : (2 : (3 : [] )))
+because this isn't the empty list it must be a constructed list 
+the head of the constructed list is x and it is :xs as in (x:xs) = which is the same on the other side of the = where the head of the list is  x*x, and the tails is : squareRec xs 
+stated another way 
+
+heads are equivalent 
+squaresRec x = x * x 
+tails are also equivalent
+squareRec :xs = :squareRec xs -- this is associative 
+
+
+            squaresRec (1 : (2 : (3 : [] )))
+=           { x =1, xs = (2 : (3 : [] )) } 
+        1*1 : squaresRec (2:(3: [] ))
+=           { x = 2, xs = (3 : []) } 
+        1*1 : (2*2 : squaresRec (3 : [] )) 
+=           { x = 3, xs = [] }  
+        1*1 : (2*2 : (3*3  : squaresRec [] ))  
+=                                          
+        1*1 : (2*2 : (3*3 : [] ))
+=
+        1 : (4 : (9 : []))        
+= 
+        [1,4,9]
+
+As a Conditional it would be ---------------}
+
+squaresCond :: [Integer] -> [Integer]  
+squaresCond ws = 
+    if null ws then 
+        [] 
+    else 
+        let 
+            x = head ws 
+            xs = tail ws 
+        in 
+            x*x  : squaresCond xs 
+
+-- now you could check the acurracy with QuickCheck.
+
+prop_condRec :: [Integer] -> Bool 
+prop_condRec xs = (squaresCond xs) == (squares xs)
+
+{- -- applying quickCheck 
+*Ch1ListsRecur> QuickCheck prop_condRec 
+
+<interactive>:2:1: Not in scope: data constructor `QuickCheck'
+*Ch1ListsRecur> quickCheck prop_condRec 
+Loading package array-0.4.0.1 ... linking ... done.
+Loading package deepseq-1.3.0.1 ... linking ... done.
+Loading package old-locale-1.0.0.5 ... linking ... done.
+Loading package time-1.4.0.1 ... linking ... done.
+Loading package random-1.0.1.1 ... linking ... done.
+Loading package containers-0.5.0.0 ... linking ... done.
+Loading package pretty-1.1.1.0 ... linking ... done.
+Loading package template-haskell ... linking ... done.
+Loading package QuickCheck-2.6 ... linking ... done.
++++ OK, passed 100 tests.
+-}
+
+prop_ifCondRec :: [Integer] -> Bool 
+prop_ifCondRec xs = (squaresCond xs) == (squaresRec xs)
+{- *Ch1ListsRecur> quickCheck prop_ifCondRec 
+Loading package array-0.4.0.1 ... linking ... done.
+Loading package deepseq-1.3.0.1 ... linking ... done.
+Loading package old-locale-1.0.0.5 ... linking ... done.
+Loading package time-1.4.0.1 ... linking ... done.
+Loading package random-1.0.1.1 ... linking ... done.
+Loading package containers-0.5.0.0 ... linking ... done.
+Loading package pretty-1.1.1.0 ... linking ... done.
+Loading package template-haskell ... linking ... done.
+Loading package QuickCheck-2.6 ... linking ... done.
++++ OK, passed 100 tests.
+-}
