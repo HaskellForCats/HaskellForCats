@@ -168,3 +168,14 @@ Loading package template-haskell ... linking ... done.
 Loading package QuickCheck-2.6 ... linking ... done.
 +++ OK, passed 100 tests.
 -}
+-- odds 
+-- comprehension 
+odds :: Integral t => [t] -> [t]
+odds xs = [x | x <- xs, odd x ]
+-- Recursively 
+oddsRec :: Integral a => [a] -> [a]
+oddsRec []                  = []
+oddsRec (x:xs)  | odd x     = x : oddsRec xs 
+                | otherwise = oddsRec xs 
+
+prop_RecOdds xs = oddsRec xs == odds xs 
