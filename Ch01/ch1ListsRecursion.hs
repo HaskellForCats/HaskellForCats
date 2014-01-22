@@ -173,9 +173,39 @@ Loading package QuickCheck-2.6 ... linking ... done.
 odds :: Integral t => [t] -> [t]
 odds xs = [x | x <- xs, odd x ]
 -- Recursively 
+oddsCond :: [Integer] -> [Integer]
+oddsCond ws =
+        if null ws then
+            [] 
+        else 
+            let 
+                x = head ws 
+                xs = tail ws 
+            in 
+                if odd x then
+                    x: oddsCond xs 
+                else 
+                    oddsCond xs 
+
+
+
 oddsRec :: Integral a => [a] -> [a]
 oddsRec []                  = []
 oddsRec (x:xs)  | odd x     = x : oddsRec xs 
                 | otherwise = oddsRec xs 
 
 prop_RecOdds xs = oddsRec xs == odds xs 
+prop_ifRecOdds xs = oddsCond xs == odds xs 
+
+{- *Ch1ListsRecur> quickCheck prop_ifCondRec 
+Loading package array-0.4.0.1 ... linking ... done.
+Loading package deepseq-1.3.0.1 ... linking ... done.
+Loading package old-locale-1.0.0.5 ... linking ... done.
+Loading package time-1.4.0.1 ... linking ... done.
+Loading package random-1.0.1.1 ... linking ... done.
+Loading package containers-0.5.0.0 ... linking ... done.
+Loading package pretty-1.1.1.0 ... linking ... done.
+Loading package template-haskell ... linking ... done.
+Loading package QuickCheck-2.6 ... linking ... done.
++++ OK, passed 100 tests.
+-}

@@ -1,0 +1,22 @@
+I'm using this book for a Haskell study group that I started, HaskellForCats. There were several reasons I went with this choice over several others currently available. One reason was the length. At under 200 pages it is manageable. Real World Haskell is way longer, as is Thompson's Third edition, and even Learn You a Haskell is about double the length. So it is perhaps the most condensed intro currently available.  Additionally, there is a video lecture series C9 Lectures: Erik Meijer - Functional Programming Fundamentals, which uses this book. My study group  is using both. The video and the book plus the included exercises is a good intro to Haskell. 
+FOUR DRAW BACKS, which maybe deal breakers for some and only you can decide that. 
+FIRST is the switch from the Haskell 98 standard to the 2010 standard and the deprecation of (n+k). 
+So expressions like: 
+fact4rial 0 = 1 
+fact4rial (n + 1) = (n + 1) * factorial n   
+wont compile unless you add this instruction to the top of your module {-# LANGUAGE NPlusKPatterns #-}. 
+
+SECOND DRAW BACK is the use of the Hugs compiler which was deprecated in 2007. Hugs was a low resource portable compiler. The GHC is now the compiler of choice for most use cases. Though the GHC includes everything in Hugs it isn't a one to one correlation so you might have to find yourself importing libraries like: GHC.Base and Data.Char to make some examples work. 
+
+A THIRD minor irritant is the use of library definitions that wont compile unless you rename them. 
+So when you try and run an example from the standard library like "length :: [a] → Int" you will get an error because every function name needs to be unique. So "length" would have to be referred to as length' :: [a] -> Int or lEngth :: [a] -> Int etc., to get it through the compiler. This is true of any text that includes examples of library functions that you might wish to replicate in the REPL.
+
+FOURTH, not necessarily a drawback but something to be aware of; Hutton's book uses the logic/math notation favored by some Haskell authors as opposed to the console ready notation favored by others. That means you my have to consult the symbol conversion table in appendix B on page 166. Where you might have to look up things like "&&","\","not","||",">=", and "<=". Knowing that the symbols table is there makes it much less inconvenient, than it would seem otherwise. 
+
+The quality of the writing is good. The pace is reasonable. The exercises are instructive and answers are available as are slides.
+
+The other obvious choice is Learn You a Haskell which is mostly good but doesn't have exercises and also has a sophomoric tone that sometimes grates and at times reaches the level of offensive, with the inclusion of fat jokes / and other insults in the examples: "You're fat! Lose some weight, fatty!","You're supposedly normal. Pffft, I bet you're ugly!" and "You're a whale, congratulations!" As evidenced by bmiTell example on on page 41. Not very amusing.  
+
+Real World Haskell covers a lot of ground but plunges into a myriad of library explorations and at 700 pages is a better 2nd book to explore after something more basic. 
+
+
