@@ -209,4 +209,3 @@ Loading package template-haskell ... linking ... done.
 Loading package QuickCheck-2.6 ... linking ... done.
 +++ OK, passed 100 tests.
 -}
-
