@@ -1,6 +1,9 @@
 module Ch7ex where 
 -- : set expandtab ts=4 ruler number spell
 import Test.QuickCheck 
+import Data.List 
+-- higher order functions in haskell are functions that take functions as arguments. Since you can create a colletion of custom made functions that take other fuctions as their arguements it isn't far removed from creating a Domain Specific Language.
+
 {-
 associativity If a binary operation is associative, repeated application of the operation produces the same result regardless how valid pairs of parenthesis are inserted in the expression 
 identity In algebra, an identity or identity element of a set S with a binary operation • is an element e that, when combined with any element x of S, produces that same x. 
@@ -9,6 +12,7 @@ distributivity
 zero 
 idempotence  is the property of certain operations in mathematics and computer science, that can be applied multiple times without changing the result beyond the initial application.
 -}
+factorial m = product [1..m] 
 m1p f xs = [f x |x <-xs] 
 
 -- prop_m1p f xs = m1p f xs == map f xs 
@@ -46,4 +50,13 @@ prop_squares x y =
     square (x+y) == square x + 2*x*y +square y 
 prop_pyth x y = 
     square (x+y) == pyth x y + 2*x*y 
+{-
+*Ch7ex> quickCheck prop_square
++++ OK, passed 100 tests.
+*Ch7ex> quickCheck prop_squares
++++ OK, passed 100 tests.
+*Ch7ex> quickCheck prop_pyth
++++ OK, passed 100 tests.
+-}
+
 
