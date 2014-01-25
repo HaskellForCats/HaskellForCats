@@ -1,47 +1,90 @@
 module Ch7ex where 
 -- : set expandtab ts=4 ruler number spell
 import Test.QuickCheck 
-import Data.List 
+-- import Data.List 
+import qualified Data.Attoparsec.ByteString.Char8 as A -- for isDigit 
+import Data.Char 
 -- higher order functions in haskell are functions that take functions as arguments. Since you can create a colletion of custom made functions that take other fuctions as their arguements it isn't far removed from creating a Domain Specific Language.
+-- 7.1 -- 
+twice :: (t -> t) -> t -> t
+twice f x = f(f x) 
+-- *Ch7ex>twice (*2)3 
+-- 12
+-- *Ch7ex> twice reverse [1,2,3]
+-- [1,2,3]
 
-{-
-associativity If a binary operation is associative, repeated application of the operation produces the same result regardless how valid pairs of parenthesis are inserted in the expression 
-identity In algebra, an identity or identity element of a set S with a binary operation • is an element e that, when combined with any element x of S, produces that same x. 
-commutativity In mathematics, a binary operation is commutative if changing the order of the operands does not change the result.
-distributivity 
-zero 
-idempotence  is the property of certain operations in mathematics and computer science, that can be applied multiple times without changing the result beyond the initial application.
--}
-factorial m = product [1..m] 
+-- 7.2 -- 
+m1p :: (t1 -> t) -> [t1] -> [t]
 m1p f xs = [f x |x <-xs] 
+{-*Ch7ex> map (+10) [1..11]
+[11,12,13,14,15,16,17,18,19,20,21]
+
+*Ch7ex> map A.isDigit ['a','1','b','2'] 
+[False,True,False,True]
+
+*Ch7ex> map reverse ["abc","def","ghi"] 
+["cba","fed","ihg"]
+
+-- MAP is POLYMORPHIC so it can be applied to list of any type. MAP can be applied to itself as in NESTED lists. 
+*Ch7ex> map (map (+1)) [[1,2,3],[4,5]]
+[[2,3,4],[5,6]]
+
+-}
+-- map as recursion which is more verbose but easier to grok the inner workings 
+m1p'          :: (t -> a) -> [t] -> [a]
+m1p' f []     = [] 
+m1p' f (x:xs) = f x:m1p' f xs 
+-- *Ch7ex> m1p' reverse ["abc","def","ghi"] 
+-- ["cba","fed","ihg"]
 
 -- prop_m1p f xs = m1p f xs == map f xs 
-
+-- f3lter :: (t -> Bool) -> [t] -> [t]
 f3lter p xs  = [ x | x <- xs, p x] 
 
+-- filt2r :: (a -> Bool) -> [a] -> [a]
 filt2r p [] = [] 
 filt2r p (x:xs)     | p x           = x : filt2r p xs 
                     | otherwise     = filt2r p xs 
 
-prop_f3lt2r p xs = f3lter p xs == filt2r p xs 
-{- 
- - *FuncAsArg> prop_f3lt2r odd [1..11]
-Loading package array-0.4.0.1 ... linking ... done.
-Loading package deepseq-1.3.0.1 ... linking ... done.
-Loading package bytestring-0.10.0.2 ... linking ... done.
-Loading package Win32-2.3.0.0 ... linking ... done.
-Loading package old-locale-1.0.0.5 ... linking ... done.
-Loading package time-1.4.0.1 ... linking ... done.
-Loading package random-1.0.1.1 ... linking ... done.
-Loading package containers-0.5.0.0 ... linking ... done.
-Loading package pretty-1.1.1.0 ... linking ... done.
-Loading package template-haskell ... linking ... done.
-Loading package QuickCheck-2.6 ... linking ... done.
-True
-*FuncAsArg> prop_f3lt2r even [1..11]
-True
--} 
+-- *Ch7ex> f3lter odd [1..11] == filt2r odd [1..11] 
+-- True
+-- *Ch7ex> filt2r (/= ' ')"abc def ghi" 
+-- "abcdefghi"
 
+--------------------------------------
+-- MAP + FILTER 
+--------------------------------------
+sumsqreven :: Integral a => [a] -> a
+sumsqreven ns = sum(map(^2) (filter even ns)) 
+-- *Ch7ex> sumsqreven [2..10] 
+-- 220
+
+--------------------------------------
+-- SOME OTHER PRELUDE FUNCTIONS 
+-------------------------------------
+-- *Ch7ex> all even [2,4..10]
+-- True
+
+-- *Ch7ex> any odd [2,4..10] 
+-- False
+
+-- *Ch7ex>  takeWhile isLower  "abc def"
+-- "abc"
+
+-- 7.3 -- 
+f []     = v 
+f (x:xs) = x (ï¿½E%) f xs 
+{- 
+the circle plus operator 
+is  used a recursively defined operator in this case
+
+m + 0  = m  (0 is the indentity element for +)
+m + n = n + m   (communative property of + )
+m + (n + k) = (m + n) + k  (associativity of +)
+
+the circle plus operator 
+is  used a recursively defined operator. 
+-}
 -- QUICKCHECK EXAMPLES -- 
 square x  = x * x 
 pyth a b  = square a + square b 
@@ -59,4 +102,19 @@ prop_pyth x y =
 +++ OK, passed 100 tests.
 -}
 
+{-----------------------------------------------------
+--               important MATH PROPERTIES 
+--                  associativity
+                     identity
+                     distributivity
+                      zero 
+                     idempotence
+-----------------------------------------------------
+associativity If a binary operation is associative, repeated application of the operation produces the same result regardless how valid pairs of parenthesis are inserted in the expression 
+identity In algebra, an identity or identity element of a set S with a binary operation is an element e that, when combined with any element x of S, produces that same x. 
+commutativity In mathematics, a binary operation is commutative if changing the order of the operands does not change the result.
+distributivity 
+zero 
+idempotence  is the property of certain operations in mathematics and computer science, that can be applied multiple times without changing the result beyond the initial application.
+---------------------------------------------------------------}
 
