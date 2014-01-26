@@ -207,6 +207,21 @@ f = \x -> ((\y -> x + y * y) (x+1))
 = 
 (\f -> f 2) (\x -> ((\y -> x+y*y) (x+1)))
 
+(\f -> f 2) (\x -> ((\y -> x + y * y) (x+1)))
+=
+(\x -> ((\y -> x + y * y) (x +1))) 2 
+=
+(\y -> 2+y*y) (2+1) 
+= 
+(\y -> 2+y*y) 3 
+= 
+2 + 3 * 3 
+= 
+11
+
+LAMBDA EXPRESSIONS ARE NOT RECURSIVE !!!
+duh! because they are anonymous and can't be called by name. 
+
 
 ------------------------------------------------} 
  
