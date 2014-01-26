@@ -139,7 +139,30 @@ is only in the = (x + y * y) unless we call (g x) y
  elsewhere. 
 -- *Ch7ex> g 7 8 
 --  71
+FUNCTION Binding 
+Formal Params -- the x xs 
+Actual Params -- where they are applied 
 
+f x = z 
+    where 
+    y = x + 1 
+    z = x + y * y 
+
+let f x = z  where ; y = x + 1 ; z = x +y * y 
+
+-- Prelude> f 2 
+-- 11
+
+
+f x = g (x+1) 
+      where 
+      g y = x+y*y
+
+-- Prelude> let f x = g (x+1) where ;  g y = x+y*y
+-- Prelude> f 2
+-- 11
+x has scope all the way down to the where clause
+y has scope only down in the where clause 
 ------------------------------------------------} 
  
 
