@@ -1,6 +1,6 @@
 module Ch7ex where 
 -- : set expandtab ts=4 ruler number spell
-import Test.QuickCheck 
+-- import Test.QuickCheck 
 -- import Data.List 
 import qualified Data.Attoparsec.ByteString.Char8 as A -- for isDigit 
 import Data.Char 
@@ -72,8 +72,8 @@ sumsqreven ns = sum(map(^2) (filter even ns))
 -- "abc"
 
 -- 7.3 -- 
-f []     = v 
-f (x:xs) = x (�E%) f xs 
+-- f []     = v 
+-- f (x:xs) = x (�E%) f xs 
 {- 
 the circle plus operator 
 is  used a recursively defined operator in this case
@@ -85,6 +85,35 @@ m + (n + k) = (m + n) + k  (associativity of +)
 the circle plus operator 
 is  used a recursively defined operator. 
 -}
+
+----------------------------------------------------------
+--          FOLDR
+--------------------------------------------------------
+f4ldr :: (a -> b -> b) -> b -> [a] -> b
+f4ldr f a [] = a 
+f4ldr f a (x:xs) = f x (f4ldr f a xs)
+-- *Ch7ex> map negate [1..5] 
+-- [-1,-2,-3,-4,-5]
+
+----------------------------------------------------------
+--          CURRYING 
+-- a function of two numbers is the same as 
+-- a function of the first number that returns 
+-- a function of the second number
+(aDD x) y = x + y   
+-- *Ch7ex> aDD 3 4
+-- 7
+--   (aDD 3) 4 
+-- =
+--   3 + 4 
+-- = 
+--   7
+-- Haskell Curry (1900 - 1982) 
+-- Moses Schonfinkel (1889-1942) His system was essentially equivalent to a combinatory logic based upon the combinators B, C, I, K, and S. Schönfinkel was able to show that the system could be reduced to just K and S and outlined a proof that a version of this system had the same His paper also showed that functions of two or more arguments could be replaced by functions taking a single argument. This replacement mechanism simplifies work in both combinatory logic and lambda calculus and would later be called currying, after Haskell Curry power as predicate logic
+-- Gottlob Frege (1848 - 1925)
+--------------------------------------------------------
+
+
 -- QUICKCHECK EXAMPLES -- 
 square x  = x * x 
 pyth a b  = square a + square b 
