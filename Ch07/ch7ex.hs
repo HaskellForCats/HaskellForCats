@@ -94,7 +94,9 @@ f4ldr f a [] = a
 f4ldr f a (x:xs) = f x (f4ldr f a xs)
 -- *Ch7ex> map negate [1..5] 
 -- [-1,-2,-3,-4,-5]
-
+f x = g 
+     where 
+     g y = x + y 
 ----------------------------------------------------------
 --          CURRYING 
 -- a function of two numbers is the same as 
@@ -111,8 +113,35 @@ f4ldr f a (x:xs) = f x (f4ldr f a xs)
 -- Haskell Curry (1900 - 1982) 
 -- Moses Schonfinkel (1889-1942) His system was essentially equivalent to a combinatory logic based upon the combinators B, C, I, K, and S. Schönfinkel was able to show that the system could be reduced to just K and S and outlined a proof that a version of this system had the same His paper also showed that functions of two or more arguments could be replaced by functions taking a single argument. This replacement mechanism simplifies work in both combinatory logic and lambda calculus and would later be called currying, after Haskell Curry power as predicate logic
 -- Gottlob Frege (1848 - 1925)
---------------------------------------------------------
+{------------------------------------------------
+                       LAMBDA
+BETA RULE 
 
+   (\x -> e) d 
+=
+   let x = d in e
+
+
+------------------------------------------------}
+{----------------------------------------------
+                   BINDINGS 
+bindings occur              x = 2 
+a bound occurence           y = x + 1
+Scope of the binding        z = x + y * y
+  is in y and z 
+same is true of functions 
+f x = g x (x+1) 
+g x y = x + y * y 
+
+g's x has nothing to do with f's x 
+  that's why we can have (x:xs) all over and they don't clash  a variable in a function definition has a scope that is contained in the right hand side, g's x use case 
+is only in the = (x + y * y) unless we call (g x) y 
+ elsewhere. 
+-- *Ch7ex> g 7 8 
+--  71
+
+------------------------------------------------} 
+ 
 
 -- QUICKCHECK EXAMPLES -- 
 square x  = x * x 
