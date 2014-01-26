@@ -122,9 +122,10 @@ BETA RULE
    let x = d in e
 
 
-------------------------------------------------}
-{----------------------------------------------
-                   BINDINGS 
+
+-}{----------------------------------------------
+            BINDINGS + ONE LINERS
+---------------------------------------------- 
 bindings occur              x = 2 
 a bound occurence           y = x + 1
 Scope of the binding        z = x + y * y
@@ -163,6 +164,50 @@ f x = g (x+1)
 -- 11
 x has scope all the way down to the where clause
 y has scope only down in the where clause 
+g is scoped only to the body of the function 
+
+f x = f (x+1) 
+     where 
+     f y = x + y * y 
+
+-- *Ch7ex> let f x = f (x+1) where; f y = x+y*y  
+-- *Ch7ex> f 2 
+--  11
+
+note that the where contains the second f entirely 
+
+f x = g (x+1) 
+      where 
+      g y = x + y * y 
+
+-- *Ch7ex> let f x = g (x+1) where; g y = x + y * y 
+-- *Ch7ex> f 2
+-- 11
+
+x has meaning only where the function is applied 
+
+(N where x  = M) = (\x.N) M 
+lambda x with body N 
+
+(M where f x = M) = (M where f = \x.N)
+
+f 2 
+where 
+f x = x + y * y 
+     where 
+     y = x + 1 
+= 
+f 2 
+where 
+f = \x -> (x+y*y where y = x+1)
+=
+f2 
+where 
+f = \x -> ((\y -> x + y * y) (x+1))
+= 
+(\f -> f 2) (\x -> ((\y -> x+y*y) (x+1)))
+
+
 ------------------------------------------------} 
  
 
