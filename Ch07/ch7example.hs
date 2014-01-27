@@ -1,5 +1,5 @@
 {-# LANGUAGE NPlusKPatterns #-}
-module Ch7example where 
+module Ch7ex where 
 -- : set expandtab ts=4 ruler number spell
 import Test.QuickCheck 
 -- import Data.List 
@@ -29,9 +29,29 @@ twice f x = f(f x)
 -- *Ch7ex> twice reverse [1,2,3]
 -- [1,2,3]
 
--- 7.2 -- 
-m1p :: (t1 -> t) -> [t1] -> [t]
-m1p f xs = [f x |x <-xs] 
+-- 7.2 -- 7:30 -- 
+{------------ SECTIONS ------------------------
+-- are a way to use operator + value as a function
+
+(>0) = (\x -> x > 0) 
+(2*) = (\x -> 2 * x) 
+(+1) = (\x -> x + 1) 
+(2^) = (\x -> 2 ^ x)
+(^2) = (\x -> x ^ 2)
+
+*Ch7ex> (>0) 4 
+True
+
+*Ch7ex> (2*) 5 
+10
+
+*Ch7ex> (\x -> 2 * x) 5
+10
+------------------------------------------------}
+
+-- m1p :: (t1 -> t) -> [t1] -> [t]
+m1p f xs = [f x |x <-xs]
+ 
 {-*Ch7ex> map (+10) [1..11]
 [11,12,13,14,15,16,17,18,19,20,21]
 
@@ -48,13 +68,15 @@ m1p f xs = [f x |x <-xs]
 
 -}
 -- map as recursion which is more verbose but easier to grok the inner workings 
-m1p'          :: (t -> a) -> [t] -> [a]
+-- m1p'          :: (t -> a) -> [t] -> [a]
 m1p' f []     = [] 
 m1p' f (x:xs) = f x:m1p' f xs 
 -- *Ch7ex> m1p' reverse ["abc","def","ghi"] 
 -- ["cba","fed","ihg"]
-
--- prop_m1p f xs = m1p f xs == map f xs 
+--------------------------------------------------
+--     FILTER
+--            only keeps what's true 
+--------------------------------------------------
 -- f3lter :: (t -> Bool) -> [t] -> [t]
 f3lter p xs  = [ x | x <- xs, p x] 
 
@@ -89,11 +111,26 @@ sumsqreven ns = sum(map(^2) (filter even ns))
 -- "abc"
 
 -- 7.3 -- 
-{- ---------- NOTE!---------------- 
+{- ---------- NOTE!---------------- 14:30
 the circle plus operator (+) = recursively defined operator in this example
--- f []     = v            
--- f (x:xs) = x (+) f xs   
+which could be replaced with +, or *, or && etc. 
 ------------------------------------}
+
+-- f []     = v         -- v is for value     
+-- f (x:xs) = x (+) f xs 
+
+s5m     []       = 0 
+s5m     (x:xs)   = x + sum xs 
+
+pr4duct []       = 1 
+pr4duct (x:xs)   = x * pr4duct xs 
+
+anD     []       = True 
+anD     (x:xs)   = x && and xs 
+
+
+
+
 
 -- m + 0  = m                  -- (0 is the indentity element for +)
 -- m + n  = n + m              -- (communative property of + )
