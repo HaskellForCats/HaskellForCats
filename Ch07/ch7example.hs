@@ -5,11 +5,21 @@ import Test.QuickCheck
 -- import Data.List 
 import qualified Data.Attoparsec.ByteString.Char8 as A -- for isDigit 
 import Data.Char 
+
+
 -- import Debug.Trace
 -------------------------------------------------------
 --          HIGHER ORDER FUNCTIONS 
 -----------------------------------------------------
--- Higher order functions in haskell are functions that take functions as arguments. Since you can create a colletion of custom made functions that take other fuctions as their arguements it isn't far removed from creating a Domain Specific Language.
+-- Higher order functions in haskell are functions that take functions as arguments.
+-- they are also functions that return other functions.  
+-- A collection of functions can then be a Domain Specific Language (DSL)
+
+-- eval :: Expr -> Integer
+data Expr = WhatsIs Integer
+          | Add Expr Expr
+ 
+
 
 -- 7.1 -- 
 twice :: (t -> t) -> t -> t
