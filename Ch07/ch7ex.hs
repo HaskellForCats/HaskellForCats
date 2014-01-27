@@ -1,6 +1,6 @@
 module Ch7ex where 
 -- : set expandtab ts=4 ruler number spell
--- import Test.QuickCheck 
+import Test.QuickCheck 
 -- import Data.List 
 import qualified Data.Attoparsec.ByteString.Char8 as A -- for isDigit 
 import Data.Char 
@@ -219,22 +219,85 @@ f = \x -> ((\y -> x + y * y) (x+1))
 = 
 11
 
-LAMBDA EXPRESSIONS ARE NOT RECURSIVE !!!
-duh! because they are anonymous and can't be called by name. 
-
-
-------------------------------------------------} 
+LAMBDA EXPRESSIONS ARE NOT RECURSIVE !!! 
+one big reason, because they are anonymous 
+and can't be called by name.
  
+------------- SECTIONS ------------------------
+are a way to use operator + value as a function
+(>0) = (\x -> x > 0) 
+(2*) = (\x -> 2 * x) 
+(+1) = (\x -> x + 1) 
+(2^) = (\x -> 2 ^ x)
+(^2) = (\x -> x ^ 2)
+
+*Ch7ex> (2*) 5 
+10
+*Ch7ex> (\x -> 2 * x) 5
+10
+
+-----------------------------------------------}
+f1 xs = foldr (+) 0 
+         (map (\x -> x * x) 
+           (filter (\x -> x > 0) xs))
+
+f2 xs = foldr (+) 0 (map (^2)(filter (>0) xs))
+-- *Ch7ex> f [1.11]
+-- 1.2321000000000002
+{----------------------------------------------
+--         COMPOSITION 
+----------------------------------------------
+(.) :: (t1 -> t) -> (t2 -> t1) -> t2 -> t
+(f.g) x = f (g x) 
+
+pos x = x > 0  
+spr x = x * x 
+
+Normally, we make a lambda with the sole purpose of passing it to a higher-order function. 
+-----------------------------------------------}
+chain 1 = [1]  
+chain n  
+    | even n =  n:chain (n `div` 2)  
+    | odd n  =  n:chain (n*3 + 1)  
+ 
+numLongChains = length (filter isLong (map chain [1..100]))  
+    where 
+     isLong xs = length xs > 15  
+
+n5mLongChains :: Int
+n5mLongChains = length (filter (\xs -> length xs > 15) (map chain [1..100]))  
+--  (where; isLong xs = length xs > 15) is swapped for (\xs -> length xs > 15) 
 
 -- QUICKCHECK EXAMPLES -- 
+
 square x  = x * x 
+
+squares_prop x y = square (x +y) == x * x + 2 * x * y + y * y 
+{- *Ch7ex> quickCheck prop_squares 
+Loading package array-0.4.0.1 ... linking ... done.
+Loading package deepseq-1.3.0.1 ... linking ... done.
+Loading package bytestring-0.10.0.2 ... linking ... done.
+Loading package text-0.11.3.1 ... linking ... done.
+Loading package old-locale-1.0.0.5 ... linking ... done.
+Loading package time-1.4.0.1 ... linking ... done.
+Loading package random-1.0.1.1 ... linking ... done.
+Loading package containers-0.5.0.0 ... linking ... done.
+Loading package attoparsec-0.10.4.0 ... linking ... done.
+Loading package pretty-1.1.1.0 ... linking ... done.
+Loading package template-haskell ... linking ... done.
+Loading package QuickCheck-2.6 ... linking ... done.
++++ OK, passed 100 tests.
+-}
+
 pyth a b  = square a + square b 
 prop_square x = square x >=0   
 prop_squares x y = 
     square (x+y) == square x + 2*x*y +square y 
 prop_pyth x y = 
     square (x+y) == pyth x y + 2*x*y 
-{-
+
+
+{--     RESULTS
 *Ch7ex> quickCheck prop_square
 +++ OK, passed 100 tests.
 *Ch7ex> quickCheck prop_squares
@@ -243,19 +306,121 @@ prop_pyth x y =
 +++ OK, passed 100 tests.
 -}
 
+{-------------------------------------------------------
+--                   -- PROOFS --   
+--------------------------------------------------------
+proofs are generally stronger than tests, 
+because no matter how many tests we preform, 
+there will be edge cases that must be accounted for.
+
+Proofs take testing to the next level, 
+and functional programming can take advantage of that; 
+for once something is proved for a function, 
+it has passed and will always pass all tests.
+ 
+Computers are literal minded; 
+they only understand only what they are given. 
+Constructing a proof on a computer seems like a natural; 
+where as logicians can be tripped up with their own clever sematics,
+computors can't.
+ 
+Symbolic Manipulation is something computers can do well, 
+espcially where there arn't ambiguities. 
+
+
+4195835 / 3145727 = 1.333820449136241002
+
+The Pentium FDIV bug was a bug in the Intel P5 Pentium floating point unit (FPU). Because of the bug, the processor would return incorrect results for many calculations used in math and science. Intel blamed the problem on a few missing entries in the lookup table used by the company. The cost of the recall, 1/2 billion dollars in write offs. 
+it returned only 1.333
+
+Leibniz:  
+Indiscernability of Identity 
+Idenity of Indiscernables
+Equality is relexive: x = x 
+Equals may be substituted for equals. 
+
+yet in java you can happily write: 
+i++ != i++ 
+
+In Haskell equals may be substituted for equals just about everywhere. 
+This is one reason why functions are easier to reason about than objects.
+
+square' x  = x * x 
+
+squares_prop' x y = square' (x + y) == x * x + 2 * x * y + y * y 
+
+-- *Ch7ex> quickCheck squares_prop'
+-- +++ OK, passed 100 tests.
+
+-- AGLEBRA RULES -- 
+
+x + 0 = x 
+x * 1 = x
+x + y = y + x 
+x * y = y * x 
+(x + y) + z = x + (y + z) 
+(x * y) * z = x * (y * z) 
+x * (y + z) = x * y + x * z 
+
+using just these rules 
+we can rewrite: 
+  things that looks algebraic,
+  addition 
+  Propositional logic
+  Set Theory 
+  Program evaluation 
+    Beta reduction? 
+
+  squares (x + y) == x * x + (2 * (x * y) + y * y) 
+-- so as to not get into an infite loop of swapping and swapping 
+-- first goal is to get all ( ) on the right side of ==   
+-- second goal is within ( ) we want to get vars in alphaNum order. 
+-- then we have a termination point. 
+ 
+  squares (x + y) =  x * x + (2 * (x * y) + y * y) 
+-- Left side can be rewritten as: 
+=
+  squares (x + y)
+=    
+  (x + y) * (x + y)                                -- Distrib rule
+= 
+  (x + y) * x + (x + y) * y                        -- Commutative property
+= 
+  x * (x + y) + (x + y) * y                        -- Commutative property
+= 
+  x * (x + y) + y * (x + y)                        -- Distributive property
+= 
+  (x * x + x * y) + y * (x + y)                    -- Distributive property
+= 
+  (x * x + x * y) + (y * x + y * y)                -- Associative  property
+= 
+  x * x + (x * y + (y * x + y * y))                -- Commutative property
+=
+  x * x + (x * y + (x * y + y * y))
+
+-- right side can be rewritten as: 
+
+
+-----------------------------------------------------}
+
+
 {-----------------------------------------------------
---               important MATH PROPERTIES 
---                  associativity
+          important MATH PROPERTIES 
+                    associativity
                      identity
-                     distributivity
-                      zero 
-                     idempotence
+                      distributivity
+                       zero 
+                       idempotence
 -----------------------------------------------------
 associativity If a binary operation is associative, repeated application of the operation produces the same result regardless how valid pairs of parenthesis are inserted in the expression 
+
 identity In algebra, an identity or identity element of a set S with a binary operation is an element e that, when combined with any element x of S, produces that same x. 
+
 commutativity In mathematics, a binary operation is commutative if changing the order of the operands does not change the result.
 distributivity 
+
 zero 
+
 idempotence  is the property of certain operations in mathematics and computer science, that can be applied multiple times without changing the result beyond the initial application.
 ---------------------------------------------------------------}
 
