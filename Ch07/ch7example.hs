@@ -147,3 +147,32 @@ f4ldr f a (x:xs) = f x (f4ldr f a xs)
 -- *Ch7ex> map negate [1..5] 
 -- [-1,-2,-3,-4,-5]
 
+-- it is more helpful to think of fold none recursively. 
+-- think of a function gobbling cons and  [] gets a value  
+{-
+*Ch7ex> sum [1,2,3] == foldr (+) 0 [1,2,3]
+True
+*Ch7ex>  foldr (+) 0 [1,2,3]== foldr (+) 0 (1:(2:3:[]))
+True
+*Ch7ex> foldr (+) 0 (1:(2:3:[])) == 1+(2+(3+0))
+True
+*Ch7ex>  1+(2+(3+0)) == 6 
+True
+
+product :: Num a => [a] -> a
+
+True
+-}
+prf_6 = (product [1,2,3] == foldr (*) 1 [1,2,3]) == (foldr (*) 1 (1:(2:(3:[]))) == 1*(2*(3*1))) 
+
+{-- AGLEBRA RULES -- 
+
+x + 0 = x 
+x * 1 = x
+x + y = y + x 
+x * y = y * x 
+(x + y) + z = x + (y + z) 
+(x * y) * z = x * (y * z) 
+x * (y + z) = x * y + x * z 
+
+-}
