@@ -195,10 +195,56 @@ True
 -}
 
 -- length :: [a] -> Int
--- reduxLength :: [a] -> Integer
+-- reduxLength :: [a] -> Integer 
+-- here we just map across and replace each element with 1 
+-- fusing two functions defined as a fault.
 reduxLength :: [a] -> Int
-reduxLength = sum . map (\_ -> 1 ) 
+reduxLength = sum . map (\_ -> 1 )
+{- proof --
+*Ch7ex> length [1,2] == reduxLength [1,2]
+Loading package array-0.4.0.1 ... linking ... done.
+Loading package deepseq-1.3.0.1 ... linking ... done.
+Loading package bytestring-0.10.0.2 ... linking ... done.
+Loading package Win32-2.3.0.0 ... linking ... done.
+Loading package old-locale-1.0.0.5 ... linking ... done.
+Loading package time-1.4.0.1 ... linking ... done.
+Loading package text-0.11.3.1 ... linking ... done.
+Loading package random-1.0.1.1 ... linking ... done.
+Loading package containers-0.5.0.0 ... linking ... done.
+Loading package pretty-1.1.1.0 ... linking ... done.
+Loading package template-haskell ... linking ... done.
+Loading package QuickCheck-2.6 ... linking ... done.
+Loading package attoparsec-0.10.4.0 ... linking ... done.
+True 
+-} 
+r2verse []          = [] 
+r2verse (x:xs)      = r2verse xs ++ [x] 
+{-
+*Ch7ex> r2verse [1,2,3] == reverse [1,2,3]
+Loading package array-0.4.0.1 ... linking ... done.
+Loading package deepseq-1.3.0.1 ... linking ... done.
+Loading package bytestring-0.10.0.2 ... linking ... done.
+Loading package Win32-2.3.0.0 ... linking ... done.
+Loading package old-locale-1.0.0.5 ... linking ... done.
+Loading package time-1.4.0.1 ... linking ... done.
+Loading package text-0.11.3.1 ... linking ... done.
+Loading package random-1.0.1.1 ... linking ... done.
+Loading package containers-0.5.0.0 ... linking ... done.
+Loading package pretty-1.1.1.0 ... linking ... done.
+Loading package template-haskell ... linking ... done.
+Loading package QuickCheck-2.6 ... linking ... done.
+Loading package attoparsec-0.10.4.0 ... linking ... done.
+True
 
+*Ch7ex> r2verse [1,2,3] == r2verse (1:(2:(3:[])))
+True
+*Ch7ex> r2verse (1:(2:(3:[]))) == (([] ++ [3]) ++ [2]) ++ [1]
+True
+*Ch7ex> (([] ++ [3]) ++ [2]) ++ [1] == [3,2,1]
+True
+
+-- each (:) cons is replaced by (\x xs -> xs ++ [x]) and [] by [] 
+-}
 
 
 -- prf_lengthLambda :: (Eq a, Num a)=> [a] -> [a] -> Bool
