@@ -194,6 +194,29 @@ True
 True
 -}
 
+-- length :: [a] -> Int
+-- reduxLength :: [a] -> Integer
+reduxLength :: [a] -> Int
+reduxLength = sum . map (\_ -> 1 )
+{- 
+*Ch7ex> length [1,2] == reduxLength [1,2]
+Loading package array-0.4.0.1 ... linking ... done.
+Loading package deepseq-1.3.0.1 ... linking ... done.
+Loading package bytestring-0.10.0.2 ... linking ... done.
+Loading package Win32-2.3.0.0 ... linking ... done.
+Loading package old-locale-1.0.0.5 ... linking ... done.
+Loading package time-1.4.0.1 ... linking ... done.
+Loading package text-0.11.3.1 ... linking ... done.
+Loading package random-1.0.1.1 ... linking ... done.
+Loading package containers-0.5.0.0 ... linking ... done.
+Loading package pretty-1.1.1.0 ... linking ... done.
+Loading package template-haskell ... linking ... done.
+Loading package QuickCheck-2.6 ... linking ... done.
+Loading package attoparsec-0.10.4.0 ... linking ... done.
+True 
+-} 
+
+
 -- prf_lengthLambda :: (Eq a, Num a)=> [a] -> [a] -> Bool
 -- prf_lengthLambda = length == foldr (\x_ n -> 1 + n) 0
 -- No instance for (Eq ([a0] -> Int)) arising from a use of `=='
