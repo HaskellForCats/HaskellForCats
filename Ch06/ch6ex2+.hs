@@ -21,12 +21,13 @@ f2ct4rial               :: Integral a => a -> a
 f2ct4rial 0		        = 1
 f2ct4rial (n + 1)       = (n + 1) * f2ctorial n    
 
-{- factoriaL               :: Int -> Int 
+{- 
+factoriaL               :: Int -> Int 
 factoriaL [] 		= []
 factoriaL [0]		= [1]
 factoriaL (n + 1)       = (n + 1) * factorial n              
 
--- f2ctoriaL               :: Integral a => a -> a 
+f2ctoriaL               :: Integral a => a -> a 
 f2ctoriaL 0		= 1
 f2ctoriaL (n + 1)       = (n + 1) * f2ctorial n    
 -}
@@ -156,7 +157,20 @@ m `eXpo` (n+1) = m * m `eXpo` n
 2*(2*(2*1)) 
 = {applying * }
 8
+
+-- proof
+*Ch6examp> 2 `eXpo` 3 == 2 * (2 `eXpo` 2)
+True
+*Ch6examp> 2 * (2 `eXpo` 2)==2*(2*(2 `eXpo` 1))
+True
+*Ch6examp> 2*(2*(2 `eXpo` 1))==2*(2*(2*(2  `eXpo` 0)))
+True
+*Ch6examp> 2*(2*(2*(2  `eXpo` 0)))== 2*(2*(2*1))
+True
+*Ch6examp> 2*(2*(2*1))== 8
+True
 -}
+
 {- 6.8.2.1 --
 length [1,2,3] 
 = {applying length}
@@ -164,10 +178,21 @@ length [1,2,3]
 = {applying length}
 1+(1 + length [3])
 = {applying length}
-1 +(1+(1(1 + 0)))
+1 +(1+(1 + 0))
 = {applying +}
 3
+-- proofs 
+*Ch7ex> length [1,2,3] == 1+ length [2,3]
+True
+*Ch7ex>  1+ length [2,3] == 1+(1 + length [3])
+True
+*Ch7ex>  1+(1 + length [3]) == 1 +(1+(1 + 0))
+True
+*Ch7ex> 1 +(1+(1 + 0)) == 3
+True
 -}
+
+
 {- 6.8.2.2 -- 
 drop 3 [1,2,3,4,5] 
 = {applying drop}
@@ -179,6 +204,21 @@ drop 0 [4,5]
 = {applying drop}
 [4,5] 
 -}
+
+prf_drop = ((drop 3 [1,2,3,4,5]) == (drop 2 [2,3,4,5])) == ((drop 1 [3,4,5]== drop 0 [4,5])) -- trying to just tack on [4,8] didn't work because the to get a boolean back the == we had to follow an recursive like pattern.  
+-- *Ch6examp> prf_drop 
+-- True
+-- *Ch6examp>  drop 0 [4,5] == [4,5] 
+-- True
+
+-- NOTE!! we had to balance the proof 
+prf_drop2 = (drop 0 [4,5]== [4,5]) == ((drop 3 [1,2,3,4,5] == drop 2 [2,3,4,5]) == (drop 1 [3,4,5]== drop 0 [4,5]))
+-- *Ch6examp> prf_drop2
+-- True
+-- *Ch6examp> prf_drop == prf_drop2
+-- True
+
+ 
 {- 
 init [1,2,3]
 = {applying init}
@@ -189,6 +229,24 @@ init [1,2,3]
 1:2:[]
 = { list notation}
 [1,2] 
+
+-- proof
+ 
+*Ch6examp> init [1,2,3] == 1:init [2,3]
+True
+
+*Ch6examp> 1:init [2,3]==1:2:init [3]
+True
+
+*Ch6examp> 1:2:init [3] == 1:2:[] 
+True
+
+*Ch6examp> 1:2:[] == [1,2]
+True
+
+
+
+
 -}
 -- 6.8.3 --  
  

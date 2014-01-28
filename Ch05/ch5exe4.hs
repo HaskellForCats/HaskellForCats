@@ -306,7 +306,7 @@ letters xs                  = genericLength [x|x <- xs, isAlpha x]
 -- 26
 
 -------------------------------------------------------------------
---                  ETCETERA 
+--                  FUN WITH OBSCURITY 
 --------------------------------------------------------------------
 
 dada2 n a = concat [take n (repeat a)] 

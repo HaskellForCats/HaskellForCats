@@ -6,7 +6,6 @@ import Test.QuickCheck
 import qualified Data.Attoparsec.ByteString.Char8 as A -- for isDigit 
 import Data.Char 
 
-
 -- import Debug.Trace
 -------------------------------------------------------
 --          HIGHER ORDER FUNCTIONS 
@@ -164,8 +163,45 @@ product :: Num a => [a] -> a
 True
 -}
 prf_6 = (product [1,2,3] == foldr (*) 1 [1,2,3]) == (foldr (*) 1 (1:(2:(3:[]))) == 1*(2*(3*1))) 
+-- True
+l2ngth  xs      = sum [1|_<-xs]
 
+-- remeber this bit of fun from  6.8.2.1 --
+{-
+length [1,2,3] 
+= {applying length}
+1+ length [2,3] 
+= {applying length}
+1+(1 + length [3])
+= {applying length}
+1 +(1+(1 + 0))
+= {applying +}
+3
+
+-- proof -- 
+*Ch7ex> length [1,2,3] == 1+ length [2,3]
+True
+
+*Ch7ex>  1+ length [2,3] == 1+(1 + length [3])
+True
+
+*Ch7ex>  1+(1 + length [3]) == 1 +(1+(1 + 0))
+True
+
+*Ch7ex> 1 +(1+(1 + 0)) == 3
+True
+-}
+
+-- prf_lengthLambda :: (Eq a, Num a)=> [a] -> [a] -> Bool
+-- prf_lengthLambda = length == foldr (\x_ n -> 1 + n) 0
+-- No instance for (Eq ([a0] -> Int)) arising from a use of `=='
+-- Possible fix: add an instance declaration for (Eq ([a0] -> Int))
+
+-------------------------------------------------
+--              PROOFINESS              -- 
+---------------------------------------------------------
 {-- AGLEBRA RULES -- 
+--  these are all we need to rewrite any function 
 
 x + 0 = x 
 x * 1 = x
@@ -174,5 +210,60 @@ x * y = y * x
 (x + y) + z = x + (y + z) 
 (x * y) * z = x * (y * z) 
 x * (y + z) = x * y + x * z 
-
 -}
+{- 
+using just these rules 
+we can rewrite: 
+  things that looks algebraic,
+  addition 
+  Propositional logic
+  Set Theory 
+  Program evaluation 
+    Beta reduction? 
+
+squares (x + y) == x * x + (2 * (x * y) + y * y) 
+-- so as to not get into an infinite loop of swapping and swapping 
+-- first goal is to get all ( ) on the right side of ==   
+-- second goal is within ( ) we want to get vars in alphaNum order. 
+-- then we have a termination point. 
+ 
+squares (x + y) =  x * x + (2 * (x * y) + y * y) 
+-- Left side can be rewritten as: 
+=
+  squares (x + y)
+=    
+  (x + y) * (x + y)                        -- Distributive property
+= 
+  (x + y) * x + (x + y) * y                -- Commutative property
+= 
+  x * (x + y) + (x + y) * y                -- Commutative property
+= 
+  x * (x + y) + y * (x + y)                -- Distributive property
+= 
+  (x * x + x * y) + y * (x + y)            -- Distributive property
+= 
+  (x * x + x * y) + (y * x + y * y)        -- Associative  property
+= 
+  x * x + (x * y + (y * x + y * y))        -- Commutative property
+=
+  x * x + (x * y + (x * y + y * y))
+
+-- right side can be rewritten as: 
+
+  x * x + (2 * (x * y) + y * y) 
+=
+  x * x + ((1 + 1) * (x * y) + y * y)          -- Commutative property
+= 
+  x * x + ((x * y) * (1 + 1) + y * y)         -- Distributive property
+=
+  x * x + (((x*y) * 1 + (x*y) * 1) + y*y)     -- Identity 
+  
+= 
+  x * x + ((x * y + (x * y) * 1) + y * y)      -- Identity 
+= 
+  x * x + ((x * y + x * y) + y * y)            -- Associative  property
+= 
+  x * x + (x * y + (x * y + y * y))  
+-}
+
+
