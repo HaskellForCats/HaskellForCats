@@ -134,8 +134,8 @@ anD     (x:xs)   = x && and xs
 
 
 -- m + 0  = m                  -- (0 is the indentity element for +)
--- m + n  = n + m              -- (is the communative property of + )
--- m + (n + k) = (m + n) + k   -- (is associativity for +)
+-- m + n  = n + m              -- (communative property of + )
+-- m + (n + k) = (m + n) + k   -- (associativity of +)
 
 
 
@@ -227,7 +227,7 @@ squares (x + y) == x * x + (2 * (x * y) + y * y)
 -- so as to not get into an infinite loop of swapping and swapping 
 -- first goal is to get all ( ) on the right side of ==   
 -- second goal is within ( ) we want to get vars in alphaNum order. 
--- then we will have a termination point. 
+-- then we have a termination point. 
  
 squares (x + y) =  x * x + (2 * (x * y) + y * y) 
 -- Left side can be rewritten as: 
