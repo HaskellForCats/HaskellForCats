@@ -155,6 +155,9 @@ f4ldr f a (x:xs) = f x (f4ldr f a xs)
 True
 *Ch7ex>  foldr (+) 0 [1,2,3]== foldr (+) 0 (1:(2:3:[]))
 True
+
+NOTE!! THAT CONS BECOMES + AND [] BECOMES 1 
+
 *Ch7ex> foldr (+) 0 (1:(2:3:[])) == 1+(2+(3+0))
 True
 *Ch7ex>  1+(2+(3+0)) == 6 
@@ -216,6 +219,17 @@ Loading package template-haskell ... linking ... done.
 Loading package QuickCheck-2.6 ... linking ... done.
 Loading package attoparsec-0.10.4.0 ... linking ... done.
 True 
+
+foldr (\_ n -> 1 + n) 0
+
+
+*Ch7ex> map (\x-> x + 3) [1,6,3,2]
+[4,9,6,5]
+*Ch7ex> map (+3) [1,6,3,2]
+[4,9,6,5]
+*Ch7ex> map (+3) [1,6,3,2] == map (\x-> x + 3) [1,6,3,2]
+True
+
 -} 
 r2verse []          = [] 
 r2verse (x:xs)      = r2verse xs ++ [x] 
@@ -246,7 +260,25 @@ True
 -- each (:) cons is replaced by (\x xs -> xs ++ [x]) and [] by []
 and we could do this as a fold as well, because we just gather all the parts at one end which would be a list.
  
+
+
+maximum' = foldr1 (\x acc -> if x > acc then x else acc)  
+elem' y ys = foldl (\acc x -> if x == y then True else acc) False ys
+maximum' = foldr1 (\x acc -> if x > acc then x else acc)  
+scanl1 (\acc x -> if x > acc then x else acc) [3,4,5,3,7,9,2,1] 
+scanl (flip (:)) [] [3,2,1]
+sqrtSums = length (takeWhile (<1000) (scanl1 (+) (map sqrt [1..]))) + 1  
+f $ x = f x  
+map ($ 3) [(4+), (10*), (^2), sqrt] 
+f . g = \x -> f (g x)  
 -}
+fn001 = map (\x -> negate (abs x)) [5,-3,-6,7,-3,2,-19,24] 
+fn002 = map (negate . abs) [5,-3,-6,7,-3,2,-19,24]  
+fn003 = fn001 == fn002 
+
+fn004 = map (\xs -> negate (sum (tail xs))) [[1..5],[3..6],[1..7]]  
+ 
+fn005 = map (negate . sum . tail) [[1..5],[3..6],[1..7]]  
 
 
 -- prf_lengthLambda :: (Eq a, Num a)=> [a] -> [a] -> Bool
@@ -267,7 +299,7 @@ x * y = y * x
 (x + y) + z = x + (y + z) 
 (x * y) * z = x * (y * z) 
 x * (y + z) = x * y + x * z 
--}
+-} 
 {- 
 using just these rules 
 we can rewrite: 
