@@ -190,4 +190,133 @@ snd :: (a, b) -> b      -- Defined in `Data.Tuple'
 -- filter using fst to test the fist part of the tuple and because filter will only take Trues that's all that comes back.  
 ghci> map snd (filter fst [(True, 1),(False,7),(True,11)])
 [1,11]
+-}
 
+------------------
+-- FOLDL and FOLDR --  
+-- ---------------
+{- fold collects from a list and reduces the collection to a new single value
+*HighOrdFun> foldl (+) 0 [1..11]
+66
+-- 0 is the accumulator value (acc) and we want to start accumulating from zero. 
+-- but we could start with any value.
+*HighOrdFun> foldl (+) 10 [1..11]
+76 
+*HighOrdFun> foldl (+) (-10) [1..11]
+56
+
+-- just like sum but different.  
+*HighOrdFun> sum [1..11]
+66 
+*HighOrdFun> sum [1..11] == foldl (+) 0 [1..11]
+True
+-} 
+-- show is basically a to->string function 
+showPlus :: Show a => [Char] -> a -> [Char]
+showPlus s x = "(" ++ s ++ "+" ++ (show x) ++ ")"
+{-
+ - *HighOrdFun> showPlus "(1+2)" 3
+   "((1+2)+3)"
+
+*HighOrdFun> foldl showPlus "0" [1..11]
+"(((((((((((0+1)+2)+3)+4)+5)+6)+7)+8)+9)+10)+11)"
+-- take out the quotes and we get 
+*HighOrdFun> (((((((((((0+1)+2)+3)+4)+5)+6)+7)+8)+9)+10)+11)
+66
+
+-} 
+---------------------------------
+-- showCons ? how would that work 
+---------------------------------
+{- 
+ - Prelude> foldr (+) 0 [1..11]
+   66
+-- does the same thing but the accumulator goes to the other side 
+--
+-}
+showPlus' :: Show a => a -> [Char] -> [Char]
+showPlus' x s = "(" ++ (show x) ++ "+" ++ s ++ ")" 
+{-
+*HighOrdFun> foldr showPlus' "0" [1..11]
+"(1+(2+(3+(4+(5+(6+(7+(8+(9+(10+(11+0)))))))))))"
+
+*HighOrdFun> foldr (-) 0 [1..11]
+6
+*HighOrdFun> foldl (-) 0 [1..11]
+-66
+*HighOrdFun> foldl (*) 0 [1..11]
+0
+*HighOrdFun> foldr (*) 0 [1..11]
+0
+*HighOrdFun> foldr (*) 1 [1..11]
+39916800
+*HighOrdFun> foldl (*) 1 [1..11]
+39916800
+*HighOrdFun> foldl (+) 1 [1..11]
+67
+*HighOrdFun> foldr (+) 1 [1..11]
+67
+*HighOrdFun> foldr (/) 1 [1..11]
+2.7070312499999996
+*HighOrdFun> foldl (/) 1 [1..11]
+2.505210838544172e-8
+*HighOrdFun> foldl (/) 0 [1..11]
+0.0
+*HighOrdFun> foldr (/) 0 [1..11]
+Infinity
+
+-- foldl is tail recursive but NOT ON AN INFINITE LIST
+-- foldr can be used on an infinite list with caution 
+
+---------- -- 
+-- ZIPWITH -- 
+-- ------- --
+combines zip with a (function)
+*HighOrdFun> zipWith (*) [1..11] [101..111]
+[101,204,309,416,525,636,749,864,981,1100,1221]
+*HighOrdFun> zipWith (+) [1..11] [101..111]
+[102,104,106,108,110,112,114,116,118,120,122]
+*HighOrdFun> zipWith (+) [1..11] [101..1111]
+[102,104,106,108,110,112,114,116,118,120,122]
+*HighOrdFun> zipWith mod  [1..11] [2..12]
+[1,2,3,4,5,6,7,8,9,10,11]
+*HighOrdFun> zipWith (/)   [2,3,4] [1,2,3]
+[2.0,1.5,1.3333333333333333]
+-}
+mult3 x y z = x*y*z 
+{- zipWith3 needs a function that can take three arguments
+ - *HighOrdFun> zipWith3 mult3   [2,3,4] [1,2,3] [0,1,2]
+   [0,6,24]
+
+if we wanted to do it with addition but didn't want to have to throw in another 
+named function we could have done it this way:  
+*HighOrdFun> zipWith3 (\ x y z -> x+y+z)   [2,3,4] [1,2,3] [0,1,2]
+[3,6,9]
+
+or with currying 
+*HighOrdFun> zipWith3 (\x -> \y -> \z -> x+y+z)   [2,3,4] [1,2,3] [0,1,2]
+[3,6,9]
+
+*HighOrdFun> map (\x -> 2 * x) [1..11]
+[2,4,6,8,10,12,14,16,18,20,22]
+
+which is the same as: 
+*HighOrdFun> map (\x -> 2 * x) [1..11] == map (*2) [1..11]
+True
+
+because map has to touch the list [1..11] for it's second argument  
+*HighOrdFun> map (\x -> 2 * x +1) [1..11]
+
+[3,5,7,9,11,13,15,17,19,21,23]
+we can't just throw another (+1) 
+we so we have to call map recursively  
+but even that isn't right
+*HighOrdFun> map (*2) (map (1+) [1..11])
+[4,6,8,10,12,14,16,18,20,22,24]
+so we would have to go further 
+*HighOrdFun> map (+(-1)) (map (*2) (map (1+) [1..11]))
+[3,5,7,9,11,13,15,17,19,21,23]
+
+*HighOrdFun>  map(+(-1))(map(*2)(map (1+)[1..11])) == map(\x -> 2 * x +1)[1..11]
+True
+-}
