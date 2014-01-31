@@ -97,6 +97,34 @@ ghci> 2 * 3
 6
 ghci> (*2) 4
 8
+
+-}
+-- operators get passed easily to Higher-Order-Functions.
+pass_3_4 :: (Num a, Num a1) => (a -> a1 -> t) -> t
+pass_3_4 f = f 3 4 
+
+-- then passing in an operator as a function 
+-- *HighOrdFun> pass_3_4 (+)
+-- 7
+-- we can define new operators for special cases 
+(.+) :: (Num t, Num t1) => (t, t1) -> (t, t1) -> (t, t1)
+(a,b) .+ (c,d) = (a + c, b + d) 
+-- (a,b) is a pattern that matches a pair, (c,d) is another pair. a + c is summing both first elements.  b + d are the second elements summed.
+
+-- --------------------------- 
+-- OPERATORS PARTIALLY APPLIED --
+-- --------------------------- 
+plus1 :: Integer -> Integer
+plus1 = (+) 1 
+plus1' = (1+)
+plus1'' = (+1)
+----------------------------
+{- FUNCTIONS AS OPERATORS --
+ - -------------------------
+ghci>mod 10 2
+0
+ghci>10 `mod` 2
+0
 ghci> 4 `div` 2 
 2
 ghci> div 4 2 
@@ -111,4 +139,55 @@ ghci> (`div`2) 4
 2
 ghci> (2`div`) 4  
 0
--}
+-- REMEMBER ` NOT ' OTHERWISE -- 
+ghci>4 'div' 2
+
+<interactive>:16:3:
+    Syntax error on 'div'
+---------------------------------}
+-- MAP FUNCTION  -- 
+-- ------------------------------
+-- map traverses a list add applies a function to every element in the list. 
+-- map :: (a -> b) -> [a] -> [b]
+-- ghci> map length ["map","sure","is","fun"]
+-- [3,4,2,3] 
+-- PARTIALLY APPLIED FUNCTIONS WORK WELL 
+-- ghci> map (1+) [1..11]
+-- [2,3,4,5,6,7,8,9,10,11,12]
+double :: [Integer] -> [Integer]
+double = map (2*) 
+-- double will combine these two functions but will need a list as an argument. 
+-- ghci> double [1..11] 
+-- [2,4,6,8,10,12,14,16,18,20,22]
+------------
+-- FILTER --
+-- ---------
+-- tests each list element and makes a new list with what it collects.
+-- and note how our composite function fits the type of the one it calls  
+-- ghci>:i null
+-- null :: [a] -> Bool     -- Defined in `GHC.List'
+notNull :: [a] -> Bool
+notNull xs = not (null xs)
+-- ghci> filter notNull ["","there","","we","","are"]
+-- ["there","we","are"]
+-- filter tests and then collects. 
+isEven x = x `mod` 2 == 0 
+removeOdd = filter isEven 
+{-
+ - 
+isEven :: Integral a => a -> Bool 
+removeOdd :: [Integer] -> [Integer]  
+
+ghci>removeOdd [1..11]
+[2,4,6,8,10]
+
+-- using 
+filter :: (a -> Bool) -> [a] -> [a]     -- Defined in `GHC.List'
+map :: (a -> b) -> [a] -> [b]   -- Defined in `GHC.Base'
+fst :: (a, b) -> a      -- Defined in `Data.Tuple'
+snd :: (a, b) -> b      -- Defined in `Data.Tuple'
+-- map says give me the second part of this list of tuples but only after 
+-- filter using fst to test the fist part of the tuple and because filter will only take Trues that's all that comes back.  
+ghci> map snd (filter fst [(True, 1),(False,7),(True,11)])
+[1,11]
+
