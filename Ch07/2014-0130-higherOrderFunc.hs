@@ -1,5 +1,7 @@
 module HighOrdFun where 
 -- : set expandtab ts=4 ruler number spell
+fn7 n = length(show n) 
+
 {-
 functions in  languages like Java and C#,
   functions are more often seen as 
@@ -320,3 +322,30 @@ so we would have to go further
 *HighOrdFun>  map(+(-1))(map(*2)(map (1+)[1..11])) == map(\x -> 2 * x +1)[1..11]
 True
 -}
+
+------------------------
+-- FUNCTION OPERATORS -- 
+-- ---------------------
+-- (.) function composition 
+-- ($) application 
+
+
+-- length :: [a] -> Int    -- Defined in `GHC.List'
+
+{-class Show a where
+  ...
+  show :: a -> String
+  ...
+        -- Defined in `GHC.Show'-} 
+-- stringLength :: [a] -> String 
+-- stringLength n = length.show n
+-- stringLength :: Show a => a -> Int
+stringLength n = length(show n)      
+{-
+*HighOrdFun> stringLength [1..11]
+"11" 
+*HighOrdFun> stringLength (product [x^2|x<-[1..1111]])
+5807
+-} -- fn7 (product [x^2|x<-[1..1111]])
+
+
