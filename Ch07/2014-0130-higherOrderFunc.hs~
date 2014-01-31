@@ -1,4 +1,5 @@
 module HighOrdFun where 
+-- : set expandtab ts=4 ruler number spell
 {-
 functions in  languages like Java and C#,
   functions are more often seen as 
@@ -10,11 +11,11 @@ Higher Order Functions
   take functions as arguments 
     and return functions as well.
 This is perhaps the easiest way to manipulate lists.
-  we can partially apply functions on the fly 
+  We can partially apply functions on the fly 
     only providing some of the necessary arguments initially. 
 Lambda expressions 
-  which are for generating in-line annonamous fucntions.
-function combination 
+  which are for generating in-line anonymous functions.
+Function combination 
   which creates a new function assembled from other functions.
 
 Functions are Values 
@@ -23,7 +24,7 @@ Functions are Values
   created on the fly as needed.
 
 Higher Order Functions
-  take functionas as arguements 
+  take functions as arguments 
   return functions as values.
 -}
 -- FUNCTIONS AS VALUES --
@@ -31,7 +32,7 @@ mult2 :: Integer -> Integer
 mult2 = (2*)
 add1 :: Integer -> Integer
 add1 = (+1) 
--- here f is a function take as an arguement that then gets 
+-- here f is a function take as an argument that then gets 
 -- three  passed to it.  
 pass3 :: Num a => (a -> t) -> t
 pass3 f = f 3 
@@ -55,13 +56,13 @@ always7' = const 7
 -- PARTIAL APPLICATION -- 
 ------------------------
 {- 
-in java all the arguments to a function must be applied in advance. 
+in Java all the arguments to a function must be applied in advance. 
 
 int foo(int x, int y, int z) {
   return x + y + z;
 } 
 foo_1_2 = foo(1,2); 
--- foo java here, must be called with three args. 
+-- foo Java here, must be called with three args. 
 -----------------------------------------------}
 foo :: Num a => a -> a -> a -> a
 foo x y z = x + y + z 
@@ -69,5 +70,21 @@ foo x y z = x + y + z
 foo' :: (Eq a, Eq a1, Num a, Num a1, Num a2) => a -> a1 -> a2 -> a2
 foo' 1 2 = foo 1 2 
 -- *HighOrdFun> foo' 1 2 3 
--- 6
+-- 6 
+
+-- pass (value x) and (function f) = (function f) <- passes (value x)
+pass :: t1 -> (t1 -> t) -> t
+pass x f = f x 
+-- passThree is built by partially applying the pass function; pass only gets one argument here, so it is a function with an argument that takes another argument. 
+passThree :: (Integer -> t) -> t
+passThree = pass 3 
+--------------------------------------------------------------------------------
+-- ARGUMENTS MUST BE GIVEN IN ORDER WHEN THEY ARE TO BE PARTIALLY EVALUATED !!!
+-- ------------------------------------------------------------------------------
+
+---------------
+-- OPERATORS -- 
+-- ------------
+-- +,*,:,++ are operators 
+-- (+),(*),(:),(++) ARE NOW JUST FUNCTIONS
 

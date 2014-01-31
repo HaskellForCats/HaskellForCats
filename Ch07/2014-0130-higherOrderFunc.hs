@@ -70,5 +70,24 @@ foo x y z = x + y + z
 foo' :: (Eq a, Eq a1, Num a, Num a1, Num a2) => a -> a1 -> a2 -> a2
 foo' 1 2 = foo 1 2 
 -- *HighOrdFun> foo' 1 2 3 
--- 6
+-- 6 
+
+-- pass (value x) and (function f) = (function f) <- passes (value x)
+pass :: t1 -> (t1 -> t) -> t
+pass x f = f x 
+-- passThree is built by partially applying the pass function; pass only gets one argument here, so it is a function with an argument that takes another argument. 
+passThree :: (Integer -> t) -> t
+passThree = pass 3 
+--------------------------------------------------------------------------------
+-- ARGUMENTS MUST BE GIVEN IN ORDER WHEN THEY ARE TO BE PARTIALLY EVALUATED !!!
+-- ------------------------------------------------------------------------------
+
+---------------
+-- OPERATORS -- 
+-- ------------
+-- +,*,:,++ are operators 
+-- (+),(*),(:),(++) ARE NOW JUST FUNCTIONS
+
+-- *HighOrdFun> (+) 3 5
+-- 8
 
