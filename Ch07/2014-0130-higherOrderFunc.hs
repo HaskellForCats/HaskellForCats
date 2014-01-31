@@ -90,4 +90,25 @@ passThree = pass 3
 
 -- *HighOrdFun> (+) 3 5
 -- 8
+{-
+Prelude> (*) 2 3 
+6
+Prelude> 2 * 3 
+6
+Prelude> (*2) 4
+8
+Prelude> 4 `div` 2 
+2
+Prelude> div 4 2 
+2
+Prelude> `div` 4 2 
 
+<interactive>:7:1: parse error on input ``'
+Prelude> (`div`) 4 2 
+
+<interactive>:8:7: parse error on input `)'
+Prelude> (`div`2) 4  
+2
+Prelude> (2`div`) 4  
+0
+-}
