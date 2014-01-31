@@ -1,0 +1,10 @@
+module Jan30 where 
+{-
+functions in  languages like Java and C#,
+functions are more often seen as 
+a way of packaging instructions to organize and reuse code.
+But in Haskell functions are central and can be passed around like other values. 
+Higher Order Functions take functions as arguments and can return fucntions aswell.
+This is perhaps the easiest way to manipulate lists. 
+ 
+   

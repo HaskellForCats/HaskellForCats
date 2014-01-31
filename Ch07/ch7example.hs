@@ -274,7 +274,7 @@ f . g = \x -> f (g x)
 -}
 
 fn006 = foldr (\x_ n -> 1 + n) 0
--- fn007 = length 
+
  
 
 {-
@@ -288,6 +288,8 @@ fn005 = map (negate . sum . tail) [[1..5],[3..6],[1..7]]
 -- prf_lengthLambda = length == foldr (\x_ n -> 1 + n) 0
 -- No instance for (Eq ([a0] -> Int)) arising from a use of `=='
 -- Possible fix: add an instance declaration for (Eq ([a0] -> Int))
+
+
 
 -------------------------------------------------
 --              PROOFINESS              -- 
