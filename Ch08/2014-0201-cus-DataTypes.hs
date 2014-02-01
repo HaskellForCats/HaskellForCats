@@ -1,6 +1,8 @@
 module CusDataTyp where 
 -- : set expandtab ts=2 ruler number spell
 
+-- 47 days of Haskell 
+
 -- TYPE SYNONYMS 
 
 type MyStrings = [Char] 
