@@ -1,5 +1,5 @@
 module CusDataTyp where 
--- : set expandtab ts=4 ruler number spell
+-- : set expandtab ts=2 ruler number spell
 
 -- TYPE SYNONYMS 
 
@@ -51,12 +51,12 @@ data Customer   = MakeCustomer
 
 alice :: Customer 
 alice = MakeCustomer 
-  { customerId    = MakeCustomerId 13 
+  { customerId    = CustomerId 13 
   , name          = "Alice" 
   , luckyNumber   = 42 
-  }
-{- 
- - [1 of 1] Compiling CusDataTyp       ( 2014-0131-cus-DataTypes.hs, interpreted )
+  } 
+ 
+{- [1 of 1] Compiling CusDataTyp       ( 2014-0131-cus-DataTypes.hs, interpreted )
 
 2014-0131-cus-DataTypes.hs:54:21:
     Not in scope: data constructor `MakeCustomerId'
