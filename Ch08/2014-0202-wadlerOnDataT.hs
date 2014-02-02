@@ -13,6 +13,34 @@ True    `&_$` q = q
 False   `|_|` q = q 
 True    `|_|` q = True 
 
+eqBool False False = True 
+eqBool False True  = False 
+eqBool True  False = False 
+eqBool True  True  = True 
+
+showBool False  = "False" 
+ShowBool True   = "True" 
+
+data Season = Winter | Spring | Summer | Fall 
+
+next Winter     = Spring 
+next Spring     = Summer 
+next Summer     = Fall 
+next Fall       = Winter 
+
+eqSeason Winter Winter  = True
+eqSeason Spring Spring  = True
+eqSeason Summer Summmer = True
+eqSeason Fall Fall      = True
+eqSeason x    y         = False 
+
+showSeason Winter       = "Winter" 
+showSeason Spring       = "Spring" 
+showSeason Summer       = "Summer" 
+showSeason Fall         = "Fall" 
+
+
+
 {-
 data Bool = False | True 
 data Season = Winter | Spring | Summer | Fall 
