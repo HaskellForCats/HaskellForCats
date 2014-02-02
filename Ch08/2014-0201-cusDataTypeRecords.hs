@@ -5,15 +5,15 @@
 
 -- TYPE SYNONYMS 
 
-         type MyStrings = [Char] 
-         type Point = (Double,Double)
+type MyStrings = [Char] 
+type Point = (Double,Double)
 -- in the compiler (Double,Double) and Point can be swapped around 
 --
-         p1 :: (Double,Double)
-         p1 = (1,2) 
+p1 :: (Double,Double)
+p1 = (1,2) 
 
-         p2 :: Point 
-         p2 = (3,4) 
+p2 :: Point 
+p2 = (3,4) 
 
 {-
 *CusDataTyp> :i p1
@@ -31,7 +31,7 @@ BUT THIS IS INCONSISTENT USE NEWTYPES INSTEAD
 
 -}
 
-<<<<<<< HEAD
+
 -- - NEWTYPES ------
 -- sort of key and value pairing 
 
@@ -70,42 +70,10 @@ newtype CustName = CustNameStr Char
 newtype CustId = CustIdNum Int
 
 data Customer = MakeCustomer CustName CustId 
-=======
-        ---- NEWTYPES ------
-        -- sort of key and value pairing 
-        --------Constructor-------------
-        ---------------------Construction------
-        -----------------------------------value
-         newtype CustomerId = CustomerId Int 
-
-         customer = CustomerId 13 
-
-         customerToInt (CustomerId i) = i 
 
 
 
-
-
-    
-        -- Constructor Names often match the Type Names. 
-        -- Newtypes make unique types from existing ones
-        -- This enforces semantic meaning through the type checker. 
-
-         data Customer   = MakeCustomer 
-           { customerId    :: CustomerId 
-           , name         :: String 
-           , luckyNumber  :: Int 
-           } 
-
-         alice :: Customer 
-         alice = MakeCustomer 
-           { customerId    = CustomerId 13 
-           , name          = "Alice" 
-           , luckyNumber   = 42 
-           } 
-         
->>>>>>> 6280632a484250b1cd1aeeca4205dc547aedee71
-
+   
 
 
 
