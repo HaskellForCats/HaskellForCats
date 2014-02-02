@@ -31,20 +31,20 @@ BUT THIS IS INCONSISTENT USE NEWTYPES INSTEAD
 
 -}
 
----- NEWTYPES ------
+-- - NEWTYPES ------
 -- sort of key and value pairing 
---------Constructor-------------
----------------------Construction------
------------------------------------value
+
+-- -----Constructor-------------
+-- ---------|--------Construction------
+-- ---------|------------|------value ---
 newtype CustomerId = CustomerId Int 
 
 customer = CustomerId 13 
 
 customerToInt (CustomerId i) = i 
 
--- Constructor Names often match the Type Names. 
--- Newtypes make unique types from existing ones
--- This enforces semantic meaning through the type checker. 
+{- 		Records  	  --
+
 data Customer   = MakeCustomer 
   { customerId    :: CustomerId 
    , name         :: String 
@@ -57,5 +57,21 @@ alice = MakeCustomer
   , name          = "Alice" 
   , luckyNumber   = 42 
   } 
- 
+-} 
+
+{- 	ALGEBRAIC DATA TYPES  	-- 
+ data Customer = MakeCustomer CustomerId String Int 
+ :show bindings 
+
+-}
+-- data Customer = MakeCustomer CustomerId String Int  
+newtype CustName = CustNameStr Char  
+newtype CustId = CustIdNum Int
+
+data Customer = MakeCustomer CustName CustId 
+
+
+
+
+
 
