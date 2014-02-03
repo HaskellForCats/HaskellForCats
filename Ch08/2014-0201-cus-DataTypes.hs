@@ -94,6 +94,7 @@ alice = MakeCustomer
 
 
 -- Use record syntax when a constructor has several fields and it's not obvious which field is which. 
-
+-- "...qualified imports are horrible when used on a large scale.
+-- Perhaps local modules would solve half of this problem. 
 
 

@@ -1,4 +1,4 @@
-         module CusDataTyp where 
+module CusDataTyp where 
 -- : set expandtab ts=2 ruler number spell
 
 -- 47 days of Haskell 
@@ -44,7 +44,10 @@ customer = CustomerId 13
 
 customerToInt (CustomerId i) = i 
 
-{- 		Records  	  --
+-- 		Records  	  --
+-- *CusDataTyp> let guy = Person "Buddy" "Finklestein" 43 184.2 "526-2928" "Chocolate"
+-- *CusDataTyp> guy
+-- Person "Buddy" "Finklestein" 43 184.2 "526-2928" "Chocolate"
 
 data Customer   = MakeCustomer 
   { customerId    :: CustomerId 
@@ -58,7 +61,33 @@ alice = MakeCustomer
   , name          = "Alice" 
   , luckyNumber   = 42 
   } 
--} 
+
+-- data Person = Person String String Int Float String String deriving (Show)  
+data Person = Person    { firstName :: String 
+                        , lastName :: String 
+                        , age :: Float 
+                        , height :: Float 
+                        , phoneNumber :: String 
+                        , flavor :: String 
+                        } deriving (Show) 
+                        
+-- The main benefit instant created functions 
+-- that lookup fields in the data type. 
+-- By using record syntax to create this data type, 
+-- Haskell automatically made these functions: 
+-- firstName, lastName, age, height, phoneNumber and flavor.
+
+-- *CusDataTyp> :i age
+-- data Person = Person {..., age :: Float, ...}
+
+data Car = Car {company :: String, model :: String, year :: Int} deriving (Show) 
+
+-- *CusDataTyp> Car {company="Ford", model="Mustang", year=1967}
+-- Car {company = "Ford", model = "Mustang", year = 1967}
+
+
+  
+-- Use record syntax when a constructor has several fields and it's not obvious which field is which. 
 
 {- 	ALGEBRAIC DATA TYPES  	-- 
  data Customer = MakeCustomer CustomerId String Int 
@@ -66,14 +95,16 @@ alice = MakeCustomer
 
 -}
 -- data Customer = MakeCustomer CustomerId String Int  
+{-
 newtype CustName = CustNameStr Char  
 newtype CustId = CustIdNum Int
 
 data Customer = MakeCustomer CustName CustId 
+-}
 
 
 
-   
+
 
 
 
