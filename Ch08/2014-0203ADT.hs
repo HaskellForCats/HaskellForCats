@@ -10,10 +10,12 @@ module DataConsTypeCons where
 
 -- Data constructors are not types, they denote values. 
 
--- Tuples are plain old algebraic data types! 
--- They have only one constructor and have the same name as their types for convenience, this is possible because, type constructors and the data constructors have separate namespaces. 
-
-
+{- Tuples are plain old algebraic data types! 
+They have only one constructor and have the same name as their types for convenience, this is possible because, type constructors and the data constructors have separate namespaces. 
+You can, in fact, name the values grouped together, using the record syntax,
+data Person = Person { name :: String, age :: Int, address :: String }
+so that for a person p, you can say age p to select his/her age, without resorting to pattern matching.
+-}
 data Colour = Red | Green | Blue
 {- NOTE! when we ask for Colour's data type we get a "Not in scope" error. 
 *DataConsTypeCons> :t Colour 
