@@ -1,7 +1,7 @@
 module DataConsTypeCons where 
 -- : set expandtab ts=2 ruler number spell
--- daw
--- 50 days of Haskell 
+-- daw 
+
 -- A data declaration introduces one or more type constructors and one or more value constructors for each of the type constructors.
 
 -- A data constructor (or value constructor) can have zero or more arguments think of it as, a "function" that takes 0 or more values and gives you back a new value.
