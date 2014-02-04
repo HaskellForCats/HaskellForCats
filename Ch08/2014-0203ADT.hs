@@ -18,6 +18,7 @@ Red :: Colour
 *DataConsTypeCons> :i Red 
 data Colour = Red | ... 	-- Defined at 2014-0203ADT.hs:8:15
 -}
+
  
 data Colour' = RGB Int Int Int deriving (Show)  
 {- SAME AGAIN 
@@ -29,4 +30,9 @@ data Colour' = RGB Int Int Int 	-- Defined at 2014-0203ADT.hs:17:6
 *DataConsTypeCons> :t RGB
 RGB :: Int -> Int -> Int -> Colour'
 -}
+data SBTree = Leaf String 
+            | Branch String SBTree SBTree
+
+data BTree a = LeAf a 
+              | BrAnch a (BTree a) (BTree a) 
 
