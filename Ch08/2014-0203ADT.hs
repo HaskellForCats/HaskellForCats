@@ -58,7 +58,7 @@ It is important here to consider the difference between a concrete type (example
 
 
 data Customer   = MkCustomer 
-  { customerId  :: Int 
+  { customerId  :: Int      -- this has to be an Int because we didn't define it as a newtype already. 
   , name        :: String 
   , luckyNumber :: Int 
   } 
@@ -73,3 +73,15 @@ margret = MkCustomer
   , name        = "Margie"  
   , luckyNumber = 47  
   }
+{-
+*DataConsTypeCons> :t MkCustomer
+MkCustomer :: Int -> String -> Int -> Customer
+*DataConsTypeCons> :t customerId
+customerId :: Customer -> Int
+*DataConsTypeCons> :t customerId alice
+customerId alice :: Int
+*DataConsTypeCons>  customerId alice
+13
+*DataConsTypeCons>  customerId margret
+14
+-} 
