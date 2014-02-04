@@ -2,7 +2,13 @@ module DataConsTypeCons where
 -- : set expandtab ts=2 ruler number spell
 -- daw
 -- 50 days of Haskell 
+-- A data declaration introduces one or more type constructors and one or more value constructors for each of the type constructors.
 
+-- A data constructor (or value constructor) can have zero or more arguments think of it as, a "function" that takes 0 or more values and gives you back a new value.
+
+-- type constructor may have zero or more arguments, think of it, as a "function" that takes 0 or more types and gives you back a new type.
+
+-- Data constructors are not types, they denote values.
 
 
 data Colour = Red | Green | Blue
@@ -35,4 +41,11 @@ data SBTree = Leaf String
 
 data BTree a = LeAf a 
               | BrAnch a (BTree a) (BTree a) 
+{-
+Now we introduce a type variable a as a parameter to the type constructor. In this declaration, BTree has become a function. It takes a type as its argument and it returns a new type.
+
+It is important here to consider the difference between a concrete type (examples include Int, [Char] and Maybe Bool) which is a type that can be assigned to a value in your program, and a type constructor function which you need to feed a type to be able to be assigned to a value. A value can never be of type "list", because it needs to be a "list of something". In the same spirit, a value can never be of type "binary tree", because it needs to be a "binary tree storing something".
+-}
+
+
 
