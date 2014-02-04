@@ -8,7 +8,10 @@ module DataConsTypeCons where
 
 -- type constructor may have zero or more arguments, think of it, as a "function" that takes 0 or more types and gives you back a new type.
 
--- Data constructors are not types, they denote values.
+-- Data constructors are not types, they denote values. 
+
+-- Tuples are plain old algebraic data types! 
+-- They have only one constructor and have the same name as their types for convenience, this is possible because, type constructors and the data constructors have separate namespaces. 
 
 
 data Colour = Red | Green | Blue
