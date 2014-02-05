@@ -49,6 +49,22 @@ Now we introduce a type variable a as a parameter to the type constructor. In th
 
 It is important here to consider the difference between a concrete type (examples include Int, [Char] and Maybe Bool) which is a type that can be assigned to a value in your program, and a type constructor function which you need to feed a type to be able to be assigned to a value. A value can never be of type "list", because it needs to be a "list of something". In the same spirit, a value can never be of type "binary tree", because it needs to be a "binary tree storing something".
 -}
+_____________________
+-- NEWTYPE -- 
+---------------------
+-- think unique type-synonym. 
+
+-------TypeCon--------------------
+----------|-----------------------
+----------|------DataCon-----------
+----------|---------|--------------
+----------|---------|---- Type Ref
+----------|---------|-----|--------
+newtype CustId = MkCustId Int 
+  
+
+
+
 ----------------
  --  RECORDS --
 ----------------
@@ -90,3 +106,5 @@ data Day = Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday deriving (Eq
 -- True
 -- *DataConsTypeCons> Monday < Tuesday
 -- True
+
+
