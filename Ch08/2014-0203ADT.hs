@@ -10,12 +10,10 @@ module DataConsTypeCons where
 
 -- Data constructors are not types, they denote values. 
 
-{- Tuples are plain old algebraic data types! 
-They have only one constructor and have the same name as their types for convenience, this is possible because, type constructors and the data constructors have separate namespaces. 
-You can, in fact, name the values grouped together, using the record syntax,
-data Person = Person { name :: String, age :: Int, address :: String }
-so that for a person p, you can say age p to select his/her age, without resorting to pattern matching.
--}
+-- Tuples are plain old algebraic data types! 
+-- They have only one constructor and have the same name as their types for convenience, this is possible because, type constructors and the data constructors have separate namespaces. 
+-- deriving (Eq, Ord, Show, Read, Bounded, Enum)
+
 data Colour = Red | Green | Blue
 {- NOTE! when we ask for Colour's data type we get a "Not in scope" error. 
 *DataConsTypeCons> :t Colour 
@@ -51,6 +49,44 @@ Now we introduce a type variable a as a parameter to the type constructor. In th
 
 It is important here to consider the difference between a concrete type (examples include Int, [Char] and Maybe Bool) which is a type that can be assigned to a value in your program, and a type constructor function which you need to feed a type to be able to be assigned to a value. A value can never be of type "list", because it needs to be a "list of something". In the same spirit, a value can never be of type "binary tree", because it needs to be a "binary tree storing something".
 -}
+----------------
+ --  RECORDS --
+----------------
+--    type   --    data
+--    cons   --    cons 
 
 
 
+data Customer   = MkCustomer 
+  { customerId  :: Int      -- this has to be an Int because we didn't define it as a newtype already. 
+  , name        :: String 
+  , luckyNumber :: Int 
+  } 
+
+alice = MkCustomer 
+  { customerId  = 13    
+  , name        = "Alice"  
+  , luckyNumber = 42 
+  }
+margret = MkCustomer 
+  { customerId  = 14    
+  , name        = "Margie"  
+  , luckyNumber = 47  
+  }
+{-
+*DataConsTypeCons> :t MkCustomer
+MkCustomer :: Int -> String -> Int -> Customer
+*DataConsTypeCons> :t customerId
+customerId :: Customer -> Int
+*DataConsTypeCons> :t customerId alice
+customerId alice :: Int
+*DataConsTypeCons>  customerId alice
+13
+*DataConsTypeCons>  customerId margret
+14
+-}
+data Day = Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday deriving (Eq,Ord,Show,Read,Bounded,Enum) 
+-- *DataConsTypeCons> Monday == Monday
+-- True
+-- *DataConsTypeCons> Monday < Tuesday
+-- True
