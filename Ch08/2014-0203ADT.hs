@@ -12,7 +12,7 @@ module DataConsTypeCons where
 
 -- Tuples are plain old algebraic data types! 
 -- They have only one constructor and have the same name as their types for convenience, this is possible because, type constructors and the data constructors have separate namespaces. 
-
+-- deriving (Eq, Ord, Show, Read, Bounded, Enum)
 
 data Colour = Red | Green | Blue
 {- NOTE! when we ask for Colour's data type we get a "Not in scope" error. 
@@ -84,4 +84,9 @@ customerId alice :: Int
 13
 *DataConsTypeCons>  customerId margret
 14
--} 
+-}
+data Day = Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday deriving (Eq,Ord,Show,Read,Bounded,Enum) 
+-- *DataConsTypeCons> Monday == Monday
+-- True
+-- *DataConsTypeCons> Monday < Tuesday
+-- True
