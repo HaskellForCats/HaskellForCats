@@ -41,5 +41,36 @@ customerToInt (CustomerId i) = i
 -- MakeCustomer is just a name with some associated values: CustomerId String Int 
 -- MakeCustomer take a CustomerId and a String which will be used for a name, and an Int which will be the lucky number. 
 -- These arguments are not identified by a field name like with records but are only identified by their position like function arguments.
--- As noted before the TypeCons and the DataCons can share the same name since they have separate name spaces.  
-data Customer = Customer CustomerId String Int 
+-- As noted before the TypeCons and the DataCons can share the same name since they have separate name spaces. 
+-- these are somewhat like newtypes but can take multiple arguments. 
+-- ADT are especially helpful where a tuples contents doesn't have any semantic meaning  
+data Customer = Customer CustomerId String Int
+alice = Customer (CustomerId 13) "Alice" 42 
+-- *Datcontypcon> :t alice 
+-- alice :: Customer
+-- alice has CustomerId 13 and name "Alice" and a LuckyNumber 42 
+-- to get at the data we use pattern matching  
+{-
+getCusomerId (Customer cust_id name luckyNumber) = cust_id 
+-}
+-- *Datcontypcon> :t getCusomerId 
+-- getCusomerId :: Customer -> CustomerId 
+-- getCustomerId is a function the takes an entire tuple (Customer cust_id name luckyNumber)
+-- where Customer is the item and cust_id, name, and luckyNumber are all attributes of Customer. 
+-- With those arguments it can return a value for cust_id. 
+-- Since were are not interested in all the attributes be can use wild-cards to reduce boiler plate. 
+getCusomerId (Customer cust_id _ _) = cust_id 
+---------------------------------------------
+data StringTree = StringTree String [StringTree] 
+-- the StringTree datacons has two args String and a list of [StringTree] 
+-- this datatype will represent a tree 
+-- where each node is labled by a string, which is how we organize a file structure. 
+hierarchy = StringTree "C:" 
+                  [ StringTree "Program Files" [] 
+                  , StringTree "Users" 
+                      [StringTree "Alice" []]
+                  , StringTree "Cats" [] 
+                  ] 
+-- note the similar structure to the records we worked with before but where {} is replaced by []. 
+
+-- see illustration in file StringTree.jpg  
