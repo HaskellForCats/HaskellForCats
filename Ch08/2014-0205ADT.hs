@@ -59,11 +59,11 @@ It is important here to consider the difference between a concrete type (example
 ----------|------DataCon-----------
 ----------|---------|--------------
 ----------|---------|---- Type Ref
-----------|---------|-----|-------}
+----------|---------|-----|--------
 newtype CustId = MkCustId Int deriving (Show,Ord,Eq) 
 
   
-{- checking our types in the console 
+checking our types in the console 
 
 *DataConsTypeCons> :t MkCustId 
 MkCustId :: Int -> CustId
@@ -86,7 +86,7 @@ MkCustId 13 :: CustId
 
 -- to be able to find a customer by Id 
 -- we access it via the constructor
--} 
+ 
 
 {------TypeCon--------------------
 -------|--------------------------
@@ -96,7 +96,7 @@ MkCustId 13 :: CustId
 -------|-----------|--------|-----}
 custIdViaInt (MkCustId i) = i 
  
-{- from the console ... 
+from the console ... 
 
 *DataConsTypeCons> :t custIdViaInt 
 custIdViaInt :: CustId -> Int   
@@ -123,7 +123,7 @@ Top level: Not in scope: `i'
 *DataConsTypeCons> :t i
 
 <interactive>:1:1: Not in scope: `i'
--}
+
 
 ----------------
  --  RECORDS --
@@ -149,7 +149,8 @@ margret = MkCustomer
   , name        = "Margie"  
   , luckyNumber = 47  
   }
-{-
+
+
 *DataConsTypeCons> :t MkCustomer
 MkCustomer :: Int -> String -> Int -> Customer
 *DataConsTypeCons> :t customerId
@@ -160,23 +161,29 @@ customerId alice :: Int
 13
 *DataConsTypeCons>  customerId margret
 14
--}
+
 data Day = Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday deriving (Eq,Ord,Show,Read,Bounded,Enum) 
 -- *DataConsTypeCons> Monday == Monday
 -- True
 -- *DataConsTypeCons> Monday < Tuesday
 -- True
+-}
 
 ------------------------------
 {- 	ALGEBRAIC DATA TYPES  	-- 
 ------------------------------
 Note that Haskell constructors are just names that glue values together.-}  
+-- ADTs are much like newtypes with additional parameters
+-- which also bares some resemblence to tuples, but with named positions. 
+-- ADT = (tupleElem1,tupleElem2,tupleElem3,tupleElm4)
+
 {------TypeCon--------------------
 -------|--------------------------
 -------|---------DataCon-----------
 -------|---------|---------------
 -------|---------|--- arguments -- 
--------|---------|-------|-------------}
+-------|---------|-------|-------------
+-}
 -- data Cust = MakeCustr CustId String Int 
 -- the arguments are identifiable by position .
 {- previously with newtypes we could have redefined the String and Int to be Unique types. 
@@ -194,10 +201,35 @@ instance Show CustId -- Defined at 2014-0205ADT.hs:63:41
 
 note that if we hadn't constructed CustId as a type 
 then data Cust = MakeCustr Int String Int would be more ambiguous as we wouldn't know the luckyNumber vs the CustId as both would be Ints 
--} 
-data Cust = MkCustr CustId String Int
+-}
+newtype CustomerId = CustomerId Int 
+customer = CustomerId 13 
+customerToInt (CustomerId i) = i 
+-- 		Records  	  --
+data Customer   = MakeCustomer 
+  { customerId    :: CustomerId 
+   , name         :: String 
+   , luckyNumber  :: Int 
+   } 
+
+alice :: Customer 
+alice = MakeCustomer 
+  { customerId    = CustomerId 13 
+  , name          = "Alice" 
+  , luckyNumber   = 42 
+  } 
+ 
+{- data Custr = MkCustr CustId String Int
 -- to extract data we use pattern matching 
-allison = Cust (MkCustr 23) "Allison" 4711 
+
+-- make a customer 
+allison = Custr (MkCustr 23) "Allison" 4711 
   
+-- *DataConsTypeCons> :t MkCustr 
+-- MkCustr :: CustId -> String -> Int -> Cust
+getCustById (MkCustr cust_id cusName luckNum) = cust_id 
+-} 
+data Custr = MkCustr CustId String Int
+
 
 
