@@ -1,4 +1,4 @@
-module Datcontypcon where
+module D_conT_con where
 -- : set expandtab ts=2 ruler number spell -- daw
 -- starting again from scratch 
 -- lowercase pretains to functions and their args and Titlecase refers to things pertaining to types 
@@ -6,9 +6,9 @@ module Datcontypcon where
 
 {-
 newtype CustomerId = MakeCustomerId Int
--- *Datcontypcon> :i CustomerId 
+-- *D_conT_con> :i CustomerId 
 -- newtype CustomerId = MakeCustomerId Int
--- *Datcontypcon> :i MakeCustomerId
+-- *D_conT_con> :i MakeCustomerId
 -- newtype CustomerId = MakeCustomerId Int
 -- because we are using the newtype constructor keyword both CustomerId and MakeCustomerId don't exist on their own. They aren't function. They are catagories, the way that Int and String are catagories of data. 
   
@@ -28,9 +28,9 @@ newtype CustomerId = CustomerId Int
 customer = CustomerId 13 
 customerToInt (CustomerId i) = i
 
--- *Datcontypcon> :t customer
+-- *D_conT_con> :t customer
 -- customer :: CustomerId
--- *Datcontypcon> :t customerToInt 
+-- *D_conT_con> :t customerToInt 
 -- customerToInt :: CustomerId -> Int  
 
 -- ADT -- Algebraic Data Types
@@ -46,14 +46,14 @@ customerToInt (CustomerId i) = i
 -- ADT are especially helpful where a tuples contents doesn't have any semantic meaning  
 data Customer = Customer CustomerId String Int
 alice = Customer (CustomerId 13) "Alice" 42 
--- *Datcontypcon> :t alice 
+-- *D_conT_con> :t alice 
 -- alice :: Customer
 -- alice has CustomerId 13 and name "Alice" and a LuckyNumber 42 
 -- to get at the data we use pattern matching  
 {-
 getCusomerId (Customer cust_id name luckyNumber) = cust_id 
 -}
--- *Datcontypcon> :t getCusomerId 
+-- *D_conT_con> :t getCusomerId 
 -- getCusomerId :: Customer -> CustomerId 
 -- getCustomerId is a function the takes an entire tuple (Customer cust_id name luckyNumber)
 -- where Customer is the item and cust_id, name, and luckyNumber are all attributes of Customer. 
@@ -74,3 +74,54 @@ hierarchy = StringTree "C:"
 -- note the similar structure to the records we worked with before but where {} is replaced by []. 
 
 -- see illustration in file StringTree.jpg  
+
+----------------------------------------------
+
+-- data {-# CTYPE "HsBool" #-} Bool = False | True
+-- this is how the Bool Datatype is actually defined in GHC.Types. 
+{-
+*D_conT_con> let x = False 
+*D_conT_con> let y = True 
+*D_conT_con> x
+False
+*D_conT_con> y
+True
+*D_conT_con> :t x 
+x :: Bool
+*D_conT_con> :t y 
+y :: Bool
+
+data Bool has two constructors False and True. 
+
+negate can be defined as 
+negate :: Bool -> Bool 
+negate True  = False 
+negate False = True 
+-} 
+-- this kind of type is called and Enum 
+-- as in Enumerable, which can be Ordered, such that it corresponds to positive integers and can therefore be counted, which is more than just ordering, which only requires that each element knows of it's adjacent element.  
+data DialogResponse =  Yes|No|Help|Quit 
+----------------------------------------
+-- Algebraic DataTypes can have constructors that take multiple arguments. 
+data MaybeInt = NoInt | JustInt Int 
+-- here we have an Int value that could be present but doesn't have to be, 
+-- thus we can represent a null-able value.
+-- furthermore we find out if a value exists and extract it if it does. 
+defaultInt :: Int -> MaybeInt ->Int 
+defaultInt defaultValue NoInt = defaultValue 
+defaultInt _ (JustInt  x) = x 
+----------------------------------------
+data StringList = EmptyStringList 
+                | ConsStringList String StringList deriving (Eq,Ord,Show,Read) 
+-- with this Algebraic DataType we have defined the emplty list of Strings 
+-- the head of the list of Strings and the tail of the list of Strings.
+lengthStringList :: StringList -> Int 
+lengthStringList EmptyStringList = 0 
+lengthStringList (ConsStringList _ xs) = 1 + lengthStringList xs 
+-- note that so far we can compile this but can't prove this
+{-- other than the renaming the above is the same as: 
+length :: [a] -> Int 
+length [] = 0 
+length (_ : xs) = 1 + length xs -}  
+------------------------------------------
+ 
