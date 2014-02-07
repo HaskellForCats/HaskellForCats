@@ -1,5 +1,7 @@
 module VimFun where 
 -- -N  to use powerful extension VIM 
+-- :set wrap
+-- :set linebreak
 -- : set expandtab ts=4 ruler number spell
 -- :syntax enable
 -- :set syntax=Haskell 

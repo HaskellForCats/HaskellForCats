@@ -28,4 +28,5 @@ putStrLn :: String -> IO ()     -- Defined in `System.IO'
 ---------------------------
 
 putStrLn :: String -> IO ()
+putStrLn takes a string and returns a IO()
 main = putStrLn "Hello World" 
