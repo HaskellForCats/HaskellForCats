@@ -29,6 +29,15 @@ el2m x (y:ys)
 data RGB = RGB Int Int Int 
 -- > :t RGB
 -- RGB :: Int -> Int -> Int -> RGB
+-- > show RGB
+{- <interactive>:4:1:
+    No instance for (Show (Int -> Int -> Int -> RGB))
+      arising from a use of `show'
+    Possible fix:
+      add an instance declaration for (Show (Int -> Int -> Int -> RGB))
+    In the expression: show RGB
+    In an equation for `it': it = show RGB
+-}
 instance Eq RGB where 
   (RGB r1 g1 b1) == (RGB r2 g2 b2) = 
     (r1 == r2) && (g1 == g2) && (b1 == b2) 
