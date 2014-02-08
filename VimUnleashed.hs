@@ -1,4 +1,6 @@
-module VimFun where 
+-- module VimFun where 
+-- http://www.fprintf.net/vimCheatSheet.html
+
 -- -N  to use powerful extension VIM 
 -- :set wrap
 -- :set linebreak

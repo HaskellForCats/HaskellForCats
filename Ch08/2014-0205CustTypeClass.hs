@@ -1,25 +1,38 @@
 module TClasses where
 -- : set expandtab ts=2 ruler number spell -- daw
+-- : syntax enable 
+---------------------------
 -- Type Class Instances 
 -- Instances 
 -- Deriving 
 -- Defining type classes 
 -- Subclasses 
+----------------------------
+-- Type Class Instances  
+-- 	Instances where we can add on instances to extend Type Classes further
+-- 	with deriving we can add in these instances in obvious ways rather than by definition by definition 
+-- 
+
+
 
 el2m :: Eq a => a -> [a] -> Bool
 el2m _ [] = False 
 el2m x (y:ys)   
   | x==y = True 
-  | otherwise = el2m x ys 
-
--- Haskell doesn't have a built in equality test for everything. Functions don't have built in equality tests. 
+  | otherwise = el2m x ys
+ 
+-- Haskell doesn't have a built in equality test for functions it would have to be added.
+-- Functions don't have built in equality tests. 
 -- but we can have a known answer test (KAT)
-
+-- to test for equality between colors 
+-- we have to create an instance of equality for our RGB type. 
 data RGB = RGB Int Int Int 
--- to test for equality between colors we have to create an instance of equality for our RGB type. 
+-- > :t RGB
+-- RGB :: Int -> Int -> Int -> RGB
 instance Eq RGB where 
   (RGB r1 g1 b1) == (RGB r2 g2 b2) = 
     (r1 == r2) && (g1 == g2) && (b1 == b2) 
+
 instance Show RGB where 
   show (RGB r g b) = 
     "RGB " ++ (show r) ++ "  " ++ (show g) ++ " " ++ (show b)  
