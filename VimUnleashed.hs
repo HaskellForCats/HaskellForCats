@@ -11,15 +11,9 @@ module VimFun where
 	-- gg -- goes to top of file 
 	-- G  -- goes to end   
 -- Ctrl-R Redo
+-- d2w -- would delete next 2 words 
+-- jjo -- drops down a line and opens a line for editing  
 -- u -- Undo
--- k -- up 
--- h -- left
--- j -- down 
--- l -- right
--- i -- insert at 
--- a -- append after  
--- jjo -- drops down a line and opens a line for editting  
--- 2j -- Down 2 lines 
 -- yy -- for copies current line 
 -- Y -- for copies current line 
 -- p -- for paste below 
@@ -27,6 +21,13 @@ module VimFun where
 -- 6l -- moves us six spaces in 
 -- fN -- will go forward to the next N instance.
 -- 3fN -- will go forward to the next 3N instances. 
+-- k -- up 
+-- h -- left
+-- j -- down 
+-- l -- right
+-- i -- insert at 
+-- a -- append after  
+-- 2j -- Down 2 lines 
 -- cw -- for change a word. 
 -- li -- moves one space forward and open insert. 
 -- wi -- moves one word forward and opens insert. 
@@ -57,6 +58,6 @@ module VimFun where
 -- v -- character Visual mode -- selecting characters.  
 -- c -- deletes block and enters insert mode.
 -- / -- for -- /searchterm -- for adding a search term to highlight
--- d2w -- would delete next 2 words 
+
 -- . -- would repete the action 
 
