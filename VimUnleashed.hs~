@@ -1,5 +1,6 @@
+-- module VimFun where 
 -- http://www.fprintf.net/vimCheatSheet.html
--- ~ -- AND VISUAL for toggling case  
+
 -- -N  to use powerful extension VIM 
 -- :set wrap
 -- :set linebreak

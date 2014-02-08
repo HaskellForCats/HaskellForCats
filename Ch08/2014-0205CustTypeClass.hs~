@@ -81,14 +81,9 @@ instance Eq Person where
         -- Read which gives the read function 
         --    Deriving-parse output of default show 
 
--- Minimum complete definitions
--- must be satisfied     
-{-
-class Eq a where
-  (==) :: a -> a -> Bool
-  (/=) :: a -> a -> Bool
-        -- Defined in `GHC.Classes'
-        -- Default definitions 
+-- Minimum complete definition
+-- must always be satisfied     
+
 -- we create new type classes when to not have them would require excessive amounts of definitions 
 -- to get polymorphic functionality on a given function. 
 
