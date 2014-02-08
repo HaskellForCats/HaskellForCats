@@ -153,5 +153,4 @@ greetForever = do
 main :: IO () 
 main = greetForever 
 
--- IO action calling itself recursively 
-	     
+-- IO action calling itself recursively      
