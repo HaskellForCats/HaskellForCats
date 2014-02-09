@@ -232,7 +232,9 @@ Okay
 Now What 
 Okay  Now What 
 -}---------------------------------------------------
-----------------reTurnRightAroundIo----------------
+---------------- reTurnRightAroundIo ----------------
+-- works but is stylistically poor!
+
 main :: IO () 
 main = do 
     line1 <- getLine 
@@ -240,7 +242,7 @@ main = do
     lines <- return (line1 ++ " " ++ line2) 
     putStrLn lines  
 
----------------letLines1and2-----------------------
+--------------- letLinesiNiceNice -----------------------
   
 main :: IO () 
 main = do 
