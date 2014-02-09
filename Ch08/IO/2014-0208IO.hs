@@ -231,4 +231,22 @@ Linking returnLines2 ...
 Okay 
 Now What 
 Okay  Now What 
+-}---------------------------------------------------
+----------------reTurnRightAroundIo----------------
+main :: IO () 
+main = do 
+    line1 <- getLine 
+    line2 <- getLine 
+    lines <- return (line1 ++ " " ++ line2) 
+    putStrLn lines  
+
+---------------letLines1and2-----------------------
   
+main :: IO () 
+main = do 
+    line1 <- getLine 
+    line2 <- getLine 
+    let lines = line1 ++ " " ++ line2 
+    putStrLn lines  
+
+
