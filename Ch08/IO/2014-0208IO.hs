@@ -27,14 +27,15 @@ putStrLn :: String -> IO () -- has type IO () which means it returns an IO Unit
 	-- this code could be run but doesn't get run without an IO Action. Thus you could call this
 Main is significant because IO doesn't happen without it. 
 	the runtime environment looks for main and if has an IO Action associated with it, that IO Action gets executed and side-effects are performed. 
----------- In this Program -----------
+-}
 
+---------- In this Program -----------
 
 main = putStrLn "Hi there!"  -- you will see this line 
 
 main2 = putStrLn "Hi there Again" -- you wont see this one. 
 
------------- WE COMPILE IT AND RUN IT --------------
+{----------- WE COMPILE IT AND RUN IT --------------
 ➜  IO git:(master) ✗ ghc main2.hs 
 [1 of 1] Compiling Main             ( main2.hs, main2.o )
 Linking main2 ...
@@ -42,7 +43,7 @@ Linking main2 ...
 Hi there!
 
 
----------- IN THIS NEXT PROGRAM -----------
+-}-------- IN THIS NEXT PROGRAM -----------
 main :: IO ()
 main = do
         putStrLn "Welcome"
@@ -50,6 +51,7 @@ main = do
 x = 3 -- is outside the do block and gets ignored.  
 
 
+{----------- WE COMPILE IT AND RUN IT --------------
 ➜  IO git:(master) ✗ ghc doBlock.hs    
 [1 of 1] Compiling Main             ( doBlock.hs, doBlock.o )
 Linking doBlock ...
@@ -59,7 +61,7 @@ to Haskell IO
 ---------------------------------------------
 	 
 
----------- IN THIS THIRD PROGRAM -----------
+-}-------- IN THIS THIRD PROGRAM -----------
 helloWorld :: IO () 
 helloWorld = putStrLn "Hello World" 
 
@@ -68,7 +70,7 @@ main = do
 	helloWorld 
 	helloWorld 
 	helloWorld 
------------- WE COMPILE "doBlock2"  AND RUN IT --------------
+{----------- WE COMPILE "doBlock2"  AND RUN IT --------------
 ➜  IO git:(master) ✗ ghc doBlock2.hs 
 [1 of 1] Compiling Main             ( doBlock2.hs, doBlock2.o )
 Linking doBlock2 ...
@@ -81,7 +83,7 @@ it is worth noting that putStrLn doesn't get run directly; it only sees Action i
 In other programming languages putStrLn would print immediately and not have to wait until it saw DO-Block Action
 
  
----------- IN THIS FOURTH PROGRAM ----------- 
+-}-------- IN THIS FOURTH PROGRAM ----------- 
 introduce :: String -> String -> IO 
 imtroduce name1 name2 = do -- this one do block  
 	putStrLn (name1 ++ ", this is " ++ name2) 
@@ -91,7 +93,7 @@ main =  do -- this is the second do block composed with the first
 	introduce "Alice" "Bob" 
 	introduce "Alice" "Sally" 
 
------------- WE COMPILE "intro"  AND RUN IT --------------
+-{---------- WE COMPILE "intro"  AND RUN IT --------------
 C:\Users\evxasus001\Documents\GitHub\_HaskellForCats\Ch08\IO [master +3 ~1 -0 !]> ghc .\intro.hs
 [1 of 1] Compiling Main             ( intro.hs, intro.o )
 Linking intro.exe ...
@@ -103,14 +105,14 @@ Sally, this is Alice
 
 NOTE!! because we are running this on a PC we have a .exe file to run. 
 
------------ IO VALUES ------------------------
+-}--------- IO VALUES ------------------------
 main :: IO () 
 main = do 
 	line <- getLine 
 	putStrLn ("You said: " ++ line)
 
 
------------- WE COMPILE "ioValues"  AND RUN IT --------------
+-{---------- WE COMPILE "ioValues"  AND RUN IT --------------
 C:\Users\evxasus001\Documents\GitHub\_HaskellForCats\Ch08\IO [master +8 ~1 -0 !]> ghc .\ioValues.hs
 [1 of 1] Compiling Main             ( ioValues.hs, ioValues.o )
 Linking ioValues.exe ...
@@ -138,7 +140,7 @@ remembering that IO is a parameterized datatype, in main :: IO () -- unit a.k.a.
 -- you can only extract the value from an IO Action inside an IO Action. 
 -- do-blocks only create IO actions that can be executed later. 
 -- Line gets only the value produced by getLine  
-----------------------------------------------------------
+-}--------------------------------------------------------
 greet :: IO () 
 greet = do 
 	putStrLn "Who are you?" 
@@ -155,3 +157,14 @@ main = greetForever
 
 -- IO action calling itself recursively 
 	     
+---------- RETURN FUNCTION ----------------------- 
+dummyGetLine :: IO String 
+dummyGetLine = 
+	return "I'm not doing anything" 
+
+main :: IO () 
+main = do 
+	line <- dummyGetLine 
+	putStrLn line 
+
+ 
