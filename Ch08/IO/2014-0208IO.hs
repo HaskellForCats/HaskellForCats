@@ -1,4 +1,13 @@
 module IoFeb08 where 
+-- Compiling 
+-- IO Actions 
+-- IO Values 
+-- return 
+-- do-Blocks 
+-- Useful IO Actions 
+-- IO dos and Dont's
+
+
 {- 55 days  
 : set lineBreak 
 : set spell 
@@ -301,3 +310,9 @@ encrypt :: Char -> Char
     | 'A' <= c && c < 'Z' = toEnum (fromEnum 'A' + 3) 
     | c == 'Z' = 'A' 
     | otherwise = c 
+
+
+main :: IO () 
+main = interact (map encrypt) 
+
+------------------------------------------
