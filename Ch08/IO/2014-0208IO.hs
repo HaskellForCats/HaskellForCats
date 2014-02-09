@@ -217,7 +217,7 @@ I like RED too!
 return (name, color) will always return (name, color). 
 
 
--}--------------- RETURN FUNCTION2 -----------------
+-}------------- getLineTwice ----------------
 main :: IO () 
 main = do 
     line1 <- getLine 
