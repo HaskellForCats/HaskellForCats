@@ -167,4 +167,68 @@ main = do
 	line <- dummyGetLine 
 	putStrLn line 
 
- 
+{------------- WHEN WE COMPILE AND RUN THIS ------ 
+no matter what the return will give us the same answer everytime. 
+
+➜  IO git:(master) ghc dummyGetLine.hs 
+[1 of 1] Compiling Main             ( dummyGetLine.hs, dummyGetLine.o )
+Linking dummyGetLine ...
+➜  IO git:(master) ✗ ./dummyGetLine 
+I'm not doing anything
+-----------------------------------
+Prelude Main> :i return 
+class Monad m where
+  ...
+  return :: a -> m a
+  ...
+  	-- Defined in `GHC.Base'
+Prelude Main> :t return 
+return :: Monad m => a -> m a
+
+return isn't doing much other than returning "I'm not doing anything"
+
+it will just return whatever "a" is. 
+-}------------------------------------------
+promptInfo :: IO (String,String) 
+promptInfo = do 
+    putStrLn "What is your name?" 
+    name <- getLine 
+    putStrLn "What is your favorite color" 
+    color <- getLine 
+    return (name, color)
+
+main :: IO () 
+main = do 
+    (name, color) <- promptInfo 
+    putStrLn ("Hello " ++ name) 
+    putStrLn ("I like " ++ color ++ " too!")
+{------------------------------------------------------
+➜  IO git:(master) ✗ ghc promptInfo.hs
+[1 of 1] Compiling Main             ( promptInfo.hs, promptInfo.o )
+Linking promptInfo ...
+➜  IO git:(master) ✗ ./promptInfo   
+What is your name?
+EV
+What is your favorite color
+RED
+Hello EV
+I like RED too!
+----------------------------------------------------
+return (name, color) will always return (name, color). 
+
+
+-}--------------- RETURN FUNCTION2 -----------------
+main :: IO () 
+main = do 
+    line1 <- getLine 
+    line2 <- getLine 
+    putStrLn (line1 ++ " " ++ line2) 
+{---------------------------------------------------
+➜  IO git:(master) ✗ ghc returnLines2.hs
+[1 of 1] Compiling Main             ( returnLines2.hs, returnLines2.o )
+Linking returnLines2 ...
+➜  IO git:(master) ✗ ./returnLines2     
+Okay 
+Now What 
+Okay  Now What 
+  
