@@ -259,6 +259,45 @@ main = do
     return "halt!" 
     putStrLn "you can't stop me!" 
 
+{------------------------------------------------------
+in other languages it would be expected that the first return would mask the second
+but not here. 
+➜  IO git:(master) ./runningOnAndOn                          
+haha, still running
+you can't stop me!
 
+------------------------------------------------------}
+putStrLn :: String -> IO () 
+getLine :: IO String 
 
+print :: (Show a) => a -> IO () 
+-- prints string representation of a value; what's printed has to be in the Show type class. 
 
+readFile :: FilePath -> IO String 
+-- reads a file as a lazy string 
+-- the whole file doens't have to fit in memory because recursive calls to it will garbage collect away whatever has already been read. 
+
+writeFile :: FilePath -> String -> IO () 
+-- writes strings to a file. 
+appendFile :: FilePath -> String -> IO () 
+-- Appends to the end of a file 
+-- Prelude> :i FilePath 
+-- type FilePath = String 	-- Defined in `GHC.IO' 
+interact :: (String -> String) -> IO () 
+-- input of program goes to first String; the output goes to the second String. 
+
+------------------ interactWithMe ---------
+reverseLines :: String -> String 
+reverseLines input = 
+    unlines (map reverse (lines input))
+
+main :: IO () 
+main interact reverseLines 
+
+------------------------------------------
+-- USE AS LITTLE io AS POSSIBLE DON'T BE TEMPTED TO GO io CRAZY. 
+------------------------------------------
+encrypt :: Char -> Char 
+    | 'A' <= c && c < 'Z' = toEnum (fromEnum 'A' + 3) 
+    | c == 'Z' = 'A' 
+    | otherwise = c 
