@@ -1,4 +1,4 @@
--}------------- getLineTwice ----------------
+--------------- getLineTwice ----------------
 main :: IO () 
 main = do 
     line1 <- getLine 
