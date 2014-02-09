@@ -1,5 +1,5 @@
 module IoFeb08 where 
-{- 
+{- 55 days  
 : set lineBreak 
 : set spell 
 : set noSpell
@@ -250,5 +250,15 @@ main = do
     line2 <- getLine 
     let lines = line1 ++ " " ++ line2 
     putStrLn lines  
+
+-----------------runningOnAndOn--------------------------
+main :: IO () 
+main = do 
+    return 0 
+    putStrLn "haha, still running" 
+    return "halt!" 
+    putStrLn "you can't stop me!" 
+
+
 
 
