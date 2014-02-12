@@ -1,4 +1,5 @@
 import Control.Monad 
+import System.IO 
 --  the empty tuple, () 
 --  also know as unit, is an IO Action which includes a return value inside it, 
 --  if no actual return value then the empty () is returned. 
@@ -20,12 +21,13 @@ main = do
 -- getLine has a type of IO String, so name will have a type of String. 
 -- the only way to access data inside the bind is to use the <- construct. 
 --
+
 main = do   
-    line <- getLine  
-    if null line  
+    contents <- readFile "2_B_R_0_2_B.txt"   
+    if null contents  
         then return ()  
         else do  
-            putStrLn $ reverseWords line  
+            putStrLn $ reverseWords contents
             main  
   
 reverseWords :: String -> String  
