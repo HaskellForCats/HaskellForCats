@@ -1,17 +1,18 @@
 Haskell_For_Cats 
 CatchingUp with Us:
 
-We are currently on Chapters 4 and 5
+We are currently on Chapter 8
 
 Book is in More/File sec of the MeetUp site.
+
+We have also incorperated chapters 6, 7, 8, and 9 from: http://learnyouahaskell.com/chapters
 
 Please download and install the G.H.C. (Glasgow Haskell Compiler) which is part of: http://www.haskell.org/platform/
 
 For OSX-Maverick heres some special instructions, http://haskell-workshop.github.io/tutorials/osx/2013-10-23-mavericks-ghc.html
 
 here is the link to the Eriks video: https://channel9.msdn.com/Series/C9-Lectures-Erik-Meijer-Functional-Programming-Fundamentals/Lecture-Series-Erik-Meijer-Functional-Programming-Fundamentals-Chapter-1 
-we have done videos 1-3 already along with the corresponding chapters in the Book mentioned above. 
-the goal for Sunday Jan 5th is Chapter 4 & exersizes and getting through Chapter 5. 
+we have done up to video 7 already along with the corresponding chapters in the Book mentioned above. 
 
 
 
