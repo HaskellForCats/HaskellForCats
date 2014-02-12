@@ -33,4 +33,7 @@ main = do
 reverseWords :: String -> String  
 reverseWords = unwords . map reverse . words 
 
-
+-- tried these 
+-- putStrLn $ take 1000 (reverseWords contents)
+-- if "END" == contents 
+-- take 1000 $ contents <- readFile "2_B_R_0_2_B.txt" -- parse error
