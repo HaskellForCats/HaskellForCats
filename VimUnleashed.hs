@@ -1,6 +1,9 @@
 -- http://www.fprintf.net/vimCheatSheet.html
--- ~ -- AND VISUAL for toggling case  
--- -N  to use powerful extension VIM 
+-- cntrl Q -- select block area -- I -- Esc -- Gvim version 
+{- WHERE cntl-v is otherwise already used 
+ - cntrl V -- select block area -- I -- Esc -- vim -N version -}
+-- ~ -- in VISUAL for toggling case  
+-- -N  to use extension VIM 
 -- :set wrap
 -- :set linebreak
 -- : set expandtab ts=4 ruler number spell
