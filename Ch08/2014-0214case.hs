@@ -43,16 +43,27 @@ head [] = error "No option for empty lists"
 -- *Case> head []
 -- *** Exception: No option for empty lists 
 
-------------------------------
--- GOOD PATTERNS ARE ROBUST --
-------------------------------
+
+-- head and tail are fragile.  
 -- adding the type class post hoc is better than leaving it blank 
-double :: Num a => [a] -> [a] 
-double nums = 
-    if null nums 
-    then [] 
-    else (2 * (head nums)) : (double (tail nums))
+-- here's a design pattern where: 
+--        if x then y  else ourFunction that needs a front end filter. Which could also be accomplished with pattern matching   
+-- double :: Num a => [a] -> [a] 
+-- double nums = 
+--     if null nums 
+--     then [] 
+--     else (2 * (head nums)) : (double (tail nums))
 
 -- *Case> double [4,8..23]
 -- [8,16,24,32,40]
+
+-----------------------------------
+-- GOOD PATTERNS ARE MORE ROBUST --
+-----------------------------------
+
+double [] = [] 
+double (x:xs) = (2* x) : (double xs)
+-- *Case> double [4,8..23]
+-- [8,16,24,32,40]
+
 

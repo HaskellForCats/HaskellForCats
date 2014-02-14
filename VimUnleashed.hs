@@ -1,6 +1,6 @@
 -- http://www.fprintf.net/vimCheatSheet.html
--- cntrl Q -- select block area -- I -- Esc -- Gvim version 
-{- WHERE cntl-v is otherwise already used 
+-- cntrl Q -- select block area j -- down  -- I -- Esc -- Gvim version 
+{- WHERE cntl-v isn't otherwise used. 
  - cntrl V -- select block area -- I -- Esc -- vim -N version -}
 -- ~ -- in VISUAL for toggling case  
 -- -N  to use extension VIM 
