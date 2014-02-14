@@ -1,4 +1,4 @@
-module Case where 
+module Patterns where 
 import Prelude hiding (fst,null,head) 
 -- PATTERN MATCHING 
 
@@ -12,19 +12,19 @@ null (x:xs) = False -- anything that uses the cons operator will be automaticall
 
 head (x:xs) = x -- note! that we take the front of the cons  
 -- leave it blank 
--- *Case> head "hello" 
+-- ghci> head "hello" 
 -- 'h'
--- *Case> head [1]
+-- ghci> head [1]
 -- 1
--- *Case> head []
+-- ghci> head []
 -- *** Exception: 2014-0214case.hs:13:1-15: Non-exhaustive patterns in function head
 -- or we could try and give a message
--- *Case> :t head 
+-- ghci> :t head 
 -- head :: [[Char]] -> [Char]
 -- head [] = "CRASH" -- with out the error handler we end up Type restricted
--- *Case> head []
+-- ghci> head []
 -- "CRASH"
--- *Case> head [1]
+-- ghci> head [1]
 -- 
 -- <interactive>:3:7:
 --     No instance for (Num [Char]) arising from the literal `1'
@@ -35,12 +35,12 @@ head (x:xs) = x -- note! that we take the front of the cons
 -- head [] = 0
 -- could then try this definition 
 -- head [] = [] 
--- *Case> head []
+-- ghci> head []
 -- []
 -- the above works but it isn't in keeping with purity in head's original definition
 -- Lastly we could define an error exception 
 head [] = error "No option for empty lists" 
--- *Case> head []
+-- ghci> head []
 -- *** Exception: No option for empty lists 
 
 
@@ -54,7 +54,7 @@ head [] = error "No option for empty lists"
 --     then [] 
 --     else (2 * (head nums)) : (double (tail nums))
 
--- *Case> double [4,8..23]
+-- ghci> double [4,8..23]
 -- [8,16,24,32,40]
 
 -----------------------------------
@@ -63,7 +63,7 @@ head [] = error "No option for empty lists"
 
 double [] = [] 
 double (x:xs) = (2* x) : (double xs)
--- *Case> double [4,8..23]
+-- ghci> double [4,8..23]
 -- [8,16,24,32,40]
 
 
