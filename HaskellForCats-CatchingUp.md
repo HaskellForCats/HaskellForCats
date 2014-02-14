@@ -1,4 +1,4 @@
-Haskell_For_Cats 
+
 CatchingUp with Us:
 
 We are currently on Chapter 8
