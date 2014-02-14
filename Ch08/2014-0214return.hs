@@ -1,4 +1,9 @@
 module Ch08.Return where 
+-- 61 days 
+-- *Ch08.Return> :{
+-- *Ch08.Return| print "Hello" 
+-- *Ch08.Return| :}
+"Hello"
 import Prelude hiding (maximum) 
 -- import Mod hiding (x,y)
 -- : syntax enable  --  :set linebreak expandtab ruler 
@@ -13,4 +18,4 @@ maximum list = 	let h = head list
 				,if h < t_min then h else t_min ) 
 				where 	t = maximum (tail list) 
 					t_max = fst t 
-					t_min = snd t  
+					t_min = snd t 
