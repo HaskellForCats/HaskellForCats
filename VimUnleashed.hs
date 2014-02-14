@@ -6,7 +6,9 @@
 -- -N  to use extension VIM 
 -- :set wrap
 -- :set linebreak
--- : set expandtab ts=4 ruler number spell
+-- : set expandtab ts=4 ruler number spell 
+-- :retab -- sets all tabs to current
+-- :set shiftwidth=4
 -- :syntax enable
 -- :set syntax=Haskell 
 -- :set hidden
