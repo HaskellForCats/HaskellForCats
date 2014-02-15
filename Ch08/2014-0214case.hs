@@ -26,4 +26,14 @@ anyEven nums  = case (removeOdd nums) of -- if we remove all the odd numbers
 -- NO GUARDS ALLOWED IN CASE EXPRESSIONS !!!
 -- use an if expression to cover for no guards 
 -- ---------------------------------------------
-
+-- case expression of  pattern -> result 
+--                     pattern -> result
+--                     pattern -> result
+--                     ... 
+describeList xs = "The list is " ++ case xs of []   -> "empty" 
+                                               [x]  -> "a singleton list." 
+                                               xs   -> "a longer list" 
+describelist xs = "The list is " ++ what xs 
+    where what [] = "empty. " 
+          what [x] = "a singleton list. "
+          what xs = "a longer list."     
