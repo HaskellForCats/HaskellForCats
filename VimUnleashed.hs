@@ -25,9 +25,11 @@
 -- cntrl Q -- select block area j -- down  -- I -- Esc -- Gvim version 
 {- WHERE cntl-v isn't otherwise used. 
  - cntrl V -- select block area -- I -- Esc -- vim -N version -}
--- ~ -- in VISUAL for toggling case  
+-- ~  in VISUAL for toggling case  
 -- -N  to use extension VIM 
 -------------------------------
+-- :set hlsearch -- highlights what was searched for 
+-- :set incsearch -- for hightlighting while you type.
 -- :set wrap
 -- :set linebreak
 -- : set expandtab ts=4 ruler number spell 
@@ -73,11 +75,7 @@
 -- r9 -- will replace the very next character with a 9.
 -- n -- search foward again 
 -- N -- search backward
--- :set hlsearch -- highlights what was searched for 
--- :set incsearch -- for hightlighting while you type.
-
 -------------------------------
-
 -- :%s/2\.2\.8/2.2.9/gc
 	-- :%s/search/replace/gc  
 	-- : -- is the start of the command 
@@ -85,15 +83,14 @@
 	-- g -- Search for all occurances 
 	-- c -- ask for comfirmation of each match 
 	-- . -- note that the . means all characters 
-
 -------------------------------
 -- V -- for visual mode -- takes a whole line 
 	-- which can then be 
--- y -- yank - to copy
+-- y -- yank / copy
 -- d -- deletes the visual contents 
 -- v -- character Visual mode -- selecting characters.  
 -- c -- deletes block and enters insert mode.
+---------------------------------
 -- / -- for -- /searchterm -- for adding a search term to highlight
-
 -- . -- would repete the action 
 

@@ -1,7 +1,8 @@
 module QA where 
--- head and tail are fragile!
+-- Are head and tail too fragile to be relied on?
 -- why couldn't we use this? 
--- If head and tail are spare an empty list by the "if" and "then" are they not always safe in this function.   
+-- If head and tail are separated from an empty list by the "if" and "then" 
+-- are they not safe in this function.   
 
 -- double :: Num a => [a] -> [a] 
 -- double nums = 
