@@ -1,0 +1,46 @@
+git init 
+	for a new repo 
+
+git status 
+
+
+git add filename 
+
+	-- OR -- 
+
+git add . 
+	for most everything just not deletes
+
+git add -A
+	for everything  
+
+git add -u
+	for updates 
+
+git commit -m "your message" 
+
+git log 
+	lists commits in order most recent first.
+
+git diff HEAD~1..HEAD~3 
+	gets last three differences in files 
+
+git checkout filename 
+	think chuckout 
+
+git reset --hard 
+	throws out all recent changes that are live
+
+git reset --soft HEAD~1
+	takes us back one whole commit 
+	to re-edited and re-committed etc. 
+
+git reset --hard HEAD~1
+	takes us back one whole commit 
+	with NO! re-edited and re-committed.
+
+
+
+	
+
+
