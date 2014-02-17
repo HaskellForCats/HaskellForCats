@@ -1,4 +1,3 @@
-
 CatchingUp with Us:
 
 We are currently on Chapter 8
