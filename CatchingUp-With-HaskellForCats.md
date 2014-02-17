@@ -11,7 +11,7 @@ Please download and install the G.H.C. (Glasgow Haskell Compiler) which is part 
 For OSX-Maverick heres some special instructions, http://haskell-workshop.github.io/tutorials/osx/2013-10-23-mavericks-ghc.html
 
 here is the link to the Eriks video: https://channel9.msdn.com/Series/C9-Lectures-Erik-Meijer-Functional-Programming-Fundamentals/Lecture-Series-Erik-Meijer-Functional-Programming-Fundamentals-Chapter-1 
-we have done up to video 7 already along with the corresponding chapters in the Book mentioned above. 
+we have done up to video 8 already along with the corresponding chapters in the Book mentioned above. 
 
 
 
