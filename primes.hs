@@ -23,3 +23,5 @@ primeTest n     = zip (odds n) [prime x | x <- odds n]
 
 
 
+
+
