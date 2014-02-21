@@ -58,8 +58,13 @@ String--->|		|---------> Tree
 
 alas this is not very combinatory! 
 
--------------------------------            
+because parsers don't always consume all of what they are given 
+type Parser = String -> Tree
+-------------------------------
+we can do better.            
 -} 
+type Parser = String -> [(Tree,String)]
+
 
 
 
