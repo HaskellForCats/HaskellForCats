@@ -45,7 +45,7 @@ import Prelude hiding (return,Bool,True,False)
 -- firefox      parses      html
 -- ----------------------------------------------- 
 -- 
--- html is considered hard to parse
+-- html is considered some what hard to parse
 -- all programs are parsing in some way 
 -- and because we are a using a functional language, no surprise, our parser will be a function.
 -- --------------------------------------------
@@ -59,8 +59,11 @@ String ---> |                | --------> Tree
 
 alas this is not very combinatory! 
 
-because parsers don't always consume all of what they are given 
-type Parser = String -> Tree
+-------------------------------
+because parser doesn't  always consume 
+all of what it is given
+we need to do something with the remaining. 
+-- type Parser = String -> Tree
 -------------------------------
 we can do better.            
  
