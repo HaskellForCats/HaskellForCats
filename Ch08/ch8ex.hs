@@ -45,7 +45,7 @@ import Data.Char
 -- ----------------------------------------------- 
 -- 
 -- html is considered hard to parse
--- all progs are parsing in some way 
+-- all programs are parsing in some way 
 -- and because we are a using a functional language, no surprise, our parser will be a function.
 -- --------------------------------------------
 -- Parser is a function that takes Strings and returns Trees.
@@ -69,7 +69,30 @@ type Parser = String -> [(Tree,String)]
 
 
 -- defining an optional value 
-data Maybe a    = Nothing  []
-                |Just a 
+-- because Maybe a is something like [a] 
+data Maybe a    = Nothing  [] 	-- we could map this to []
+                |Just a 	-- we could map Just to the [a] singleton list
+				-- -------------------------(a:[])
+				-- we could keep things more basic this way; 
+				-- all the functions of lists are then available to us;
+				-- otherwise we would have to pattern match 
+				-- all the elements that we need 
+				-- to do any useful operations on lists. 
 
+----------------------------------
+-- REMEMBER ALGEBRAIC DATA TYPES
+----------------------------------
+-- Taking something we've seen before
+-- Bool only has two constructors False and True. 
+-- this is taken right from the Haskell source code
+
+
+data {-# CTYPE "HsBool" #-} Bool = False | True
+
+-- negate gets defined as --  
+negate :: Bool -> Bool 
+negate True  = False 
+negate False = True 
+-- and on and on we would have to go to define the rest of what we need. 
+--------------------------------------
 
