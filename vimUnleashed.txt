@@ -1,6 +1,11 @@
 		http://www.fprintf.net/vimCheatSheet.html
-		D --	Delete the characters under the cursor until the end of the line
+
+edit	D --	Delete the characters under the cursor until the end of the line
 		CTRL-R -- for redo
+
+		
+diff	vimdiff file1 file2 [file3 [file4]]
+		
 		----------------------------
 SEARCHING 	SEARCHING BY WORD OR PATTERN
 		----------------------------
