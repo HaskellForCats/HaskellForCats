@@ -2,12 +2,12 @@
 module Ch8ex where 
 -- : set expandtab ts=4 ruler number spell
 -- enable syntax 
-import Data.Tree
 import Test.QuickCheck 
 -- import Data.List 
 import  qualified Data.Attoparsec.ByteString.Char8 as A -- for isDigit 
 import Data.Char 
 import Prelude hiding (Bool,True,False) 
+-- import Data.Tree
 
 -----------------------------------------------------
 -- 6:07 -- 	-- PAPERS --
