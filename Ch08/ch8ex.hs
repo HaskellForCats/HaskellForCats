@@ -160,9 +160,43 @@ parse p inp = p inp     -- this function is sort of unnessary because all we get
 
 -- Sequencing 
 -- a sequence of parsers can be combined as a single composite parser using the keyword do. 
+-- remember list comprehensions, <- [1..] these were genrators 
+-- in the do block we draw from item; p = do x <- item  
+-- item has type Parser and x will have type a.    
 -- p :: Parser (Char,Char) 
-p = do x <- item        -- remember list comprehensions, <- [1..] these were genrators 
-       item
+
+p = do x <- item        
+       item          --  no return here so we use empty space or _ 
        y <- item 
        return (x,y) 
+
+
+p' = do { x <- item        
+        ; _ <- item -- we arn't returning this one so we could use _ or empty space or ...
+        ; y <- item 
+        ; return (x,y) 
+        }
+-- value returned by the last parser is the value returned by the sequence as a whole. 
+{-
+*Parsing> :t p
+p :: [t] -> [(([(t, [t])], [(t, [t])]), [t])]
+*Parsing> :t p'
+p' :: [t] -> [(([(t, [t])], [(t, [t])]), [t])]
+
+*Parsing> parse p "abcdef"
+Loading package array-0.4.0.1 ... linking ... done.
+Loading package deepseq-1.3.0.1 ... linking ... done.
+Loading package bytestring-0.10.0.2 ... linking ... done.
+Loading package text-0.11.3.1 ... linking ... done.
+Loading package old-locale-1.0.0.5 ... linking ... done.
+Loading package time-1.4.0.1 ... linking ... done.
+Loading package random-1.0.1.1 ... linking ... done.
+Loading package containers-0.5.0.0 ... linking ... done.
+Loading package attoparsec-0.10.4.0 ... linking ... done.
+Loading package pretty-1.1.1.0 ... linking ... done.
+Loading package template-haskell ... linking ... done.
+Loading package QuickCheck-2.6 ... linking ... done.
+[(([('a',"bcdef")],[('a',"bcdef")]),"abcdef")]
+-}
+
 -- (>>=) our bind operator 
