@@ -6,7 +6,7 @@ import Test.QuickCheck
 -- import Data.List 
 import  qualified Data.Attoparsec.ByteString.Char8 as A -- for isDigit 
 import Data.Char 
-import Prelude hiding (Bool,True,False) 
+import Prelude hiding (return,Bool,True,False) 
 -- import Data.Tree
 
 -----------------------------------------------------
@@ -98,11 +98,29 @@ negate False = True
 --------------------------------------
 -- 16:03 ------}
 
--- for simplicity we will only consider parsers that either fail and return empty list or succeed and return a singleton list. 
+-- for simplicity we will only consider parsers that either fails and return empty list or succeeds and returns a singleton list.
+-- in this list of tuples [(a,String)] a will be the value, and String will be the remainder 
 type Parser a = String -> [(a,String)] 
 
-item :: Parser Char 
+failure :: t -> [a]     -- Defined at ch8ex.hs
+failure = \inp -> [] 
+return :: t -> t1 -> [(t, t1)]  -- Defined at ch8ex.hs
+return v = \imp -> [(v, imp)]
+
+item :: [a] -> [[a]]     -- Defined at ch8ex.hs
 item = \inp -> case inp of 
                 []      -> []
                 (x:xs)  -> [(x:xs)]
 -- item fails if input is empty, otherwise it consumes the first character                
+
+-- parse applies a parser to a string 
+parse :: (t1 -> t) -> t1 -> t    -- Defined at ch8ex.hs
+parse p inp = p inp
+
+-- p +++ q  this parser has two behaviors 
+-- p when it succeeds 
+-- q when it doesn't 
+(+++) :: (t -> [(t1, t2)]) -> (t -> [(t1, t2)]) -> t -> [(t1, t2)] -- Defined at ch8ex.hs
+p +++ q = \inp -> case p inp of 
+                    []          -> parse q inp
+                    [(v,out)]   -> [(v,out)] 
