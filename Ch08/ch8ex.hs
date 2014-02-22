@@ -10,7 +10,7 @@ import Prelude hiding (Bool,True,False)
 -- import Data.Tree
 
 -----------------------------------------------------
--- 6:07 -- 	-- PAPERS --
+-- 6:07 --  -- PAPERS --
 ----------------------------------
 -----------------------------------------------------
 --  CHAPTER 8 PARSER AS SPECIAL CASE MONAD!
@@ -38,11 +38,11 @@ import Prelude hiding (Bool,True,False)
 
 -- NOTE! PREPROCESSING IS EVERYWHERE 
 -- -------------------------------------------------
--- ghc 		parses 		haskell src code
+-- ghc      parses      haskell src code
 -- ------------------------------------------------
--- linux/bash 	parses 		shell scripts 
+-- linux/bash   parses      shell scripts 
 -- ------------------------------------------------
--- firefox		parses 		html
+-- firefox      parses      html
 -- ----------------------------------------------- 
 -- 
 -- html is considered hard to parse
@@ -52,10 +52,10 @@ import Prelude hiding (Bool,True,False)
 -- Parser is a function that takes Strings and returns Trees.
 {-   
 type Parser = String -> Tree
-	  ______________
-	  |		|
-String--->|		|---------> Tree
-	  |_____________|
+             ________________
+            |                |
+String ---> |                | --------> Tree
+            |________________|
 
 alas this is not very combinatory! 
 
@@ -63,7 +63,7 @@ because parsers don't always consume all of what they are given
 type Parser = String -> Tree
 -------------------------------
 we can do better.            
--} 
+ 
 -- type Parser = String -> [(Tree,String)]
 
 
@@ -71,14 +71,14 @@ we can do better.
 
 -- defining an optional value 
 -- because Maybe a is something like [a] 
-data Maybe a    = Nothing   	-- we could map this to []
-                |Just a 	-- we could map Just to the [a] singleton list
-				-- -------------------------(a:[])
-				-- we could keep things more basic this way; 
-				-- all the functions of lists are then available to us;
-				-- otherwise we would have to pattern match 
-				-- all the elements that we need 
-				-- to do any useful operations on lists. 
+data Maybe a    = Nothing       -- we could map this to []
+                |Just a         -- we could map Just to the [a] singleton list
+                                -- -------------------------(a:[])
+                                -- we could keep things more basic this way; 
+                                -- all the functions of lists are then available to us;
+                                -- otherwise we would have to pattern match 
+                                -- all the elements that we need 
+                                -- to do any useful operations on lists. 
 
 ----------------------------------
 -- REMEMBER ALGEBRAIC DATA TYPES
@@ -87,13 +87,22 @@ data Maybe a    = Nothing   	-- we could map this to []
 -- Bool only has two constructors False and True. 
 -- this is taken right from the Haskell source code
 
-
-data {-# CTYPE "HsBool" #-} Bool = False | True
+data  Bool = False | True
 
 -- negate gets defined as --  
 negate :: Bool -> Bool 
 negate True  = False 
 negate False = True 
 -- and on and on we would have to go to define the rest of what we need. 
+-- this is what we would have to do for Maybe a's properties.
 --------------------------------------
+-- 16:03 ------}
 
+-- for simplicity we will only consider parsers that either fail and return empty list or succeed and return a singleton list. 
+type Parser a = String -> [(a,String)] 
+
+item :: Parser Char 
+item = \inp -> case inp of 
+                []      -> []
+                (x:xs)  -> [(x:xs)]
+-- item fails if input is empty, otherwise it consumes the first character                
