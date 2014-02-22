@@ -2,11 +2,12 @@
 module Ch8ex where 
 -- : set expandtab ts=4 ruler number spell
 -- enable syntax 
--- 
+import Data.Tree
 import Test.QuickCheck 
 -- import Data.List 
 import  qualified Data.Attoparsec.ByteString.Char8 as A -- for isDigit 
 import Data.Char 
+import Prelude hiding (Bool,True,False) 
 
 -----------------------------------------------------
 -- 6:07 -- 	-- PAPERS --
@@ -63,14 +64,14 @@ type Parser = String -> Tree
 -------------------------------
 we can do better.            
 -} 
-type Parser = String -> [(Tree,String)]
+-- type Parser = String -> [(Tree,String)]
 
 
 
 
 -- defining an optional value 
 -- because Maybe a is something like [a] 
-data Maybe a    = Nothing  [] 	-- we could map this to []
+data Maybe a    = Nothing   	-- we could map this to []
                 |Just a 	-- we could map Just to the [a] singleton list
 				-- -------------------------(a:[])
 				-- we could keep things more basic this way; 
