@@ -1,13 +1,13 @@
 {-# LANGUAGE NPlusKPatterns #-}
-module Ch8ex where 
+module Parsing where 
 -- : set expandtab ts=4 ruler number spell
 -- enable syntax 
-import Test.QuickCheck 
 -- import Data.List 
+-- import Data.Tree
+import Test.QuickCheck 
 import  qualified Data.Attoparsec.ByteString.Char8 as A -- for isDigit 
 import Data.Char 
 import Prelude hiding (return,Bool,True,False) 
--- import Data.Tree
 
 -----------------------------------------------------
 -- 6:07 --  -- PAPERS --
@@ -101,26 +101,68 @@ negate False = True
 -- for simplicity we will only consider parsers that either fails and return empty list or succeeds and returns a singleton list.
 -- in this list of tuples [(a,String)] a will be the value, and String will be the remainder 
 type Parser a = String -> [(a,String)] 
-
 failure :: t -> [a]     -- Defined at ch8ex.hs
 failure = \inp -> [] 
-return :: t -> t1 -> [(t, t1)]  -- Defined at ch8ex.hs
-return v = \imp -> [(v, imp)]
 
-item :: [a] -> [[a]]     -- Defined at ch8ex.hs
+-- return v = \imp -> [(v, imp)] -- this compiled but was flawed 
+return :: t -> t1 -> [(t, t1)]  -- Defined at ch8ex.hs
+return v = \inp -> [(v, inp)]
+
+item :: [t] -> [(t, [t])]   -- Defined at ch8ex.hs
 item = \inp -> case inp of 
-                []      -> []
-                (x:xs)  -> [(x:xs)]
+                    []      -> []
+                    (x:xs)  -> [(x,xs)] 
+
+-- getting this wrong with a : instead of a , (x:xs)  -> [(x:xs)]
 -- item fails if input is empty, otherwise it consumes the first character                
 
--- parse applies a parser to a string 
-parse :: (t1 -> t) -> t1 -> t    -- Defined at ch8ex.hs
-parse p inp = p inp
-
--- p +++ q  this parser has two behaviors 
+-- (+++) is an infix operator that has two behaviors p and q  
 -- p when it succeeds 
 -- q when it doesn't 
+-- this combinator behaves like "choice"
 (+++) :: (t -> [(t1, t2)]) -> (t -> [(t1, t2)]) -> t -> [(t1, t2)] -- Defined at ch8ex.hs
-p +++ q = \inp -> case p inp of 
-                    []          -> parse q inp
-                    [(v,out)]   -> [(v,out)] 
+p +++ q = \inp -> case parse p inp of 
+                       []          -> parse q inp  -- failure returns empty list 
+                       [(v,out)]   -> [(v,out)]    -- success is getting v and  
+
+-- like a recursive decent parser but as a case 
+-- note!! :t out --  is not in scope cause it's within the case body. 
+
+-- parse applies a parser to a string 
+-- parse :: (t1 -> t) -> t1 -> t    -- Defined at ch8ex.hs
+parse p inp = p inp     -- this function is sort of unnessary because all we get from it is the identity function but it has the value of making the type conversion explicit.  
+ 
+{- -- some console expamples -- 
+
+*Parsing> parse item ""
+[]
+
+*Parsing> parse item "abc"
+[('a',"bc")]
+   
+*Parsing> parse failure "abc"
+[]
+
+*Parsing> parse (return 1)  "abc"
+[(1,"abc")]
+
+*Parsing> parse (item +++ return 'd') "abc"
+[('a',"bc")]
+
+*Parsing> parse (failure +++ return 'd') "abc"
+[('d',"abc")]
+
+-} 
+
+-- monad 
+-- M a  -- M is the computation (process) that delivers a to us.
+-- the monad's type abstracts away the internals  
+
+-- Sequencing 
+-- a sequence of parsers can be combined as a single composite parser using the keyword do. 
+-- p :: Parser (Char,Char) 
+p = do x <- item        -- remember list comprehensions, <- [1..] these were genrators 
+       item
+       y <- item 
+       return (x,y) 
+-- (>>=) our bind operator 
