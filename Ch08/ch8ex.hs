@@ -2,7 +2,7 @@
 module Parsing where 
 -- : set expandtab ts=4 ruler number linebreak        
 -- : set spell 
--- enable syntax 
+-- syntax enable 
 -- retab
 -- import Data.List 
 -- import Data.Tree
@@ -242,5 +242,54 @@ digit = sat  -- isDigit
 --
 -- so do I need to add an instance of some sort? 
 -- expected type [(t0, [t0])] seems like a reasonable expectation 
---
--- 
+-- char :: Eq t => [(t, [t])] -> [t] -> [([(t, [t])], [t])]
+char x = sat (x ==) 
+
+{-
+many p  = many1 p +++ return [] 
+many1 p = do    v   <- p 
+                vs  <- many p 
+                return (v:vs)
+-}
+string :: Eq t => [[(t, [t])]] -> [t] -> [([[(t, [t])]], [t])]
+string []       = return [] 
+string (x:xs)   = do    char x 
+                        string xs 
+                        return (x:xs) 
+
+{-
+p1 = do  char '[' 
+        d   <- digit 
+        ds  <- many (do char ',' digit) 
+        char ']' 
+        return (d:ds)  
+-- praser that does simple math 
+--------- BNF ------------------
+expr    -> term '+' expr | term 
+term    -> factor '*' term | factor 
+fator   -> digit | '(' expr ')'
+digit   -> '0'  |   '1' | ...| '9'
+-------------------------------
+expr -> term ('+' expr | "")
+term -> factor ('*' term | "") 
+-----------------------------
+-} 
+------- code for BNF -------- 
+expr = do t <- term 
+          do char '+' 
+             e <- expr 
+             return (t + e) 
+          +++ return t 
+
+term = do f <- factor 
+          do char '*' 
+             t <- term 
+             return (f * t) 
+          +++ return f 
+
+factor = do d <- digit 
+            return (digitToInt d) 
+         +++ do char '(' 
+                e <- expr 
+                char ')'
+                return e 
