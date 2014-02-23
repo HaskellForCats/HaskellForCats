@@ -1,14 +1,16 @@
 {-# LANGUAGE NPlusKPatterns #-}
 module Parsing where 
--- : set expandtab ts=4 ruler number spell
+-- : set expandtab ts=4 ruler number linebreak        
+-- : set spell 
 -- enable syntax 
+-- retab
 -- import Data.List 
 -- import Data.Tree
-import Test.QuickCheck 
-import  qualified Data.Attoparsec.ByteString.Char8 as A -- for isDigit 
-import Data.Char 
+-- import Test.QuickCheck 
+-- import  qualified Data.Attoparsec.ByteString.Char8 as A -- for isDigit 
+-- import GHC.Unicode hiding (isDigit)
+import Data.Char -- hiding (isDigit)  
 import Prelude hiding (return,Bool,True,False) 
-
 -----------------------------------------------------
 -- 6:07 --  -- PAPERS --
 ----------------------------------
@@ -133,9 +135,9 @@ p +++ q = \inp -> case parse p inp of
 
 -- parse applies a parser to a string 
 -- parse :: (t1 -> t) -> t1 -> t    -- Defined at ch8ex.hs
-parse p inp = p inp     -- this function is sort of unnessary because all we get from it is the identity function but it has the value of making the type conversion explicit.  
+parse p inp = p inp     -- this function is sort of unnecessary because all we get from it is the identity function but it has the value of making the type conversion explicit.  
  
-{- -- some console expamples -- 
+{- -- some console examples -- 
 
 *Parsing> parse item ""
 []
@@ -163,22 +165,32 @@ parse p inp = p inp     -- this function is sort of unnessary because all we get
 
 -- Sequencing 
 -- a sequence of parsers can be combined as a single composite parser using the keyword do. 
--- remember list comprehensions, <- [1..] these were genrators 
+-- remember list comprehensions, <- [1..] these were generators 
 -- in the do block we draw from item; p = do x <- item  
 -- item has type Parser and x will have type a.    
 -- p :: Parser (Char,Char) 
-
 p = do x <- item        
-       item          --  no return here so we use empty space or _ 
+       item          -- | no return here so we use empty space or _ 
        y <- item 
        return (x,y) 
 
 
+
+
+{- 
+ghc makes this suggestion: 
+   do { x <- item;
+        item;
+        y <- item;
+        return (x, y) }
+
+
 p' = do { x <- item        
-        ; _ <- item -- we arn't returning this one so we could use _ or empty space or ...
+        ; _ <- item -- we aren't returning this one so we could use _ or empty space or ...
         ; y <- item 
         ; return (x,y) 
         }
+-}
 -- value returned by the last parser is the value returned by the sequence as a whole. 
 {-
 *Parsing> :t p
@@ -202,5 +214,33 @@ Loading package QuickCheck-2.6 ... linking ... done.
 [(([('a',"bcdef")],[('a',"bcdef")]),"abcdef")]
 -}
 
--- (>>=) our bind operator 
-sat p = do x <- item  
+-- (>>=) our bind operator
+
+-- sat :: ([(t, [t])] -> GHC.Types.Bool) -> [t] -> [([(t, [t])], [t])] 
+sat p = do  x <- item 
+            if      p x  
+            then    return x 
+            else    failure 
+
+
+-- digit ::
+--   ([(t, [t])] -> GHC.Types.Bool) -> [t] -> [([(t, [t])], [t])]
+digit = sat  -- isDigit
+-- why is this thing choking on isDigit?  
+-- is it where isDigit is coming from? 
+-- what if I use the Hutton's version 
+-- isDigit c = c >= '0' || c<='9'  
+-- isDigit :: Char -> GHC.Types.Bool       -- Defined in `GHC.Unicode'
+-- did all that hiding to end up with the same I started with error
+-- ch8ex.hs:225:14:
+--  Couldn't match type `Char' with `[(t0, [t0])]'
+--   Expected type: [(t0, [t0])] -> GHC.Types.Bool
+--      Actual type: Char -> GHC.Types.Bool
+--       In the first argument of `sat', namely `isDigit'
+--        In the expression: sat isDigit
+--         In an equation for `digit': digit = sat isDigit 
+--
+-- so do I need to add an instance of some sort? 
+-- expected type [(t0, [t0])] seems like a reasonable expectation 
+--
+-- 
