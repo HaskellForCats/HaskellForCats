@@ -301,7 +301,12 @@ factor = do d <- digit
 eval xs = fst (head (parse expr xs))
 
 ------------------------------------
--- according to Erik 
--- monads are hiding their gory details in their operators 
+-- ACCORDING TO ERIK 
+-- monads are just a computation of a certain value (Parser a)  hiding, its gory details behind a monad operator
+-- like these  
+-- (>>=)
+-- (+++) 
+-- return 
+-----------------------------------
 
 -}
