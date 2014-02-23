@@ -177,14 +177,14 @@ p = do x <- item
 
 
 
-{- 
-ghc makes this suggestion: 
+{-  
+ghc makes this suggestion for notation.
    do { x <- item;
         item;
         y <- item;
         return (x, y) }
 
-
+Erik loves this notation
 p' = do { x <- item        
         ; _ <- item -- we aren't returning this one so we could use _ or empty space or ...
         ; y <- item 
@@ -272,14 +272,18 @@ digit   -> '0'  |   '1' | ...| '9'
 -------------------------------
 expr -> term ('+' expr | "")
 term -> factor ('*' term | "") 
------------------------------
+----------------------------------
+----http://gbracha.blogspot.com/-- 
+----------------------------------
 -} 
 ------- code for BNF -------- 
+{-
 expr = do t <- term 
           do char '+' 
              e <- expr 
              return (t + e) 
           +++ return t 
+
 
 term = do f <- factor 
           do char '*' 
@@ -293,3 +297,11 @@ factor = do d <- digit
                 e <- expr 
                 char ')'
                 return e 
+
+eval xs = fst (head (parse expr xs))
+
+------------------------------------
+-- according to Erik 
+-- monads are hiding their gory details in their operators 
+
+-}
