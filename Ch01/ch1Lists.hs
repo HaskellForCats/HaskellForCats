@@ -1,6 +1,9 @@
 module Ch1Lists where 
 import Data.Char
 import Test.QuickCheck 
+
+-- keywords -- list-comprehension -- arrays -- guards -- quickCheck -- associativity  
+
 -- Lists are the primary data structure in LISP like languages.
 -- Where as Arrays are the primary data collection in C derived languages like Java.
 
@@ -49,8 +52,8 @@ f6 = factorial 4
 When you encounter a function you can politely ask
 Are you Associative?
 What is you identity element? 
-For + and - it will be 0 
-For * and / it will be 1
+with + and - it will be 0 
+with * and / it will be 1
 for [] it my be 1 or 0 
 [1..n] a list from 1 to whatever n is 
     eager oop languages would hate this notation 
