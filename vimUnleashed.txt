@@ -27,6 +27,8 @@ SEARCHING 	SEARCHING BY WORD OR PATTERN
 			. -- note that the . means all characters 
 
 		-------------------------------
+		:g/pat1/s//pat2/g replace every occurrence of pattern1 (pat1) with :pat2
+		-------------------------------
 		V -- for visual mode -- takes a whole line 
 		     -- which can then be 
 		y -- yank - to copy
