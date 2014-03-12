@@ -1,0 +1,185 @@
+Cat Theory 
+Tom LaGatta
+---------------------------
+MathOverflow
+
+NLAB  category --- nPOV n-categories  
+
+Mackane categories for the working math
+
+Lawvere and schanuel conceptual math
+
+spivak cat theory for scientists 
+
+---------------------------
+note Brian Beckman on monads 
+
+-------------------------
+
+A category consists of a collection of objects together with morphisms between these objects. Thus, naively, we may think of objects as the ‘elements’ of a category.
+
+A category C consists of
+a collection  C0 of objects;
+a collection C1 of morphisms (or arrows);
+two functions s,t:C1→C0 which assign, to every morphism, its source (or domain) and target (or codomain);
+
+obj vs categories
+a certain type of abstract thinking 
+may not solve all  
+but will show you where they aren't 
+what is precision and isn't trivial 
+A category  is a Math object
+objects / collections 
+morphisms arrows between obj preserving 
+structure preserving maps between objects 
+Structure 
+provided by the category itself 
+
+Every Morph 
+has a source or target object 
+Every object has an identity morph 
+
+Associative 
+
+morphisms are closed under composition
+source and category agree 
+morphisms 
+relates to category otherwise it makes no sense independently 
+
+.->.->. 
+
+Category 
+a unifying language 
+half of all mathematicians know it 
+Analytics vs algebra is the math divide 
+
+Cat theory 70 years 
+much syntactic sugar has sprung up 
+
+C = set, category of sets 
+objects and morphism go in. 
+objects ~= sets
+morphism ~= on sets 
+source and target 
+mapping with composition 
+structure, membership
+cardinality -- their size 
+Cantor -- sets have cardinality but are maximally unstructured 
+sets are kind of baggage free 
+sets collections /= unique 
+types structure set to set mapping 
+
+C = MAN -- category of manifolds 
+objects smooth manifolds -- geometrically speaking  
+atlases 
+morph smooth maps 
+structure gives us calculus   
+cat theory glue maps together to make manifolds 
+
+C  =  vect / R  Cat of finite dim vect spaces
+object  =  finite dimentional vect over R 
+spaces 
+morphims linear transformations / maps 
+Structure linearity 
+
+C = Topological Vect/r  sp 
+comes with the necessary data  
+topological vector spaces 
+shape of spaces 
+types of flatness 
+notions of convergences 
+holes 
+continuous linear maps
+linear and topological  		
+
+C = Hil-bert Spaces	
+objects are Hil spaces 
+morphs unitary maps 
+length and angle 
+
+foundations may or may not matter 
+
+C = Haskell, 
+  Hask
+  Cat of Haskell types 
+  types and how they fit together whether it is foundationally relevant 
+  H.O.T.T. 
+  obj are Haskell types 
+  morph are Haskell functions 
+  types ~= spaces ~= types
+  struct cart closed -- seeley 
+  subcategories 		
+  homotopic  Types  
+  structural identity 	
+
+  C = Clojure types 
+  one type: T :: T -> T
+  types appear on the right not on the left 
+  one object and maps back to that object 
+  this a picture of dynamic typing. 
+  on the right is the instance object which can make type constraints 
+
+  C = category of categories 
+  Objects are categories 
+  morphisms are functors 	
+  a structure preserving map between categories 
+  objects -> objects  -- you can throw objects away via the identity morphism 
+  morphisms -> morphisms 
+  in a way that preserves compositions 
+  source and target alignment 
+  functors 		
+  identity 
+  . -- . 
+  differential equations maps to identifiers 
+
+  is there a pragmatic value of seeing diagrams as mathematical constructs as a category 
+  every 
+  cat -> diagram -> to category 
+
+  Category theory is a LINGUA FRANCA 
+  Between disciplines 
+  formalizes structure 
+  precision 
+  properties 
+  Natural
+  canonical 
+  universal 
+  semantics 
+  syntax 
+
+
+  2 category 
+  objects 
+  morphisms of morphisms  
+
+  3 category 
+  objects 
+  morphisms 
+  2 morph 
+  3 morph 
+  --------------------------------------
+  topology as more acceptable than cat theory 
+
+  yoneda lemma 
+  deep and trivial 
+  "it's deep, shows up in a lot of spaces, a theorem in that context trivial to prove" 
+  conceptually we understand an obj by it's action on all other objects or we understand an object by all objects on it. 
+  like taking a program and providing a host of 
+
+  C = any (locally small) category 
+  C-op = opposite 
+  flip the morphisms 
+  functor (C-op, set) = category of functors C-op --> set 
+	objects: functors 
+morphisms: natural transformations (conjugations)  
+
+---------------------------------------------	
+database schema are categories 
+C = your db schema 
+objects are tables 
+graphs 
+morphisms are foreign keys 
+a filled in db is a functor 
+which goes from schema to sets 
+maps are functions between sets 
+	
