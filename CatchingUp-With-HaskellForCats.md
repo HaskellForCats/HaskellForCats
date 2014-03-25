@@ -1,8 +1,8 @@
 Catching Up with Us:
 
-We are currently on Chapter 9 in Hutton's book but for catchup purposes 
+We are currently on Chapter 9 in Hutton's book but for catchup purposes is in Book section is in More/File sec of the Meet-Up site.
 
-Book is in More/File sec of the Meet-Up site.
+However,
 "Learn You a Haskell for a Greater Good" might be a quicker study. 
 We have also incorporated chapters 6, 7, 8, and 9 from: http://learnyouahaskell.com/chapters
 
