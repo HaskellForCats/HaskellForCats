@@ -38,7 +38,7 @@ getLine = do x <- getChar
 putStr 		:: String -> IO ()
 putStr [] 	= return () 
 putStr (x:xs) 	= do 	putChar x 
-			putChar x -- with just x it compiles but wont compile  
+			putChar x -- with just x it compiles but wont compile with xs  
 
 putStrLn 	:: String -> IO () 
 putStrLn xs 	= do 	putStr xs 
