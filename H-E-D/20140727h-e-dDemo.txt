@@ -1,0 +1,57 @@
+HED editor as a project in Haskell 
+
+ed-like editor.   
+line-oriented editor, 
+don't need any fancy UI code.  
+I/O - functions you need to know are: 
+	getLine, 
+	putStrLn, 
+	readFile, and 
+	writeFile. 
+ 
+enough IO monad work to introduce IO monad 
++ do-notation,
+ 
+NOTE!: it's better than REST server- handling HTTP connections and parsing JSON objects is inherently complex, which means you have lots of API complexity to handwave around.
+
+readFile and writeFile allow you talk about lazy evaluation,  
+All of the rest of the code is stuff Haskell excels at- data structure manipulation.  
+Being able to separate out the data structure manipulation 
+	from the I/O allows you to unit test stuff, 
+	and introduce quickcheck.  
+
+You could even dabble with parallelism by implementing a global search and replace, and then parallelizing it.  
+
+-------------------------------------
+-- global-search -- ???
+character manipulation...
+reverse -- a -> a 
+lines -- String -> lists 
+unlines -- lists -> String
+pattern matching 
+monadic 
+do notation 
+lazy eval buffering under the hood
+case statement  
+-- variant types -- descriminated unions -- algebraic 
+-------------------------------------
+prelim  
+-- a as in undefined -- a mock -- error handling. 
+-- good IDE == Primative Language 
+-- lists and tuples 
+-- list comprehension
+-- type system -- 20 min 
+	Int 
+	Integer
+	Float 
+	types as shapes 
+	
+-- white space 
+-- guards 
+-- benchmaks mandle board
+-- scaling across multiple yale paper 
+-- Four Horsemen and the Multicore Universe  
+-- Full Time Idiots
+-- compiler error catching 
+-- null pointers --  
+
