@@ -28,12 +28,14 @@ What is it?
 
   Lazy (opposite of eager)
     nothing gets computed until it is called
+		less time leaks than ....
       and only so much as is needed
         save resources 
-        but can get space and time leaks
+        but can get space leaks
+		
     can tackle infinite data sets 
 
-  Statically typed ("strongly")
+  Statically typed ("strongly") no cheats
     stronger than: 
       C or C# or Java or C++ 
         weak static 
@@ -41,6 +43,12 @@ What is it?
  
     Haskell "feels" dynamic much of the time   
       because of type inference      
+
+-- Haskell lets you play with sharp objects and not cut yourself. 
+Video of knife game.
+three developers or more,  
+Static typing elimates a lot of idiot code. 
+
 -}    
 
 
