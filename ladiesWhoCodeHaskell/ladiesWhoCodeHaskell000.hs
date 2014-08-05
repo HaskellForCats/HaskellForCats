@@ -49,6 +49,11 @@ Video of knife game.
 three developers or more,  
 Static typing elimates a lot of idiot code. 
 
+
+
+
+Waston 
+Eriqa
 -}    
 
 
