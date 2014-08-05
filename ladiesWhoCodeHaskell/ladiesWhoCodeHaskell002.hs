@@ -71,9 +71,12 @@ True
 ghci> "hello" == "hello"  
 True   
 
+---------functions------
+-- functions are the work horse of Haskell
+
 ghci> succ 8  
 9   
-
+-- function with two arguments
 ghci> min 9 10  
 9  
 ghci> min 3.4 3.2  
@@ -82,20 +85,27 @@ ghci> max 100 101
 101  
 
 ---------------------------------
+-- unlike lisp 
+-- white space can stand in for parentheses 
+-- you can use them but they are often optional
 ghci> succ 9 + max 5 4 + 1  
 16  
 ghci> (succ 9) + (max 5 4) + 1  
 16  
 
 div 92 10 
-
+-- not apostrophies but back-ticks 
+-- just a way to do things in fix style
 92 `div` 10 
 ---------------------------------
 -}
----------------------------------
+---------Making-your-own-Functions---------------
+
 doubleMe x = x + x 
 
 
+-- conditionals 
+-- no dangling elses 
 doubleSmallNumber x = if x > 100  
                         then x  
                         else x*2
@@ -176,6 +186,7 @@ ghci> ['K'..'Z']
 ghci> [2,4..20]
 [2,4,6,8,10,12,14,16,18,20]
 
+-- Floating Point weirdness 
 ghci> [0.1, 0.3 .. 1]
 [0.1,0.3,0.5,0.7,0.8999999999999999,1.0999999999999999]
 
