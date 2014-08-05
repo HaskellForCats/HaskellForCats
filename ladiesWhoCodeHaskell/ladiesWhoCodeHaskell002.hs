@@ -104,12 +104,17 @@ div 92 10
 92 `div` 10 
 ---------------------------------
 -}
----------Making-your-own-Functions---------------
 
+---------Making-your-own-Functions------------------------
+
+-- note there are no parens, commas, braces, returns, blocks, etc.
 doubleMe x = x + x 
 
+-- to write this in the repl the "let" prefix is required.
+----------------------------------------------------------
 
--- conditionals 
+
+-- conditionals ---------------- 
 -- no dangling elses 
 doubleSmallNumber x = if x > 100  
                         then x  
@@ -118,7 +123,7 @@ doubleSmallNumber x = if x > 100
 doubleSmallNumber' x = (if x > 100 then x else x*2) + 1  
 ---------------------------------
 {-
----------------------------------
+--------Lists--------------------
 ghci> [] == []
 True
 ghci> [] == [[]]
