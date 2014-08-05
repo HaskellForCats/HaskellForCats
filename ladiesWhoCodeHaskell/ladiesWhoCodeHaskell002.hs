@@ -87,11 +87,16 @@ ghci> max 100 101
 ---------------------------------
 -- unlike lisp 
 -- white space can stand in for parentheses 
--- you can use them but they are often optional
+-- you can use them but they are mostly optional
+-- when groupings are ambiguous you might have to 
+
 ghci> succ 9 + max 5 4 + 1  
 16  
 ghci> (succ 9) + (max 5 4) + 1  
 16  
+
+ghci> max (5 + 2) (sqrt 17)
+7
 
 div 92 10 
 -- not apostrophies but back-ticks 
