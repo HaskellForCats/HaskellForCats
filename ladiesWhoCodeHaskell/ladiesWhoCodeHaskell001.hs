@@ -74,9 +74,14 @@ humans displace Neanderthals
 Greeks invent Geometry 
  earning the ire of high school students for ever after
 
+1900 Tabulation through punch cards and such 
+
 1930's Turing Machine from Alan Turing as alternative to to his Professor Alonzo Church and his Lambda Calculus
 
 1947 Haskell Curry - amplifies Church's simply typed Lambda Calculus and gives us Currying. Not the food version. He solved the problem of the one argument, one function stricture so you could have functions with multiple arguments. Our name sake for the language mostly because it was the least hated of the proposed choices.       
+
+1950 proceedural instructions and machine code 
+
 
 1957 Lisp a riff on lambda calculus  
 
@@ -118,9 +123,12 @@ Greeks invent Geometry
 
 2009 Haskell 2010
   which is 98 + some extras
-  programs written for 98 run on 2010 with little or no modification
+  programs written for 98 run on 2010, with little or no modification
   (n+k) goes away, because it was obscure and buggy. 
     "was the only major thing they had to take out."
+
+2011 congative processing comes of age -- watson? 
+	a job for Haskell? 
 2013 Evie discovers Haskell and starts Haskell for Cats 
       "because programing is hard and cats are busy"
      
