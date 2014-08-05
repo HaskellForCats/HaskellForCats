@@ -1,12 +1,13 @@
 module Lwch002 where 
--- fun with GHC
+-- http://learnyouahaskell.com/chapters 
 -- :retab 
 -- :set expandtab ts=2 linebreak  
 -- :set +s 
 -- let fn003 =  fn001 / fn000   
 {-
-Prelude>
+Prelude> -- our base library
  
+-- repl commands
 :l 
 :r 
 :t
@@ -89,7 +90,9 @@ ghci> (succ 9) + (max 5 4) + 1
 div 92 10 
 
 92 `div` 10 
-
+---------------------------------
+-}
+---------------------------------
 doubleMe x = x + x 
 
 
@@ -98,7 +101,9 @@ doubleSmallNumber x = if x > 100
                         else x*2
 
 doubleSmallNumber' x = (if x > 100 then x else x*2) + 1  
-
+---------------------------------
+{-
+---------------------------------
 ghci> [] == []
 True
 ghci> [] == [[]]
@@ -179,58 +184,6 @@ ghci> take 10 (cycle [1,2,3])
 
 ghci> take 10 (repeat 5)
 [5,5,5,5,5,5,5,5,5,5]
-
-ghci> [x*2 | x <- [1..10]]
-[2,4,6,8,10,12,14,16,18,20]
-
-ghci> [x*2 | x <- [1..10], x*2 >= 12]
-[12,14,16,18,20]
-
-ghci> [ x | x <- [50..100], x `mod` 7 == 3]
-[52,59,66,73,80,87,94]
-
-------------------------------
-ghci> boomBangs xs = [ if x < 10 then "BOOM!" else "BANG!" | x <- xs, odd x] 
-
-
-ghci> [ x | x <- [10..20], x /= 13, x /= 15, x /= 19]
-[10,11,12,14,16,17,18,20]
-
-ghci> [ x*y | x <- [2,5,10], y <- [8,10,11]]
-[16,20,22,40,50,55,80,100,110]
-
-ghci> [ x*y | x <- [2,5,10], y <- [8,10,11], x*y > 50]
-[55,80,100,110]
-
--------------------------------
-ghci> let nouns = ["hobo","frog","pope"]  
-ghci> let adjectives = ["lazy","grouchy","scheming"]  
-ghci> [adjective ++ " " ++ noun | adjective <- adjectives, noun <- nouns]  
-["lazy hobo","lazy frog","lazy pope","grouchy hobo","grouchy frog",  
-"grouchy pope","scheming hobo","scheming frog","scheming pope"]  
-
-ghci> zip [1..] ["apple", "orange", "cherry", "mango"]
-[(1,"apple"),(2,"orange"),(3,"cherry"),(4,"mango")]
---------------------------------
-ghci> let triangles = [ (a,b,c) | c <- [1..10], b <- [1..10], a <- [1..10] ]
-
-ghci> let rightTriangles = [ (a,b,c) | c <- [1..10], b <- [1..c], a <- [1..b], a^2 + b^2 == c^2]
-
-ghci> let rightTriangles' = [ (a,b,c) | c <- [1..10], b <- [1..c], a <- [1..b], a^2 + b^2 == c^2, a+b+c == 24]
---------------------------------
--- Types 
---------------------------------
-ghci> :t 'a'  
-'a' :: Char  
-ghci> :t True  
-True :: Bool  
-ghci> :t "HELLO!"  
-"HELLO!" :: [Char]  
-ghci> :t (True, 'a')  
-(True, 'a') :: (Bool, Char)  
-ghci> :t 4 == 5  
-4 == 5 :: Bool  
-
 ----------------------------------
 -}
 ---------------------------------
