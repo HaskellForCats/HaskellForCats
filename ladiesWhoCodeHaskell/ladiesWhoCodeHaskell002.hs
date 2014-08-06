@@ -124,6 +124,9 @@ doubleSmallNumber' x = (if x > 100 then x else x*2) + 1
 ---------------------------------
 {-
 --------Lists--------------------
+-- lists are one of the primary data structures 
+-- but list elements most be of the same type.
+-- hetrogenious elements go into tuples. 
 ghci> [] == []
 True
 ghci> [] == [[]]
@@ -208,6 +211,12 @@ ghci> take 10 (repeat 5)
 ----------------------------------
 -}
 ---------------------------------
+-- functions can call other functions from within functions
+-- this is similar to recursion where we call the same function on itself.
+ 
+multMax a b x = (max a b) * x 
+
+
 fn003 =  fn001 / fn000 
 fn000 =  (6 * (7 + 5 /2)^2) + 2
 
@@ -231,6 +240,9 @@ fn004 x y z  = x + y ^ z * w
 ------------------------------
 -- :i fn004 
 ----------------------------               
+
+
+
 
 -- quickcheck these 
 -- because there are no side effects 
