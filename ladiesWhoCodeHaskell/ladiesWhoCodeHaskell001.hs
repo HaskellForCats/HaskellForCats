@@ -76,7 +76,25 @@ Greeks invent Geometry
 
 1900 Tabulation through punch cards and such 
 
-1930's Turing Machine from Alan Turing as alternative to to his Professor Alonzo Church and his Lambda Calculus
+1930's Turing Machine devised by Alan Turing 
+short turing bio,
+http://amturing.acm.org/acm_tcc_webcasts.cfm
+
+Alonzo Churh (Turing's Professor at Prinston) derives Lambda Calculus 
+
+counting problem in film strip Turing Machine 
+https://www.youtube.com/watch?v=WJ-ODmFjmrU
+		can speed it up to show cpu speed doubling
+					show single threadedness.
+
+			lego turing machine ... 2+2
+			http://vimeo.com/44202270
+
+			film strip version of Turing Machine
+			https://www.youtube.com/watch?v=E3keLeMwfHY
+
+			Church and Turing @ prinston 
+			http://www.princeton.edu/main/news/archive/S33/59/04A71/index.xml?section=featured&path=/main/news/archive/S33/59/04A71/index.xml&next=1
 
 1947 Haskell Curry - amplifies Church's simply typed Lambda Calculus and gives us Currying. Not the food version. He solved the problem of the one argument, one function stricture so you could have functions with multiple arguments. Our name sake for the language mostly because it was the least hated of the proposed choices.       
 
@@ -100,7 +118,8 @@ Greeks invent Geometry
        JavaScript & PHP 
 
 --------the-great--divide---------------------------------
--- AlGOl and SmallTalk are the primary touchstones for commercial usage for the last 35 years, note Google's GO
+-- AlGOl and SmallTalk are the primary touchstones for commercial use 
+-- for the last 40 years, note Google's GO
 ----------------------------------------------------------
  
 
@@ -113,7 +132,7 @@ Greeks invent Geometry
     the no I.O. version
 
 1997 Haskell 98
-    the I.O. via Monad version
+    the I.O. version (via Monads)
     first outdoor Haskell. 
 
 2005 GHC overtakes all the other compilers 
@@ -121,14 +140,14 @@ Greeks invent Geometry
   package management via Cabal begins
     http://www.haskell.org/cabal/old.html
 
-2009 Haskell 2010
+2009 Haskell 2010 
   which is 98 + some extras
   programs written for 98 run on 2010, with little or no modification
   (n+k) goes away, because it was obscure and buggy. 
     "was the only major thing they had to take out."
+	compare this to ruby 
+	1.8.7, 1.9.3, or 2.1 
 
-2011 congative processing comes of age -- watson? 
-	a job for Haskell? 
 2013 Evie discovers Haskell and starts Haskell for Cats 
       "because programing is hard and cats are busy"
      
