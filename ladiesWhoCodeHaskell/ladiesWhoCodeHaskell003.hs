@@ -5,3 +5,9 @@ module Lwch003 where
 -- :set +s 
 
 
+----------------
+-- recursion -- 
+----------------
+-- a function calling itself.
+
+

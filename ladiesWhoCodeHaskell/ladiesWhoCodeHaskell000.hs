@@ -3,6 +3,11 @@ module lWCH000 here
 -- single line comments 
 {- multi-line comments -} 
 {- 
+Who am I? 
+Basic -> Pascal -> C/C++ -> 
+GO -> Java -> JavaScript -> Php -> Rails -> Clojure -> Haskell -> Objective-C.
+Spent about 2 years proving to my self, that there is Lisp and There is C. Haskell is my Lisp, presently Objective-C is my C. 
+
 What is it? 
   Pure 
     few "real world" compromises

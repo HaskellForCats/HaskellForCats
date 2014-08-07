@@ -88,7 +88,7 @@ ghci> max 100 101
 -- unlike lisp 
 -- white space can stand in for parentheses 
 -- you can use them but they are mostly optional
--- when groupings are ambiguous you might have to 
+-- But when groupings are ambiguous you will have to 
 
 ghci> succ 9 + max 5 4 + 1  
 16  
@@ -99,8 +99,8 @@ ghci> max (5 + 2) (sqrt 17)
 7
 
 div 92 10 
--- not apostrophies but back-ticks 
--- just a way to do things in fix style
+-- not apostrophise but back-ticks 
+-- a way to do functions fix style
 92 `div` 10 
 ---------------------------------
 -}
@@ -200,6 +200,7 @@ ghci> [2,4..20]
 [2,4,6,8,10,12,14,16,18,20]
 
 -- Floating Point weirdness 
+-- !!!!!!!!!!!!!!!!!!!!!!!!
 ghci> [0.1, 0.3 .. 1]
 [0.1,0.3,0.5,0.7,0.8999999999999999,1.0999999999999999]
 
@@ -210,20 +211,29 @@ ghci> take 10 (repeat 5)
 [5,5,5,5,5,5,5,5,5,5]
 ----------------------------------
 -}
+----------------------------------
+----Functions-calling-Functions-----
 ---------------------------------
 -- functions can call other functions from within functions
 -- this is similar to recursion where we call the same function on itself.
- 
+
+-- multMax :: (Ord a, Num a) => a -> a -> a -> a
 multMax a b x = (max a b) * x 
 
 
 fn003 =  fn001 / fn000 
 fn000 =  (6 * (7 + 5 /2)^2) + 2
 
-fn001a :: Int -> Int -> Int 
-fn001a x  y = (+) x  y  
-fn001 = (+) (6 * (7 + 5 /2)^2) (2 * (product(take 5[1..])))
 
+-- myFun001 :: Int -> Int -> Int 
+myFun001 x  y = (+) x  y  
+-- *Lwch002> myFun001 (1/2) 2
+
+
+fn001 = (+) (6 * (7 + 5 /2)^2) (2 * (product(take 5[1..])))
+fn001b = (6 * (7 + 5 /2)^2) + (2 * (product(take 5[1..])))
+
+fn001c x = (+) (6 * (7 + 5 /2)^2) (x * (product(take 5[1..])))
 -------------------
 -- fn003 see above
 ------------------
@@ -236,21 +246,68 @@ fn004 x y z  = x + y ^ z * w
               where 
               w = sum(head[101..201] : tail[1..100]) 
               a = [] 
-
+-- *Lwch002> fn004 4 5 6.0
+-- *Lwch002> fn004 4 5.0 6
+-- fn004 :: (Num a, Integral b, Enum a) => a -> a -> b -> a
 ------------------------------
 -- :i fn004 
 ----------------------------               
 
 
 
+-----------------------------------
+-- Function Purity ---------------
+-----------------------------------
+-- TypeClassHierarchy pdf --------
+-----------------------------------
+-- purity means isolated from context.
+-- purity means	isolated from state.
+-- running a function shouldn't change anything. 
+-- a.k.a. "launch the missiles!" 
+-- The hard part is they can't rely on context either. 
+-- Same args ---> same result!! -- always! 
 
+-- Anything else is impure.
+-- is this "simple made hard?" 
+-- remember the first 7 years of Haskell's existence ...
+
+
+
+
+
+
+-------------------------------
+-- printing is impure
+-- reading from a file is impure
+-- generating a random number
+-- getting the current time 
+--------------------------------
+-- all these things must be approached differently
+-- but what do I get for my trouble?
+
+-- Certainty, reliability, speed, ease of parallelization;
+-- When we get the logic of our functions right 
+-- and those functions compile 
+-- there are no side-effects 
+-- there is no state 
+-- therefore (up to 90%) less testing 
+-- note: SkedgeMe doesn't test it's back-end, the Haskell part. 
+
+
+-------------------------------
+
+
+
+
+
+-------------------------------
 -- quickcheck these 
 -- because there are no side effects 
 -- their is no state 
 -- I don't have to test what the type system will catch
 -- I don't have to worry about Strings passed in or Null pointers
-myFun001 x y = x + y 
-myFun002 a b = a + b 
+someFun001 x y = x + y 
+someFun002 a b = a + b 
 
 
 
