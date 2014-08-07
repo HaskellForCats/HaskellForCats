@@ -48,4 +48,30 @@ count x xs      = length [x'|x' <- xs, x == x']
 -- count 'a'  "Call me Ishmael"
 
 doubleList [] = []  
-doubleList x = (2 * (head x)) ++ (doubleList (tail x))           
+doubleList x = (2 * (head x)) : (doubleList (tail x))           
+---------------------------
+-- Guards ---
+-- value matching 
+
+myFunNeg   x  
+    | x == 0     = 0
+    | x >= 1     = 1 
+    | x <  1     = (-1)
+    | otherwise  = 0
+
+oddGone x =  
+    if null x 
+    then [] 
+    else 
+        if (mod(head x) 2) == 0 
+        then (head x) : (oddGone (tail x))
+        else oddGone (tail x) 
+
+
+-- evenGone x = 
+--     if null x  
+--     then [] 
+--     else 
+--         if (mod(head x) 1) == 0
+--         then (head x) : (oddGone (tail x))
+--         else oddGone (tail x) 
