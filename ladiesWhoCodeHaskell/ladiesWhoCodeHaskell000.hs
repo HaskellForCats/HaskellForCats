@@ -51,13 +51,17 @@ What is it?
 
 -- Haskell lets you play with sharp objects and not cut yourself. 
 Video of knife game.
-three developers or more,  
+
+If there are three developers or more,
+
+
+  
 Static typing elimates a lot of idiot code. 
+which is to say 
+		static typing saves lives.
 
 
 
-
-Waston 
 Eriqa
 -}    
 
