@@ -77,4 +77,6 @@ oddGone x =
         else oddGone (tail x) 
 
 
-
+----------------------------
+dubNum' [] = [] 
+dubNum (x:xs) = (2*x) : (dubNum xs) 
