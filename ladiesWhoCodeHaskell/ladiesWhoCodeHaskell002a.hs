@@ -1,4 +1,4 @@
-
+module Lwc002a where 
 -------------------------------
 ghci> let nouns = ["hobo","frog","pope"]  
 ghci> let adjectives = ["lazy","grouchy","scheming"]  
@@ -19,12 +19,16 @@ ghci> let rightTriangles' = [ (a,b,c) | c <- [1..10], b <- [1..c], a <- [1..b], 
 --------------------------------
 ghci> :t 'a'  
 'a' :: Char  
+
 ghci> :t True  
 True :: Bool  
+
 ghci> :t "HELLO!"  
 "HELLO!" :: [Char]  
+
 ghci> :t (True, 'a')  
 (True, 'a') :: (Bool, Char)  
+
 ghci> :t 4 == 5  
 4 == 5 :: Bool  
 

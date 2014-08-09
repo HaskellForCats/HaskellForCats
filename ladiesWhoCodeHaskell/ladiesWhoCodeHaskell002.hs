@@ -1,7 +1,8 @@
 module Lwch002 where 
 -- http://learnyouahaskell.com/chapters 
--- :retab 
--- :set expandtab ts=2 linebreak  
+-- : retab 
+--: set expandtab ts=4 ruler number spell linebreak
+
 -- :set +s 
 -- let fn003 =  fn001 / fn000   
 {-
@@ -72,7 +73,7 @@ ghci> "hello" == "hello"
 True   
 
 ---------functions------
--- functions are the work horse of Haskell
+-- functions are the workhorse of Haskell
 
 ghci> succ 8  
 9   

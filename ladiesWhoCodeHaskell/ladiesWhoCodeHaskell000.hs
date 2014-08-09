@@ -1,5 +1,6 @@
 module lWCH000 here 
-
+--: set expandtab ts=4 ruler number spell linebreak
+-- : retab 
 -- single line comments 
 {- multi-line comments -} 
 {- 
