@@ -59,6 +59,15 @@ myFunNeg   x
     | x <  1     = (-1)
     | otherwise  = 0
 
+
+dubNum x = 
+	if null x 
+	then [] 
+	else (2 * (head x)) : (dubNum (tail x))
+
+
+
+
 oddGone x =  
     if null x 
     then [] 
@@ -68,10 +77,4 @@ oddGone x =
         else oddGone (tail x) 
 
 
--- evenGone x = 
---     if null x  
---     then [] 
---     else 
---         if (mod(head x) 1) == 0
---         then (head x) : (oddGone (tail x))
---         else oddGone (tail x) 
+
