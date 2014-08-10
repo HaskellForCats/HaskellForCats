@@ -1,5 +1,5 @@
-module lWCH000 here 
---: set expandtab ts=4 ruler number spell linebreak
+module Lwch000 where 
+-- : set expandtab ts=4 ruler number spell linebreak
 -- : retab 
 -- single line comments 
 {- multi-line comments -} 
@@ -7,9 +7,12 @@ module lWCH000 here
 Who am I? 
 Basic -> Pascal -> C/C++ -> 
 GO -> Java -> JavaScript -> Php -> Rails -> Clojure -> Haskell -> Objective-C.
-Spent about 2 years proving to my self, that there is Lisp and There is C. Haskell is my Lisp, presently Objective-C is my C. 
+Spent about 2 years proving to my self, that there is Lisp and There is C. Haskell is my Lisp, presently Objective-C is my C. I still consider Clojure as my first love, but Haskell turned out to be marriage material ;) 
+
+
 
 What is it? 
+http://www.haskell.org/haskellwiki/Haskell
   Pure 
     few "real world" compromises
       thus more consistent 
@@ -52,18 +55,14 @@ What is it?
 
 -- Haskell lets you play with sharp objects and not cut yourself. 
 Video of knife game.
+https://www.youtube.com/watch?v=DzjMKM9449M
 
-If there are three developers or more,
-
-
-  
+If there are three developers or more ... 
 Static typing elimates a lot of idiot code. 
-which is to say 
-		static typing saves lives.
+
+And may save lives.
 
 
-
-Eriqa
 -}    
 
 

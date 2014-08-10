@@ -1,48 +1,27 @@
-module lWCH001 where
+module Lwch001 where
+-- : retab 
+--: set expandtab ts=4 ruler number spell linebreak
+
 {- 
 why should I bother? 
   Pain or Curiosity or Both
 
-it's not hard so much as very different.
-  the other side of galaxy
-
-                        Fortran
-                      /       \
-                     /         \
-                    /           \ 
-                Algol           Lisp
-               /  |               |
-      Simula-67   |             
-                 Algol-68        
-    
-  
- SmallTalk    /                   SML
-  
-                                   |
-            / | C++                |
-              |  |              Haskell
-              |Java
-              |  |
-              |  C#
-                
-        
+Haskell -- not hard 
+	just radically different.
+  	
 
 
-
-
-                                  Haskell 1.0 -1990
-
-           
-C the language of Unix and everything that follows
+C the is language of Unix and everything that follows
    C is to Engineering 
    as
-   Java & C# are to biz
+   Java & C# are to business 
    as 
-   Haskell is to Math 
-    it was for experimentation 
+   Haskell is to Mathmatics
+    it was first developed for experimentation 
     Math and Logic are it's roots 
       I/O was 7 years in the making 
-      Others steal from Haskell 
+      
+    Presently others steal from Haskell 
       the way they used to steal from SmallTalk or Lisp
         ex: 
             cloud-computing 
@@ -72,15 +51,13 @@ Some history
 earth cools 
 humans displace Neanderthals 
 Greeks invent Geometry 
- earning the ire of high school students for ever after
-
-1900 Tabulation through punch cards and such 
+ 
 
 1930's Turing Machine devised by Alan Turing 
 short turing bio,
 http://amturing.acm.org/acm_tcc_webcasts.cfm
 
-Alonzo Churh (Turing's Professor at Prinston) derives Lambda Calculus 
+Alonzo Churh (Turing's Professor at Princeton) derives Lambda Calculus 
 
 counting problem in film strip Turing Machine 
 https://www.youtube.com/watch?v=WJ-ODmFjmrU
@@ -96,9 +73,12 @@ https://www.youtube.com/watch?v=WJ-ODmFjmrU
 			Church and Turing @ prinston 
 			http://www.princeton.edu/main/news/archive/S33/59/04A71/index.xml?section=featured&path=/main/news/archive/S33/59/04A71/index.xml&next=1
 
-1947 Haskell Curry - amplifies Church's simply typed Lambda Calculus and gives us Currying. Not the food version. He solved the problem of the one argument, one function stricture so you could have functions with multiple arguments. Our name sake for the language mostly because it was the least hated of the proposed choices.       
+1947 Haskell Curry - amplifies Church's simply typed Lambda Calculus and gives us Currying. 
+Nothing to do with food version. 
+He solved the problem of the one argument, one function stricture so you could have functions with multiple arguments. 
+Our name sake for the language mostly because it was the least hated of all the proposed choices.       
 
-1950 proceedural instructions and machine code 
+1950 procedural instructions and machine code 
 
 
 1957 Lisp a riff on lambda calculus  
@@ -135,6 +115,8 @@ https://www.youtube.com/watch?v=WJ-ODmFjmrU
     the I.O. version (via Monads)
     first outdoor Haskell. 
 
+2004 -- processor speeds stopped being easily doubled by adding more transistors as the heat couldn't be dissipated . The Multi-core solution goes on to become the multi-core problem. 
+
 2005 GHC overtakes all the other compilers 
   optimizations for speed and reliability become paramount
   package management via Cabal begins
@@ -148,6 +130,8 @@ https://www.youtube.com/watch?v=WJ-ODmFjmrU
 	compare this to ruby 
 	1.8.7, 1.9.3, or 2.1 
 
+2013 --> Mio-H_P_MulticoreIO
+
 2013 Evie discovers Haskell and starts Haskell for Cats 
       "because programing is hard and cats are busy"
      
@@ -159,6 +143,7 @@ Glasgow Haskell Compilation System a.k.a. "ghc"
 ghc 7.8.x (2014)
   
 -}
+
 
 
 

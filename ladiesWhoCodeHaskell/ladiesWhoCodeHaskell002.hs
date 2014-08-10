@@ -116,7 +116,8 @@ doubleMe x = x + x
 
 
 -- conditionals ---------------- 
--- no dangling elses 
+-- note! no dangling elses 
+-- generally things should terminate 
 doubleSmallNumber x = if x > 100  
                         then x  
                         else x*2
@@ -124,92 +125,6 @@ doubleSmallNumber x = if x > 100
 doubleSmallNumber' x = (if x > 100 then x else x*2) + 1  
 ---------------------------------
 {-
---------Lists--------------------
--- lists are one of the primary data structures 
--- but list elements most be of the same type.
--- hetrogenious elements go into tuples. 
-ghci> [] == []
-True
-ghci> [] == [[]]
-False
-
-ghci> [3,4,2] == [3,4,2]
-True
-
-ghci> head [5,4,3,2,1]  
-5   
-
-ghci> tail [5,4,3,2,1]  
-[4,3,2,1] 
-
-
-ghci> last [5,4,3,2,1]  
-1  
-
-ghci> init [5,4,3,2,1]  
-[5,4,3,2]  
-
-ghci> head []
-*** Exception: Prelude.head: empty list
-
-
-ghci> length [5,4,3,2,1]
-5
-
-ghci> null [1,2,3]
-False
-ghci> null []
-True
-ghci> reverse [5,4,3,2,1]
-[1,2,3,4,5]
-ghci> take 3 [5,4,3,2,1]
-[5,4,3]
-ghci>  take 5 [1,2]
-[1,2]
-ghci> take 0 [6,6,6]
-[]
-
-ghci> drop 3 [8,4,2,1,5,6]
-[1,5,6]
-
-ghci> minimum [8,4,2,1,5,6]  
-1  
-ghci> maximum [1,9,2,3,4]  
-9   
-
-ghci> sum [5,2,1,6,3,2,5,7]  
-31  
-ghci> product [6,2,1,2]  
-24  
-ghci> product [1,2,5,6,7,9,2,0]  
-0   
-
-ghci>  10 `elem` [3,4,5,6]
-False
-
-ghci> [1..20]
-[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-
-ghci> ['a'..'z']
-"abcdefghijklmnopqrstuvwxyz"
-
-ghci> ['K'..'Z']
-"KLMNOPQRSTUVWXYZ"
-
-
-ghci> [2,4..20]
-[2,4,6,8,10,12,14,16,18,20]
-
--- Floating Point weirdness 
--- !!!!!!!!!!!!!!!!!!!!!!!!
-ghci> [0.1, 0.3 .. 1]
-[0.1,0.3,0.5,0.7,0.8999999999999999,1.0999999999999999]
-
-ghci> take 10 (cycle [1,2,3])
-[1,2,3,1,2,3,1,2,3,1]
-
-ghci> take 10 (repeat 5)
-[5,5,5,5,5,5,5,5,5,5]
 ----------------------------------
 -}
 ----------------------------------
@@ -265,17 +180,13 @@ fn004 x y z  = x + y ^ z * w
 -- purity means	isolated from state.
 -- running a function shouldn't change anything. 
 -- a.k.a. "launch the missiles!" 
--- The hard part is they can't rely on context either. 
+-- The hard part is they can't rely on context either.
+-- but the benefit is reliability 
 -- Same args ---> same result!! -- always! 
 
 -- Anything else is impure.
 -- is this "simple made hard?" 
 -- remember the first 7 years of Haskell's existence ...
-
-
-
-
-
 
 -------------------------------
 -- printing is impure
@@ -292,7 +203,8 @@ fn004 x y z  = x + y ^ z * w
 -- there are no side-effects 
 -- there is no state 
 -- therefore (up to 90%) less testing 
--- note: SkedgeMe doesn't test it's back-end, the Haskell part. 
+-- note: SkedgeMe doesn't test it's back-end, the Haskell part it's tests are confined to the front-end JavaScript.
+
 
 
 -------------------------------
@@ -306,7 +218,7 @@ fn004 x y z  = x + y ^ z * w
 -- because there are no side effects 
 -- their is no state 
 -- I don't have to test what the type system will catch
--- I don't have to worry about Strings passed in or Null pointers
+-- I don't have to worry about Strings passed in where numbers should be or asking only to be surprised with nothing a.k.a. Null pointers.
 someFun001 x y = x + y 
 someFun002 a b = a + b 
 

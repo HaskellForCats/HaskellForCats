@@ -4,26 +4,11 @@ module Lwch003 where
 -- : set +s 
 --  set expandtab ts=4 ruler number spell linebreak
 
-----------------
--- recursion -- 
-----------------
--- a function calling itself.
-
-
-qsort []     = []
-qsort (x:xs) = qsort smaller ++ [x] ++ larger
-                          where
-                                smaller = [a|a<-xs,a<=x]
-                                larger  = [b|b<-xs,b>x]
-
-
--- qsort        :: Ord a => [a]->[a]
-
 ------------------
 -- Lists -- 
 ------------------
--- no lists of any type 
--- all lists must be same type
+-- no "any" type lists 
+-- all lists must be SAME type
 -- recursion is how we loop through lists
 --------Lists--------------------
 {-
@@ -119,6 +104,10 @@ ghci> take 10 (cycle [1,2,3])
 
 ghci> take 10 (repeat 5)
 [5,5,5,5,5,5,5,5,5,5]
+
+
+ghci> zip [1..] ["apple", "orange", "cherry", "mango"]
+[(1,"apple"),(2,"orange"),(3,"cherry"),(4,"mango")]
 ---------------------------
 -}
 --------------------------
@@ -143,18 +132,15 @@ str' = 'I':' ':'a':'m':' ':'a':' ':'l':'i':'s':'t':' ':'t':'o':'o':'!':[]
 
 count x xs      = length [x'|x' <- xs, x == x']
 -- count 'a'  "Call me Ishmael"
+----------------
+-- recursion -- 
+----------------
+-- a function calling itself.
+
+
 
 doubleList [] = []  
 doubleList x = (2 * (head x)) : (doubleList (tail x))           
----------------------------
--- Guards ---
--- value matching 
-
-myFunNeg   x  
-    | x == 0     = 0
-    | x >= 1     = 1 
-    | x <  1     = (-1)
-    | otherwise  = 0
 
 
 dubNum x = 
@@ -173,7 +159,3 @@ oddGone x =
         then (head x) : (oddGone (tail x))
         else oddGone (tail x) 
 
-
-----------------------------
-dubNum' [] = [] 
-dubNum (x:xs) = (2*x) : (dubNum xs) 

@@ -1,4 +1,6 @@
-module Lwc002a where 
+module Lwch002a where 
+{----------------------------
+-- List Comprehentions --- 
 -------------------------------
 ghci> let nouns = ["hobo","frog","pope"]  
 ghci> let adjectives = ["lazy","grouchy","scheming"]  
@@ -6,8 +8,6 @@ ghci> [adjective ++ " " ++ noun | adjective <- adjectives, noun <- nouns]
 ["lazy hobo","lazy frog","lazy pope","grouchy hobo","grouchy frog",  
 "grouchy pope","scheming hobo","scheming frog","scheming pope"]  
 
-ghci> zip [1..] ["apple", "orange", "cherry", "mango"]
-[(1,"apple"),(2,"orange"),(3,"cherry"),(4,"mango")]
 --------------------------------
 ghci> let triangles = [ (a,b,c) | c <- [1..10], b <- [1..10], a <- [1..10] ]
 
@@ -32,3 +32,4 @@ ghci> :t (True, 'a')
 ghci> :t 4 == 5  
 4 == 5 :: Bool  
 
+-}
