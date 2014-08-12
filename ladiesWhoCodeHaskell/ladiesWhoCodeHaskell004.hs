@@ -92,4 +92,12 @@ third =  5 / (let a = 14 in a +1)
           
 -- third' = 5 / (a + 1 where a = 14)  
 
- 
+----------------------
+-- Lazy Evaluation ---
+--------------------- 
+-- nothing gets computed until needed 
+-- and only as much as is needed
+-- we can thus play with infinite lists
+
+intsForever x = x : (intsForever (x+1))
+ints = intsForever 1 
