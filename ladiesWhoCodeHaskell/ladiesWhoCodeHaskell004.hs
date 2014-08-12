@@ -77,16 +77,19 @@ evens x = case (oddGone' x) of
 ----- Let and Where -----
 -- let at the prompt makes for on-the-fly bindings at the console / repl. 
 -- but also in a function too. 
-
+-- but they are immutable, that is unchangeable 
 first = 
    let a = (1,"What!")
-       b = []  
+       b = [] -- note the position of b  
     in (fst a) : b
 
 second = snd a : b
         where 
             a = (2,"No Way")
-            b = []  
+            b = [] -- note the white space  
 
---   
-            
+third =  5 / (let a = 14 in a +1)  
+          
+-- third' = 5 / (a + 1 where a = 14)  
+
+ 
