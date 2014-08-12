@@ -6,6 +6,12 @@ module Lwch002 where
 -- :set +s 
 -- let fn003 =  fn001 / fn000   
 {-
+
+my #1 source of pain in learning Haskell was tabs. CONVERT ALL TABS TO SPACES! 
+Tabs can make perfectly correct code not compile.
+
+ 
+
 Prelude> -- our base library
  
 -- repl commands
