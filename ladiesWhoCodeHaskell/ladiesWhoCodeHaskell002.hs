@@ -1,16 +1,25 @@
-module Lwch002 where 
+module LwchTwo where 
 -- http://learnyouahaskell.com/chapters 
 -- : retab 
---: set expandtab ts=4 ruler number spell linebreak
+-- : set expandtab ts=4 ruler number spell linebreak
 
 -- :set +s 
 -- let fn003 =  fn001 / fn000   
 {-
 
+
+
+
+
 my #1 source of pain in learning Haskell was tabs. CONVERT ALL TABS TO SPACES! 
 Tabs can make perfectly correct code not compile.
 
  
+
+
+
+
+
 
 Prelude> -- our base library
  
@@ -20,6 +29,7 @@ Prelude> -- our base library
 :t
 :i 
 :! 
+:m
 
 myFile.hs
 
@@ -174,7 +184,7 @@ fn004 x y z  = x + y ^ z * w
 ------------------------------
 -- :i fn004 
 ----------------------------               
-
+-- :t fn004 0.3 5.0 (length "Hello")
 
 
 -----------------------------------
@@ -198,7 +208,7 @@ fn004 x y z  = x + y ^ z * w
 -- printing is impure
 -- reading from a file is impure
 -- generating a random number
--- getting the current time 
+- getting the current time 
 --------------------------------
 -- all these things must be approached differently
 -- but what do I get for my trouble?

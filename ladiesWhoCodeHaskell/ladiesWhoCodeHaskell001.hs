@@ -33,7 +33,7 @@ Which was used to teach comp. sci. to M.I.T. students until the switch to Python
  
 
 Unlike a teaching language it is Industrial Strength
-    Facebook and Google have uses for it 
+    Facebook and Google have use it 
     Some big banks use it. 
     
 
@@ -46,12 +46,13 @@ Libraries
   though not as numerous as Java
       Ryan's experience with Java vs Haskell libs
 
-
+------------------------------------------------
 Some history 
 earth cools 
 humans displace Neanderthals 
 Greeks invent Geometry 
- 
+
+
 
 1930's Turing Machine devised by Alan Turing 
 short turing bio,
@@ -63,15 +64,6 @@ counting problem in film strip Turing Machine
 https://www.youtube.com/watch?v=WJ-ODmFjmrU
 		can speed it up to show cpu speed doubling
 					show single threadedness.
-
-			lego turing machine ... 2+2
-			http://vimeo.com/44202270
-
-			film strip version of Turing Machine
-			https://www.youtube.com/watch?v=E3keLeMwfHY
-
-			Church and Turing @ prinston 
-			http://www.princeton.edu/main/news/archive/S33/59/04A71/index.xml?section=featured&path=/main/news/archive/S33/59/04A71/index.xml&next=1
 
 1947 Haskell Curry - amplifies Church's simply typed Lambda Calculus and gives us Currying. 
 Nothing to do with food version. 
@@ -141,7 +133,15 @@ Our name sake for the language mostly because it was the least hated of all the 
 current compiler 
 Glasgow Haskell Compilation System a.k.a. "ghc"
 ghc 7.8.x (2014)
-  
+
+
+
+
+-- Bruce Tate from Seven Languages in Seven Weeks (p.312)
+Final Thoughts
+Of the functional languages in the book, Haskell was the most difficult to learn. The emphasis on monads and the type system made the learning curve steep. Once I mastered some of the key concepts, things got easier, and it became the most rewarding language I learned. Based on the type system and the elegance of the application of monads, one day we’ll look back at this language as one of the most important in this book.
+Haskell plays another role, too. The purity of the approach and the academic focus will both improve our understanding of programming. The best of the next generation of functional programmers in many places will cut their teeth on Haskell.
+
 -}
 
 
