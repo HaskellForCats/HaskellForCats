@@ -54,14 +54,13 @@ http://www.haskell.org/haskellwiki/Haskell
       because of type inference      
 
 -- Haskell lets you play with sharp objects and not cut yourself. 
-Video of knife game.
+Video --  knife game.
 https://www.youtube.com/watch?v=DzjMKM9449M
 
 If there are three developers or more ... 
 Static typing elimates a lot of idiot code. 
 
 And may save lives.
-
 
 -}    
 
