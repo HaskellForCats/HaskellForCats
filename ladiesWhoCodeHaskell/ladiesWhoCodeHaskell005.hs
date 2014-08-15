@@ -13,7 +13,13 @@ module Lwch005 where
 -- are also functions 
 -- just surround them with () 
 addOne x = (+) x 1  
-
+{-
+(>0) = (\x -> x > 0)
+(2*) = (\x -> 2 * x)
+(+1) = (\x -> x + 1)
+(2^) = (\x -> 2 ^ x)
+(^2) = (\x -> x ^ 2)
+-}
 -- functions can act as operators
 -- use the ` "back-tick"
 -- mod 11 2 
