@@ -5,6 +5,7 @@ module LwchTwo where
 
 -- :set +s 
 -- let fn003 =  fn001 / fn000   
+-- import Test.QuickCheck
 {-
 
 
@@ -34,6 +35,18 @@ Prelude> -- our base library
 myFile.hs
 
 :set prompt "ghci> "
+
+
+
+           MULTILINE PROMPT FUN
+Prelude> :{
+Prelude| let { g op n [] = n
+Prelude|     ; g op n (h:t) = h `op` g op n t
+Prelude|     }
+Prelude| :}
+Prelude> g (*) 1 [1..3]
+6
+  
 ---------------------------------
 
 simple math 
@@ -149,7 +162,7 @@ doubleSmallNumber' x = (if x > 100 then x else x*2) + 1
 -- functions can call other functions from within functions
 -- this is similar to recursion where we call the same function on itself.
 
--- multMax :: (Ord a, Num a) => a -> a -> a -> a
+
 multMax a b x = (max a b) * x 
 
 
@@ -157,7 +170,7 @@ fn003 =  fn001 / fn000
 fn000 =  (6 * (7 + 5 /2)^2) + 2
 
 
--- myFun001 :: Int -> Int -> Int 
+myFun001 :: Integer -> Integer -> Integer 
 myFun001 x  y = (+) x  y  
 -- *Lwch002> myFun001 (1/2) 2
 
@@ -208,7 +221,7 @@ fn004 x y z  = x + y ^ z * w
 -- printing is impure
 -- reading from a file is impure
 -- generating a random number
-- getting the current time 
+-- getting the current time 
 --------------------------------
 -- all these things must be approached differently
 -- but what do I get for my trouble?
@@ -224,6 +237,43 @@ fn004 x y z  = x + y ^ z * w
 
 
 -------------------------------
+-- QUICKCHECK EXAMPLES --
+
+square x  = x * x
+
+squares_prop x y = square (x +y) == x * x + 2 * x * y + y * y
+{- *Ch7ex> quickCheck prop_squares
+Loading package array-0.4.0.1 ... linking ... done.
+Loading package deepseq-1.3.0.1 ... linking ... done.
+Loading package bytestring-0.10.0.2 ... linking ... done.
+Loading package text-0.11.3.1 ... linking ... done.
+Loading package old-locale-1.0.0.5 ... linking ... done.
+Loading package time-1.4.0.1 ... linking ... done.
+Loading package random-1.0.1.1 ... linking ... done.
+Loading package containers-0.5.0.0 ... linking ... done.
+Loading package attoparsec-0.10.4.0 ... linking ... done.
+Loading package pretty-1.1.1.0 ... linking ... done.
+Lo{ding package template-haskell ... linking ... done.
+Loading package QuickCheck-2.6 ... linking ... done.
++++ OK, passed 100 tests.
+-}
+
+pyth a b  = square a + square b
+prop_square x = square x >=0
+prop_squares x y =
+    square (x+y) == square x + 2*x*y +square y
+prop_pyth x y =
+    square (x+y) == pyth x y + 2*x*y
+
+
+{--     RESULTS
+*Ch7ex> quickCheck prop_square
++++ OK, passed 100 tests.
+*Ch7ex> quickCheck prop_squares
++++ OK, passed 100 tests.
+*Ch7ex> quickCheck prop_pyth
++++ OK, passed 100 tests.
+-}
 
 
 
