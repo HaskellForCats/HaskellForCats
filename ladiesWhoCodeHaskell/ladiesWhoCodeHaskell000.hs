@@ -7,7 +7,11 @@ module Lwch000 where
 Who am I? 
 Basic -> Pascal -> C/C++ -> 
 GO -> Java -> JavaScript -> Php -> Rails -> Clojure -> Haskell -> Objective-C.
-Spent about 2 years proving to my self, that there is Lisp and There is C. Haskell is my Lisp, presently Objective-C is my C. I still consider Clojure as my first love, but Haskell turned out to be marriage material ;) 
+Spent about 2 years proving to my self, that there is Lisp and There is C. 
+Haskell is my Lisp, presently Objective-C is my C. 
+I still consider Clojure as my first love, 
+but Haskell turned out to be marriage material; 
+but if I was going to cheat it would be with Clojure;) 
 
 
 
