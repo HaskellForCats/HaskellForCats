@@ -1,0 +1,7 @@
+OOP after Haskell. 
+Having just finished presenting to a room full of Coders at all skill levels, I can say that Haskell isn't the easiest to teach, But it may be the most powerful thing that they learn. 
+I used the Smalltalk definition of an Object to show them how inherently complex that approach can be; just the description is dizzying. 
+What I stress is that OOP is a natural out growth of difficulties stemming from procedural programming. Moving C-Structs into functions was a pivotal breakthrough in C style programming. But that is one tradition.
+If we are coming from the other direction, from Lambda Calculus then we can make different decisions about organization, those that connect more closely to Logic.  
+Yet in many instances OOP is trying to do what functional does but it is tradition bound, and comes with a withering amount of complexity as overhead. 
+If they understand Haskell's composability, and they get the strict-static typing, they are automatically better programmers because they will make their objects behave like functions. That is something that OOP programmers often attempt to do, but aren't cognizant of. Most of us want the same thing; reliable, understandable, robust programs. Haskell is a great example of how to do that on a grand scale. It's as good as Scheme for teaching, but it is also industry ready. Students get a big win for knowing both perspectives, we should just get there first.  
