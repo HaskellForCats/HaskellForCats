@@ -1,0 +1,21 @@
+in response to this comment on Haskell Monads etc.:
+-----------------------------
+swampwiz • 
+I am an unemployed "seasoned" (early Gen-X) C++ programmer, and I have absolutely no idea what is going on here. If the youngsters can figure this out, and this is actually useful to developing applications, I guess I deserve to be unemployed.
+-----------------------------
+
+to which I replied...
+
+Coming from the other direction from Haskell -> to C / Objective-C etc., I find that we are often times trying to do similar things. It's what we have to do to assemble the constructions that differs. 
+
+Levels of abstraction are much like the Blind Men and the Elephant. 
+
+Where and how you are looking at the elephant, determines much of what is seen. Examining only the tail or only the trunk makes for vividness of detail. Those details are and remain important, but also of importance is the rest of the elephant. 
+
+Secondly, examining the elephant in that fashion from trunk to tail requires a Herculean amount of organizing and knitting together of those disparate parts; where as if one was allowed to step back and view the elephant in it's entirety then it's totality and it's interconnectedness becomes immediately apparent. We are not a cross purposes, just at different levels of abstraction. 
+
+Both perspectives are useful and when combined become even more powerful. 
+
+Unlike many useful programming languages, Haskell seems to offer something I haven't seen elsewhere, a vista into the heart of Logic itself. The care with which it was put together and it's stubborn purity, becomes a siren song. 
+
+If I listen to it's music; much of what I don't already know about the universe of math and logic is revealed. Clojure made for feelings of reach and power, whereas Haskell makes for wisdom. 
