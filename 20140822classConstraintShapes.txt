@@ -1,0 +1,6 @@
+
+
+Recently, when trying to explain Haskell type-class constraints to folks not already familiar with them; 
+I found that referring to class constraints as "shapes" made the concept more vivid. 
+The word "class" seems to get folks thinking of objects, which only serves to muddy the issue.  
+Referring to  "Num a =>" as meaning that the function only takes things that fit the Num shape; folks can conjure up a picture for themselves. Thus when they next encounter more complex constraints like "(Enum a, Num a) => a" they can see the value for "a" as having to conform to the shape of Enum and the shape of Num in order to be used by the function.What pictures they make for themselves is not as important as that they see the "shape" constraint and grasp it's use case. 
