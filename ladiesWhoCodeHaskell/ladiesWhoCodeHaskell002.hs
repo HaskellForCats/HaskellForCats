@@ -6,8 +6,9 @@ module LwchTwo where
 -- :set +s 
 -- let fn003 =  fn001 / fn000   
 -- import Test.QuickCheck
+myFunc004 = 4 + 5 
 {-
-
+---------
 
 
 

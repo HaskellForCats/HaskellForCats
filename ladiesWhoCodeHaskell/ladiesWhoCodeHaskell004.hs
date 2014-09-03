@@ -55,7 +55,7 @@ myFunNeg   x
     | otherwise  = 0
 
 
-oddGone'    [] = [] 
+-- oddGone'    [] = [] 
 oddGone'    (x:xs)
     | mod x 2 == 0  = x : (oddGone' xs)
     |otherwise      = oddGone' xs
