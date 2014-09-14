@@ -19,7 +19,7 @@ mylist1 x ys = elem x ys
 -- mylist2 xs [] = []
 mylist2 xs = splitAt (div (length xs)2) xs  
 
-
+-- mylist3 xs = 
 
 
  --myList3 xs = (lenth xs) 
