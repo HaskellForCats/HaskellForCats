@@ -1,0 +1,20 @@
+{-
+comunication 
+	and maybe verification 
+
+	Classic
+		Action
+
+
+
+		OODA Loop 
+			Observe 
+			Orient 
+			Decide 
+			Act 
+
+Haskell 
+	Xor and And
+-}
+
+main :: IO()
