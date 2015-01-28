@@ -1,4 +1,5 @@
-module FbzMixR where 
+module FbzPrint where 
+
 import Control.Monad
 
 swap' (x,y)   = (y,x)
@@ -90,4 +91,3 @@ an if clause that returns identitiy and a branch that returns "fbz"?
 
 
 -} 
- 
