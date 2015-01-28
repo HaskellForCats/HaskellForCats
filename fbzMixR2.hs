@@ -1,4 +1,6 @@
 module FbzMixR where 
+import Control.Monad
+
 swap' (x,y)   = (y,x)
 nList xs      = [if x `mod` 15 ==0  then "fbz" else if x `mod` 5 == 0 then "bz" else if x  `mod` 3 == 0 then "fz" else  "o" | x <- xs ]
 zzzs          = zip (nList (reverse[1..100])) (reverse[1..100])
@@ -9,8 +11,9 @@ strTups = zip (firsts zzzs)  [show x|x <-(seconds zzzs)]
 oTups = [ (y,x) | (x,y)  <-strTups, x =="o"]
 fbzMix =  [if fst (x,y)=="o" then swap'(x,y)else (x,y) | (x,y) <-strTups ] 
 fbzMixR = reverse (firsts fbzMix) 
+fbzPrint_ = mapM print fbzMixR
 ---------------------------------------
- fizzbuzz xs = [if x `mod` 3 == 0 && x `mod` 5 == 0 then "FizzBuzz"
+fizzbuzz xs = [if x `mod` 3 == 0 && x `mod` 5 == 0 then "FizzBuzz"
 		 else if x `mod` 3 == 0 then "Fizz"
 		 else if x `mod` 5 == 0 then "Buzz"
 		 else show x
@@ -24,7 +27,7 @@ main = print [ fizzbuzz x | x <- [1..100] ]
 		| otherwise		= show x
 		where m `multipleOf` ns = 
 			all (\n -> m `mod` n == 0) ns
----------------------------------------
+{---------------------------------------
 Common Lisp using conditional formatting:
   (loop for i from 1 to 100 do
 	(format t "~[Fizz~;~]~[Buzz~;~]~:[~a~;~] "
@@ -87,3 +90,4 @@ an if clause that returns identitiy and a branch that returns "fbz"?
 
 
 -} 
+ 
