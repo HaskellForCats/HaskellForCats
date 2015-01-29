@@ -1,7 +1,7 @@
 module ContrMo where 
 
 import Control.Monad as C 
-
+import threepenny-gui
 -- forM :: Monad m => [a] -> (a -> m b) -> m [b]
 
 -- forM_ :: Monad m => [a] -> (a -> m b) -> m () 
