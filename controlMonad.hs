@@ -54,3 +54,31 @@ class Monad (m :: * -> *) where
 *ContrMo> C.liftM (1+) (Just 3)
 Just 4
 -}
+
+-- filterM :: Monad m => (a -> m Bool) -> [a] -> m [a]
+{- 
+
+-}
+askToKeep x = do 
+	putStrLn ("keeps" ++ (show x) ++ "?")
+	(c : _) <- getLine 
+	return (c == 'y')
+
+askWhichToKeep xs = filterM askToKeep xs 
+
+sayAddition x y = do 
+	let z = x + y 
+	putStrLn (	(show x) ++ " + " ++ 
+				(show y) ++ " = " ++ 
+				(show z))
+	return z 
+talkingSum xs = foldM sayAddition 0 xs 
+
+{-
+*ContrMo> talkingSum [1,2,3]
+0 + 1 = 1
+1 + 2 = 3
+3 + 3 = 6
+6 
+-}
+
