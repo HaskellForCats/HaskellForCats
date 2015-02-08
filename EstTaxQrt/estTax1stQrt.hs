@@ -1,8 +1,7 @@
 module  EstTax1stQrt where
--- (<*>) :: f (a -> b) -> f a -> f b 
-        -- Sequential application.
--- (<$>) :: Functor f => (a -> b) -> f a -> f b 
-        -- An infix synonym for fmap.
+-- so far we have: 
+-- [["2015-01-01","$3.24","APL* ITUNES.COM/BILL   866-712-7753  CA","2"]
+
 
 import Text.CSV 
 import Data.String
@@ -14,6 +13,11 @@ data MonthExpense  = MonthExpense
                      , debit    :: String
                      } 
 
+-- (<*>) :: f (a -> b) -> f a -> f b 
+        -- Sequential application.
+-- (<$>) :: Functor f => (a -> b) -> f a -> f b 
+        -- An infix synonym for fmap.
+
 main = do 
    let fileName = "x20150108.csv" 
    input <- readFile fileName
@@ -22,7 +26,7 @@ main = do
    print  csv  
 handleError csv = putStrLn "not a CSV"
 
--- "\"2015-01-01\",\"$3.24\",\"APL* ITUNES.COM/BILL   866-712-7753  CA\",\"2\"\n\
+
 
 {- 
 doWork csv = (print.findOldest.tail) (filter (\x -> length x == 2) csv)
