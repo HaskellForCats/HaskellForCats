@@ -5,6 +5,7 @@ module  EstTax1stQrt where
 
 import Text.CSV 
 import Data.String
+import Data.Csv
 
 data MonthExpense  = MonthExpense  
                      { date     :: String
