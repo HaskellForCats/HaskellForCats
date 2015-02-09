@@ -16,6 +16,11 @@ instance FromJSON Mathematician where
                          <*> (v .: "born")
                          <*> (v .:? "died")
 
+-- (<$>) :: Functor f => (a -> b) -> f a -> f b 
+    -- An infix synonym for fmap.
+-- (<*>) :: f (a -> b) -> f a -> f b 
+    -- Sequential application.
+
 -- Parses a JSON object as a Mathematician data type.
 main :: IO ()
 main = do
