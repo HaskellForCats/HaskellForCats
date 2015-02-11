@@ -24,13 +24,12 @@ foo = do
    input <- readFile fileName
    let csv = parseCSV fileName input
    case csv of
-        Right (x:_) -> return x
+        Right (x:xs) -> return [x|x <-xs]  
 	Left _ -> error "Aiee!"
 
 main = do 
-   xs <- foo
-   print  xs
-   print input 
+   x <- foo
+   print  x
 handleError csv = putStrLn "not a CSV"
 
 
