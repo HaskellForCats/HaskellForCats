@@ -4,27 +4,33 @@ module  EstTax1stQrt where
 
 
 import Text.CSV 
-import Data.String
-import Data.Csv
+-- import Data.String
+-- import Data.Csv
 
-data MonthExpense  = MonthExpense  
-                     { date     :: String
-                     , amount   :: String
-                     , detail   :: String
-                     , debit    :: String
-                     } 
+-- data MonthExpense  = MonthExpense  
+--                      { date     :: String
+--                      , amount   :: String
+--                      , detail   :: String
+--                      , debit    :: String
+--                      } 
 
 -- (<*>) :: f (a -> b) -> f a -> f b 
         -- Sequential application.
 -- (<$>) :: Functor f => (a -> b) -> f a -> f b 
         -- An infix synonym for fmap.
 
-main = do 
+foo = do 
    let fileName = "x20150108.csv" 
    input <- readFile fileName
    let csv = parseCSV fileName input
-{-      either handleError doWork  csv -}
-   print  csv  
+   case csv of
+        Right (x:_) -> return x
+	Left _ -> error "Aiee!"
+
+main = do 
+   xs <- foo
+   print  xs
+   print input 
 handleError csv = putStrLn "not a CSV"
 
 
