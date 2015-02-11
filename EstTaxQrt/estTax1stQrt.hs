@@ -1,9 +1,25 @@
 module  EstTax1stQrt where
--- so far we have: 
--- [["2015-01-01","$3.24","APL* ITUNES.COM/BILL   866-712-7753  CA","2"]
+
 
 
 import Text.CSV 
+import Data.Char
+foo = do 
+   let fileName = "x20150108.csv" 
+   input <- readFile fileName
+   let csv = parseCSV fileName input
+   case csv of
+        Right (x:xs) -> return xs  
+	Left _ -> error "Aiee!"
+
+
+main = do 
+   xs <- foo
+   let x = head xs 
+   print x 
+handleError csv = putStrLn "not a CSV"
+
+
 -- import Data.String
 -- import Data.Csv
 
@@ -18,20 +34,6 @@ import Text.CSV
         -- Sequential application.
 -- (<$>) :: Functor f => (a -> b) -> f a -> f b 
         -- An infix synonym for fmap.
-
-foo = do 
-   let fileName = "x20150108.csv" 
-   input <- readFile fileName
-   let csv = parseCSV fileName input
-   case csv of
-        Right (x:xs) -> return [x|x <-xs]  
-	Left _ -> error "Aiee!"
-
-main = do 
-   x <- foo
-   print  x
-handleError csv = putStrLn "not a CSV"
-
 
 
 {- 
