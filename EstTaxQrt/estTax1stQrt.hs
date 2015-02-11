@@ -1,18 +1,21 @@
 module  EstTax1stQrt where
-
-
-
 import Text.CSV 
 import Data.Char
+foo :: IO [Record]
 foo = do 
    let fileName = "x20150108.csv" 
    input <- readFile fileName
    let csv = parseCSV fileName input
    case csv of
         Right (x:xs) -> return xs  
-	Left _ -> error "Aiee!"
-
-
+	Left _ -> error "Aiee!" 
+data MonthExpense  = MonthExpense  
+                     { date     :: String
+                     , amount   :: String
+                     , detail   :: String
+                     , debit    :: String
+                     } 
+main :: IO ()
 main = do 
    xs <- foo
    let x = head xs 
@@ -20,6 +23,7 @@ main = do
 handleError csv = putStrLn "not a CSV"
 
 
+---------------------------------------
 -- import Data.String
 -- import Data.Csv
 
