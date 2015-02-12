@@ -1,6 +1,7 @@
 module  EstTax1stQrt where
 import Text.CSV 
 import Data.Char
+import Data.String
 foo :: IO [Record]
 foo = do 
    let fileName = "x20150108.csv" 
@@ -8,21 +9,31 @@ foo = do
    let csv = parseCSV fileName input
    case csv of
         Right (x:xs) -> return xs  
-	Left _ -> error "Aiee!" 
+        Left _ -> error "Crash!" 
+
+stripChars :: String -> String -> String
+stripChars = filter . flip notElem
+
 data MonthExpense  = MonthExpense  
                      { date     :: String
                      , amount   :: String
                      , detail   :: String
                      , debit    :: String
                      } 
+
 main :: IO ()
 main = do 
    xs <- foo
+        
    let x = head xs 
-   print x 
+   let a = (x!!1)
+   print a 
+
+
 handleError csv = putStrLn "not a CSV"
 
-
+-- getDollars [] = [] 
+-- getDollars items = 
 ---------------------------------------
 -- import Data.String
 -- import Data.Csv
