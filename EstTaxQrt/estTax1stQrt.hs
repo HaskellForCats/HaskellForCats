@@ -23,14 +23,14 @@ data MonthExpense  = MonthExpense
 
 main :: IO ()
 main = do 
-   xs <- foo
-        
+   xs <- foo        
    let x = head xs 
-   let a = (x!!1)
-   print a 
+   let as = ((stripChars "$" (x!!1)))  
+   let a = read as :: Float 
+   print a  
 
 
-handleError csv = putStrLn "not a CSV"
+-- handleError csv = putStrLn "not a CSV"
 
 -- getDollars [] = [] 
 -- getDollars items = 
