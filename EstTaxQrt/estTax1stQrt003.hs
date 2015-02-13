@@ -5,7 +5,8 @@ import Data.String
 foo :: IO [Record]
 foo = do 
    let fileName = "x20150108.csv" 
-   monthExpense <- readFile fileName
+   monthExpense <- readFile fileName 
+   let ys = map (stripChars "$") . monthExpense
    let csv = parseCSV fileName monthExpense
 
    case csv of
@@ -33,10 +34,10 @@ main = do
    xs <- foo        
     
 
-   let as = [stripChars "$"  x|x <- head xs]          -- (x!!1))  
+   --let as = [stripChars "$"  x|x <- head xs]          -- (x!!1))  
    -- let a = read as :: Float 
    -- print a  
-   print as!!1
+   print xs -- !!1
 
 -- handleError csv = putStrLn "not a CSV"
 
@@ -115,4 +116,5 @@ taxTotalObligado = sum[taxFed, taxAlbany, taxNYC]
 *EstTax4Qrt> taxTotalObligado
 2666.3614572
 -}
+
 
