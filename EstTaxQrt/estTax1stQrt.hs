@@ -5,16 +5,25 @@ import Data.String
 foo :: IO [Record]
 foo = do 
    let fileName = "x20150108.csv" 
-   monthExpense <- readFile fileName
-   let csv = parseCSV fileName monthExpense
+   input  <- readFile fileName
+   let csv = parseCSV fileName input 
 
    case csv of
-                  Right (x:xs) -> return xs 
-                  Left _ -> error "Crash!" 
+        Right (x:xs) -> return xs 
+        Left _ -> error "Crash!" 
    
 
 stripChars :: String -> String -> String
 stripChars = filter . flip notElem
+
+main :: IO ()
+main = do 
+   xss <- foo
+   let xs = head xss        
+   let as = stripChars "$"  (xs!!1) 
+   let a = read as :: Float 
+   print a 
+   
 
 --data MonthExpense  = MonthExpense  
 --                     { date     :: String
@@ -27,16 +36,6 @@ stripChars = filter . flip notElem
 -- map (\[x,y] -> JField {fname = x, ftype = y}) data
 -- where data is your input. I think that would do it.
 
-
-main :: IO ()
-main = do 
-   xs <- foo        
-    
-
-   let as = [stripChars "$"  x|x <- head xs]          -- (x!!1))  
-   -- let a = read as :: Float 
-   -- print a  
-   print as!!1
 
 -- handleError csv = putStrLn "not a CSV"
 
