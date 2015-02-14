@@ -11,18 +11,23 @@ foo = do
    case csv of
         Right (x:xs) -> return xs 
         Left _ -> error "Crash!" 
-   
+bazz = do 
+   xss <- foo
+   let xs = head xss        
+   let as = stripChars "$"  (xs!!1) 
+   let a = read as :: Float 
+
 
 stripChars :: String -> String -> String
 stripChars = filter . flip notElem
 
 main :: IO ()
 main = do 
-   xss <- foo
-   let xs = head xss        
-   let as = stripChars "$"  (xs!!1) 
-   let a = read as :: Float 
-   print a 
+--   xss <- foo
+--   let xs = head xss        
+--   let as = stripChars "$"  (xs!!1) 
+--   let a = read as :: Float 
+     print a 
    
 
 --data MonthExpense  = MonthExpense  
