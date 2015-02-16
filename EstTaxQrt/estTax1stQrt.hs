@@ -2,7 +2,7 @@ module  EstTax1stQrt where
 import Text.CSV 
 import Data.Char
 import Data.String
-
+-- gets csv as Record
 foo :: IO [Record]
 foo = do 
    let fileName = "x20150108.csv" 
@@ -10,31 +10,28 @@ foo = do
    let csv = parseCSV fileName input 
    case csv of
         Right (x:xss) -> return xss 
-        Left _ -> error "Crash!" 
-
+        Left _ -> error "Crash!"
+ 
+-- from Record extract Double
 bar :: IO ()
 bar = do
     rss <- foo 
-    print rss
+    let rs = head rss
+    let rz = read ( stripChars "$" $ head $ tail rs) ::Double 
+    let r0 = []
+    let rzz = rz:r0
+    print rzz
 
 stripChars :: String -> String -> String
 stripChars = filter . flip notElem
 
-bazz :: IO ()
-bazz = do 
-   zss <- foo
-   let xs = head zss        
-   let as = stripChars "$"  (xs!!1) 
-   let a = read as :: Double
-   print "zss?"
 
 
 main :: IO ()
 main = do 
-    rs <- bar  
-    ys <- bazz
-    return rs 
-    return ys 
+    r1 <- bar 
+    return r1 
+
 
 --data MonthExpense  = MonthExpense  
 --                     { date     :: String
