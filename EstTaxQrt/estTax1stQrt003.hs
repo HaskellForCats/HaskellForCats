@@ -2,17 +2,23 @@ module  EstTax1stQrt where
 import Text.CSV 
 import Data.Char
 import Data.String
+import Debug.Trace
+-- csv >>= (\x -> case x of Left _ -> error "DIE!"; Right things -> return things)
+-- csv >>= (\x -> case x of Left _ -> error "DIE!"; Right things -> return $ head things)
+-- csv >>= (\x -> case x of Left _ -> error "DIE!"; Right (_:(_:z:_):_) -> return z)
+--|> ["2015-01-01","$3.24","APL* ITUNES.COM/BILL   866-712-7753  CA","2"]
 foo :: IO [Record]
 foo = do 
    let fileName = "x20150108.csv" 
-   monthExpense <- readFile fileName 
+   monthExpense <- readFile fileName
+   putStrLn (show monthExpense) 
    let ys = map (stripChars "$") . monthExpense
    let csv = parseCSV fileName monthExpense
 
-   case csv of
-                  Right (x:xs) -> return xs 
-                  Left _ -> error "Crash!" 
-   
+   --case csv of
+   --               Right (x:xs) -> return xs 
+   --               Left _ -> error "Crash!" 
+   return [] 
 
 stripChars :: String -> String -> String
 stripChars = filter . flip notElem
