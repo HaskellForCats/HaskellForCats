@@ -15,16 +15,21 @@ sys admin
     a better understanding of networking
 Java for Android -> intro to programming as pain driven development. 
 GO -> exciting but not ready for prime-time; that has since changed.
-Lisp -> Intro to what was possible but the painful realization that I wouldn't get to use it anywhere.
-JavaScript -> Loved it at first. Easiest install ever; now I fear it like no other.
-Php -> useful but a hot-mess
-Rails -> to many magical W.T.F.s per minute; Ruby was fine, kind of a Lisp with objects.  
-Clojure -> A Romance but tainted by excessive dinosaur care.
+Lisp -> Intro to what was possible but the painful realization that I wouldn't get to use it anywhere that I would get a job. 
+JavaScript -> Loved it at first. Easiest install ever; now I fear it like the plague. 
+Php -> useful and quick //  but a hot-mess
+Ruby -> okay, kind of a Lisp with objects.  
+Rails -> to many magical W.T.F.s per minute; 
+Clojure -> A Romance but tainted by excessive dinosaur care .
 Haskell -> Awe inspiring 
 Objective-C -> a Faustian bargain for $$$$$  
-
-Spent about 2+ years proving to my self, Paul Graham's argument that there is Lisp and There is C. 
-Haskell is my Lisp, presently Objective-C is my C. 
+Swift -> Great but not ready for prime time just yet.
+F# -> about as close to Haskell I was gonna get and get paid for it.
+Prolog -> good that I hadn't experienced it before Haskell.
+C# -> another fuastian bargin I made for $$$$$.
+ 
+Spent about 2+ years proving to my self, Paul Graham's observation that there all of professional programming is some derivation of  Lisp and/or C. 
+Haskell is my Lisp, presently C# is my C. 
 I consider Clojure as my first love, 
 but Haskell turned out to be marriage material. 
 
@@ -71,7 +76,7 @@ http://www.haskell.org/haskellwiki/Haskell
     by stronger we mean stronger than: 
       C or C# or Java or C++ 
         weak static 
-          allows for "work around" casting etc.
+          allows for some coersion of types.
 
   Parallelization 
     turns out that purity, laziness, immutability, and static typing make Parallelization easier
@@ -79,7 +84,8 @@ http://www.haskell.org/haskellwiki/Haskell
   Concision about as much code as Ruby but 25x faster. 
  
     Haskell "feels" dynamic most of the time   
-      because of type inference     
+      because of type inference thanks to the Hindley-Milner type system.
+
 
  
 

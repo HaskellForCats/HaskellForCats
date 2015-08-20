@@ -1,0 +1,7 @@
+module Algo where 
+
+piles = [shirts,socks]
+shirts = [] 
+socks = [] 
+
+

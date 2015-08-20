@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>HTTP-4000.2.19: A library for client-side HTTP</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+window.onload = function () {pageLoad();};
+//]]>
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">HTTP-4000.2.19: A library for client-side HTTP</p></div><div id="content"><div id="description"><h1>HTTP-4000.2.19: A library for client-side HTTP</h1><div class="doc"><p>The HTTP package supports client-side web programming in Haskell. It lets you set up
+HTTP connections, transmitting requests and processing the responses coming back, all
+from within the comforts of Haskell. It's dependent on the network package to operate,
+but other than that, the implementation is all written in Haskell.</p><p>A basic API for issuing single HTTP requests + receiving responses is provided. On top
+of that, a session-level abstraction is also on offer  (the <code>BrowserAction</code> monad);
+it taking care of handling the management of persistent connections, proxies,
+state (cookies) and authentication credentials required to handle multi-step
+interactions with a web server.</p><p>The representation of the bytes flowing across is extensible via the use of a type class,
+letting you pick the representation of requests and responses that best fits your use.
+Some pre-packaged, common instances are provided for you (<code>ByteString</code>, <code>String</code>).</p><p>Here's an example use:</p><pre>
+   do
+     rsp &lt;- Network.HTTP.simpleHTTP (getRequest &quot;http://www.haskell.org/&quot;)
+             -- fetch document and return it (as a 'String'.)
+     fmap (take 100) (getResponseBody rsp)
+
+   do
+     (_, rsp)
+        &lt;- Network.Browser.browse $ do
+              setAllowRedirects True -- handle HTTP redirects
+              request $ getRequest &quot;http://www.haskell.org/&quot;
+     return (take 100 (rspBody rsp))</pre></div></div><div id="module-list"><p class="caption">Modules</p><ul><li><span id="control.n.1" class="module collapser" onclick="toggleSection('n.1')">Network</span><ul id="section.n.1" class="show"><li><span class="module"><a href="Network-Browser.html">Network.Browser</a></span></li><li><span class="module"><a href="Network-BufferType.html">Network.BufferType</a></span> Abstract representation of request and response buffer types.</li><li><span class="module"><span id="control.n.1.3" class="collapser" onclick="toggleSection('n.1.3')">&nbsp;</span><a href="Network-HTTP.html">Network.HTTP</a></span><ul id="section.n.1.3" class="show"><li><span class="module"><a href="Network-HTTP-Auth.html">Network.HTTP.Auth</a></span></li><li><span class="module"><a href="Network-HTTP-Base.html">Network.HTTP.Base</a></span></li><li><span class="module"><a href="Network-HTTP-Cookie.html">Network.HTTP.Cookie</a></span></li><li><span class="module"><a href="Network-HTTP-HandleStream.html">Network.HTTP.HandleStream</a></span></li><li><span class="module"><a href="Network-HTTP-Headers.html">Network.HTTP.Headers</a></span></li><li><span class="module"><a href="Network-HTTP-Proxy.html">Network.HTTP.Proxy</a></span></li><li><span class="module"><a href="Network-HTTP-Stream.html">Network.HTTP.Stream</a></span></li></ul></li><li><span class="module"><a href="Network-Stream.html">Network.Stream</a></span></li><li><span class="module"><a href="Network-StreamDebugger.html">Network.StreamDebugger</a></span></li><li><span class="module"><a href="Network-StreamSocket.html">Network.StreamSocket</a></span></li><li><span class="module"><a href="Network-TCP.html">Network.TCP</a></span></li></ul></li></ul></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.14.2</p></div></body></html>

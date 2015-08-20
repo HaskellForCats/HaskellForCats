@@ -1,0 +1,62 @@
+ 
+
+
+I owe my Come to Haskell moment to several People I must mention at the get go. 
+Personally:
+	Brian Hurt -
+	Ryan Trinkle - 
+	Rich Hickey - 
+Intellectually:
+	Phil Wadler - 
+	Paul Graham - 
+	Alonzo Church - 
+	John McCarthy - 
+
+
+
+
+Most complaints about State in programming  were to a greater or lesser extent inherited from the ubiquity of C. Little time savers like small-shift operators and post-incrementers, were nice conviences at the small scale but for every increment 
+
+One of the problems with quantum mechanics is that 
+you have take the whole system 
+a.k.a universe into account.  
+
+Nice thing about classical physics was that it is possible to decompose / decouple things 
+(a.k.a. reductionism). 
+
+The default set up of code in Haskell is system independant; 
+system dependance is sequestered to Action Blocks.
+
+With mutable languages, 
+it is hard to write code that doesn't depend upon the state of the whole system.
+
+The more balls to juggle the more likely some get dropped.
+
+
+the wave-particle duality is *less of a mess* than the member-not member duality
+
+
+The next object oriented program I meet that actually fulfills this will be the first.
+
+If method foo on object X calls method bar on object Y, then the behavior, and functioning, of method foo depends upon, among other things, on the state of Y- including it's type, which determines *which* bar is getting called.  I mean, when you ask "what does calling foo on X do?", this includes the entire answer to the question "what does calling bar on Y do?", because X.foo calls Y.bar.
+
+Ans interesting question arises here- is object Y "part of" object X?  I mean, X has a state, and this state is probably other objects.  We might say that X contains "a list of ints", for example.  Well, that list is definitely an object, and in true OO languages, every int in that list i also an object.  Is that list object "part of" X or not?  How about the int objects that live in the list?
+
+Well, that depends.  If Y is visible outside of X, it's easy for Y to be considered a separate object than X.  And yet, the code for X also decides whether or not X considers Y part of X.  It is very possible, and indeed in my experience it's common, for both statements "Y is considered part of X" and "Y is considered not part of X"  to be true, in different contexts and by different actors (programmers, objects, functions, etc.).  It's also possible, indeed common if less harmful, for both statements to be false.  Welcome to wave-particle duality.
+
+Indeed, the wave-particle duality is *less of a mess* than the member-not member duality.  With the wave-particle duality, it doesn't matter if you consider the photon wave (with particle-like behaviors) or a particle (with wave-like behaviors), the formulas you derive and the answers you compute are the same either way.  In other words, both side work.  This isn't true for the member-not member duality.
+
+Also, the member-not member duality is another way you get "electrons jumping in from Alpha Centauri" problem.  If object X views object Y as "part of" object X, it will feel free to change object Y's state however and when ever it feels like.  If you think object Y is *not* "part of" object X, then the state of this independent object you think you have will change at random, without going through you.  And, of course, if two different objects think that some common object is part of both of their states, well, hijinks will ensue.
+
+There are only three ways I can think of for encapsulation to be maintained:
+1. Objects have to act like black holes (or roach motels, but black holes better fit the physics theme you've got going)- once information goes in, it never comes back out.
+2. The information returned from the object has to be immutable- so that if the object being returned is considered "part of" multiple different other objects, none of their states can be modified by modifying the shared object.  
+3. Any mutable information returned out from an object must first be cloned- so that the object which is part of the internal state and the object being returned are different objects.  Which is a *huge* performance hit, and is very error prone, and if anyone ever fails to do so, quantum weirdness can (will) return.
+
+You know, I was kind of cool on the idea when you first proposed it, but the more I dig into it, the more appropriate it seems.
+
+As a side note, notice how often "fundamental" data types like ints and strings are immutable, or are treated as immutable by convention, by even mutation heavy languages.  They implemented half the solution.  They are immutable because if they weren't, you'd be running into this problem all over the place.  If my object contains a list of 1,000 integers, I'd now have 1,001 mutable objects (the ints plus the list that holds them).  By making ints immutable, I now only have one.  So they have implicitly *recognized* both the problem and the solution- they have just inconsistently implemented it.  I mean, if sharing mutable objects *isn't* a problem, why not make ints mutable?  And if sharing mutable objects *is* a problem, why not make lists immutable?
+ 
+OK, for languages that predate decent garbage collection, there was a significant cost/benefit case to be made.  Without good GC, allocations are expensive.  You don't need to (indeed, generally don't want to) box you integers- creating a new integer doesn't require an expensive allocation.  Creating a new list requires an expensive allocation.  So I can solve 99.9% of the problem by making ints immutable, and just suck it up for the list case for performance reasons.  So C++ and Smalltalk are off the hook.  Java is a borderline case.  People today have no excuse.
+
+This is yet another case of inheriting design decisions from a previous language without seriously considering their current relevance.

@@ -33,12 +33,15 @@ function + argument(s)
     is the basic structure
     and
     (functions + arguments) can be passed in their entirety 
-        to other functions as arguments.  
+        to other functions as arguments. 
+In Haskell same inputs yeild same outputs always. 
+
     Haskell's types provides the interface
         but that interface isn't voluntary
         It can't be subverted by casting or or wrapping
             All types must be known at runtime
                 otherwise no compiling.
+Haskell types are not interfaces, because those are confined to objects locally. All types are system wide. 
         runs throughout the entire language
             not just through the one object it was written for.
          
@@ -48,9 +51,11 @@ function + argument(s)
         Distinctions of public and private evaporate.
     You can't construct leaky objects  
        
-think of rail traffic verses road traffic. Think of the number of train wrecks verses the number of car wrecks
+think of rail traffic verses road traffic. Think of the number of train wrecks verses the number of truck wrecks
     train fatalities verses road fatalities. 
     most drivers think they are above average in their abilities
     as do most programmers 
     and both are wrong.
+
+
 
