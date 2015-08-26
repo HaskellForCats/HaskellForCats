@@ -1,0 +1,54 @@
+http://www.haskell.org/haskellwiki/Haskell
+Pure
+no "real world" compromises
+  thus more consistent
+  few W.T.F.s
+
+Purely Functional
+functions are the primary means of getting work done
+functions can be passed as values.
+functions are values.
+functions are easier to reason about than are objects
+    see smalltalk example: twentyMinHaskell000a.hs
+2+3=5
+2+3=5 ± 1
+
+Immutable like mathematics
+for the life of the runtime (until you change it)
+no swappable shared memory
+    because shared swappable memory is the devil
+  no four horsemen of the parallel apocalypse
+          race conditions
+          priority inversions
+          Live Locks
+          Deadlocks
+   changes are pointers to new values
+    this sounds expensive but it's not
+    this sounds restrictive but it's not
+
+Lazy (opposite of eager)
+nothing gets computed until it is called
+  and only so much as is needed
+    save on resources
+can tackle infinite data sets
+
+Statically typed ("strongly" "not weakly")
+no casting cheats
+no wrapping cheats
+by stronger we mean stronger than:
+  C or C# or Java or C++
+    weak static
+      allows for some coersion of types.
+
+Parallelization
+  purity / laziness / immutability / strict static typing 
+    make Parallelization easier
+
+Concision about as much code as Ruby but 25x faster.
+
+Haskell "feels" dynamic most of the time
+  because of type inference thanks to the Hindley-Milner type system.
+
+Monads are action oriented objects
+
+abstraction is precision at a higher level

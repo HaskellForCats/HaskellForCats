@@ -1,0 +1,12 @@
+Q.M.M.0.0.0.
+
+Quantum  mechanical features:
+        indeterminacy
+        probability
+        complexity
+        opacity
+        nondeterministic
+
+Classical  mechanical features:
+        determinacy
+       linear 

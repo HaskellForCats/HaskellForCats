@@ -1,0 +1,2 @@
+for more info:
+http://www.haskell.org/haskellwiki/Haskell

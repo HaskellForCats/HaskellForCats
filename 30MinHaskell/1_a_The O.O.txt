@@ -1,0 +1,77 @@
+The O.O.
+Objects are more promiscuous than they appear!
+
+Instantiation is making something Stateful 
+
+Objects are cursed by procedures
+
+Procedural is entirely Stateful
+
+The object oriented breakthrough was to cluster that state into chunks with messages moving back-and-forth between the state for blocks now as long as we have one thread and one core we can still reason about it;
+
+Scale up to 1 billions of connections
+And hundreds of cores
+
+Sandi Metz describes herself as: 
+abstraction seeking / 
+message centric /
+condition averse / 
+Smalltalk infected
+
+Inheritance was for specialization and not for code reuse!
+
+More code gets same behavior? 
+
+State can be defined as complexity of order and context 
+
+object orientation conflates identity value and state; and once done it's hard to undo.
+
+Simplicity is the prerequisite for reliability 
+E. dykstra
+
+Saddest part is you will not get pats on the back or recognition for simplicity and most likely that code will be replaced by more complex code that all the forces in the industry are against simplicity even though it is the ideal.
+
+Simplicity equals opportunity 
+
+Architectural agility
+
+Simple components are portable
+
+It's like this because there exists the tendency to Gem install universe
+
+The next batch of problems coming our way Will be more complex than any we have seen before and will be out of reach if we bring extra complexity with us approach;
+
+Syntax is complex 
+Positional arguments to statements is complex
+Looping is complex
+ORM is unbelievably complex
+Messaging objects for their contents is complex
+Call chaining should give way to queuing
+
+
+State full objects should give away to values staple methods should become functions variables especially reassigning them should become references Long inheritance chains switches and if nesting's should be traded for polymorphism 
+
+Conditionals should be rules
+
+Order and sequence are stateful in and of themselves
+
+Information wrapped in classes that Create doppelgänger shells for which where access that information is inherently complex.
+
+When you are consuming Data structures you're not worrying about classes
+
+Encapsulation is for implementation details information itself is not implemented wrapping information and then writing services to access it 
+
+you have to ask yourself can I move it;
+
+Simplicity is a choice 
+
+Functions and values
+
+Your functions only operate on their values their outcomes are predictable
+
+If I ref an object and assumed that the value is consistent with the last time I rafted but that may not be true then I might just have to test for it
+
+I suggest the transvaluation of all objects to functions
+
+Propositions are types proofs are programs
+

@@ -1,0 +1,8 @@
+Complexity:
+
+A specter is haunting programing as a discipline, and that specter is Complexity.
+
+Moore's Law is upon us, even phones now have 4 cores.
+
+All the industrial programing languages in the top 15 of the TIOBE Index were written
+for one thread and one core.
