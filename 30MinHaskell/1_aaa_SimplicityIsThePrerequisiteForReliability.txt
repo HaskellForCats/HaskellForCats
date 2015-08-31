@@ -1,0 +1,23 @@
+Simplicity equals opportunity
+	P. Graham
+
+Simplicity is the prerequisite for reliability
+	E. dykstra
+
+But the Saddest part is, 
+	Forces in the industry are against simplicity. 
+	You will not get pats on the back for simplicity. 
+	At times you will be derided for being simple.
+
+	Simple code, 
+	because it's simple and movable,
+		gets replaced, 
+		by complex code, 
+		which roots in like a tumor;
+
+	It's excracation could kill the patient.
+	Code obscurity often equals job security.
+
+Simplicity is a choice.
+
+Thus I recommend: The transvaluation of objects to functions.

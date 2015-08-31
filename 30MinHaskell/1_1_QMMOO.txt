@@ -1,0 +1,15 @@
+Quantum Mechanical Model Of Object Orientation
+
+Classical  mechanical features:
+       determanistic 
+       linear
+       Observable
+       Lawful
+
+
+Quantum mechanical features:
+        entanglement
+        indeterminacy
+        probability
+        complexity
+        opacity

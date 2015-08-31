@@ -1,0 +1,46 @@
+SimpleNotes
+
+
+More code gets same behavior?
+
+State can be defined as complexity of order and context
+
+
+
+The opposite of simple is Gem install universe.
+
+
+
+Architectural agility
+
+Simple components are portable
+
+
+
+The next batch of problems coming our way Will be more complex than any we have seen before and will be out of reach if we bring extra complexity with us approach;
+
+
+
+State full objects should give away to values staple methods should become functions variables especially reassigning them should become references Long inheritance chains switches and if nesting's should be traded for polymorphism
+
+Conditionals should be rules
+
+
+
+Information wrapped in classes that Create doppelgänger shells for which where access that information is inherently complex.
+
+When you are consuming Data structures you're not worrying about classes
+
+Encapsulation is for implementation details information itself is not implemented wrapping information and then writing services to access it
+
+you have to ask yourself can I move it;
+
+Simplicity is a choice
+
+Functions and values
+
+Because functions only operate on their values their outcomes are predictable.
+
+If I ref an object and assumed that the value is consistent with the last time I rafted but that may not be true then I might just have to test for it
+
+I suggest the transvaluation of objects to functions

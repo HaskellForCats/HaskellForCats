@@ -1,0 +1,12 @@
+-- Bruce Tate from Seven Languages in Seven Weeks (p.312)
+Final Thoughts
+Of the functional languages in the book, 
+Haskell was the most difficult to learn. 
+The emphasis on monads and the type system made the learning curve steep. 
+Once I mastered some of the key concepts, things got easier, 
+and it became the most rewarding language I learned. 
+Based on the type system and the elegance of the application of monads, 
+one day we'll look back at this language as one of the most important in this book.
+Haskell plays another role, too. 
+The purity of the approach and the academic focus will both improve our understanding of programming. 
+The best of the next generation of functional programmers in many places will cut their teeth on Haskell.

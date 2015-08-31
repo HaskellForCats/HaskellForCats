@@ -1,0 +1,49 @@
+HASKELL IS:
+  Purely Functional:
+  Functions are the primary means of getting work done.
+  Functions can be passed as values.
+  Same inputs always return same outputs.
+
+No-null pointers.
+
+Immutable like mathematics.
+  All value changes are pointers to new values.
+
+No shared mutable memory, 
+which means no:
+            race conditions,
+            priority inversions,
+            Live Locks,
+            Deadlocks,
+
+Lazy as in the (opposite of eager),
+  nothing gets computed until it is called;
+  nothing gets called until it can be computed;
+  so Haskell can tackle infinite data sets.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

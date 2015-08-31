@@ -1,0 +1,5 @@
+Sandi Metz describes herself as:
+abstraction seeking /
+message centric /
+condition averse /
+Smalltalk infected

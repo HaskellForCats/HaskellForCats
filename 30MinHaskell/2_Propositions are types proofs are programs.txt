@@ -1,5 +1,5 @@
-Propositions are types 
-
-proofs are programs
+Propositions are types;
+	&
+Proofs are programs.
 
 

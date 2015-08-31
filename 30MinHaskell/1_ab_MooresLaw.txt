@@ -1,0 +1,26 @@
+Moore's observation ... "processing power was doubling approximately every 24 months". 
+
+But this gave way to: 
+
+The Multicore Era:
+	2005 -- manufacturers fit all of a CPU's functionality into half the area. 
+	2006 -- dual-core CPUs ...  
+	   where each chip gives the functionality of two traditional CPUs. 
+
+	2008 -- quad-core 
+
+Today 
+	Intel's Xeon Phi coprocessor currently offers up to 61 cores, with a 72-core standalone model expected this year.
+
+Traditional, sequential programs are written for one core; 
+	Multicore CPU's require a parallel approach.
+
+	Developers who are still writing sequential software are writing for yesterday's hardware ... (Joel C. Adams @ http://cacm.acm.org/)
+
+
+
+
+
+
+
+

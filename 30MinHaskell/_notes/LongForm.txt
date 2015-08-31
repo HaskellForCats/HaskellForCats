@@ -1,0 +1,189 @@
+LongForm
+SCHOOL
+        Basic / Pascal / Assembly
+$$$$
+        C#
+        Objective-C / Swift
+        Ruby
+EXPLORED
+        C/C++
+        Clojure
+        Erlang
+        JavaScript / Php
+        Java for Android
+        GO
+        Lisp
+        Lua
+        Prolog
+        Scala
+EMBRACED
+        F#
+        Haskell
+
+-------------------------------------------
+Quantum Mechanical Model Of Object Orientation
+
+Classical  mechanical features:
+       determanistic 
+       linear
+       Observable
+       Lawful
+
+
+Quantum mechanical features:
+        entanglement
+        indeterminacy
+        probability
+        complexity
+        opacity
+from: SmallTalk-80 The Language and its Implementation
+by Adele Goldberg and David Robson
+
+Objects support modularity
+the functioning of any object does not depend
+on the internal details of other objects.
+...
+Complexity is further reduced by grouping together similar components;
+this is achieved through classes in Smalltalk.
+Classes are the chief mechanism for extension in Smalltalk.
+...
+Managing complexity is a key contribution of the Smalltalk approach to software.
+
+from SmallTalk-80 by Goldberg and Robson circa 1983 
+
+A CLASS describes the implementation of a set of 
+OBJECTS that all represent the same kind of system component. 
+
+The individual objects described by a CLASS are called its 
+instances.
+
+An object's public properties are the messages that make up its 
+interface.
+
+An object's private properties are a set of 
+INSTANCE VARIABLES that make up its 
+PRIVATE memory and a set of METHODS that describe how to carry out its operations.
+
+A MESSAGE is a request for an object to carry out one of its operations.
+
+A MESSAGE specifies which operation is desired, but not how that operation should be carried out. The RECEIVER, the object to which the message was sent, determines how to carry out the requested operation.
+
+The set of messages to which an object can respond is called its INTERFACE with the rest of the system. The only way to interact with an object is through its INTERFACE.
+
+A crucial property of an OBJECT is that its 
+PRIVATE memory can be manipulated only by its own operations. 
+
+A crucial property of MESSAGEs is that they are the only way to invoke an object's operations.  
+
+An object cannot depend on the internal details of other objects, 
+only on the messages to which they respond.
+
+
+MESSAGES insure the modularity of the system because they specify the type of operation desired, but not how that operation should be ac- complished. 
+----------------------------------------
+
+Object Orientation conflates:
+        identity
+        value
+        and state;
+                once munged; it's difficult 
+                to extracate anyone of them
+
+Complexity abounds:
+        Data structures, 
+                wrapped in classes are complex.
+        Syntax is complex.
+        Positional arguments to statements 
+                are complex
+        Looping is complex
+                nested looping is even more complex;
+        ORM is OMG complex.
+        Messaging objects for their contents is complex.
+        Call chaining is Chaining complexities together.
+        Order and sequence are stateful by themselves
+        Monitoring a myriad of objects 
+                for continual change super complex.
+
+It's all managable on one core with serial processes.
+
+Simplicity equals opportunity
+        P. Graham
+
+Simplicity is the prerequisite for reliability
+        E. dykstra
+
+But the Saddest part is, 
+        Forces in the industry are against simplicity. 
+        You will not get pats on the back for simplicity. 
+        At times you will be derided for being simple.
+
+        Simple code, 
+        because it's simple and movable,
+                gets replaced, 
+                by complex code, 
+                which roots in like a tumor;
+
+        It's excracation could kill the patient.
+        Code obscurity often equals job security.
+
+Simplicity is a choice.
+
+Thus I recommend: The transvaluation of objects to functions.
+
+Moore's observation ... "processing power was doubling approximately every 24 months". 
+
+But this gave way to: 
+
+The Multicore Era:
+        2005 -- manufacturers fit all of a CPU's functionality into half the area. 
+        2006 -- dual-core CPUs ...  
+           where each chip gives the functionality of two traditional CPUs. 
+
+        2008 -- quad-core 
+
+Today 
+        Intel's Xeon Phi coprocessor currently offers up to 61 cores, with a 72-core standalone model expected this year.
+
+Traditional, sequential programs are written for one core; 
+        Multicore CPU's require a parallel approach.
+
+        Developers who are still writing sequential software are writing for yesterday's hardware ... (Joel C. Adams @ http://cacm.acm.org/)
+
+Propositions are types;
+        &
+Proofs are programs.
+
+
+HASKELL IS:
+  Purely Functional:
+  Functions are the primary means of getting work done.
+  Functions can be passed as values.
+  Same inputs always return same outputs.
+
+No-null pointers.
+
+Immutable like mathematics.
+  All value changes are pointers to new values.
+
+No shared mutable memory, 
+which means no:
+            race conditions,
+            priority inversions,
+            Live Locks,
+            Deadlocks,
+
+Lazy as in the (opposite of eager),
+  nothing gets computed until it is called;
+  nothing gets called until it can be computed;
+  so Haskell can tackle infinite data sets.
+
+
+
+
+
+
+
+
+
+
+

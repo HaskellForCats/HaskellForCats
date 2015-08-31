@@ -1,0 +1,35 @@
+Sandi-Metz
+
+"object-oriented software fails when the act of design is separated from the 
+act of programming. 
+
+Agile processes guarantee change and your ability to make these changes depends 
+on your application's design. If you cannot write well-designed code you'll have to rewrite your application during every iteration.
+
+Poor Object Oriented Design metrics are indisputably a sign of bad design; 
+Unfortunately, good scores don't prove the opposite;"
+
+Like tests they can discern a problem, but not affirm efficacy.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+source lines of code or SLOC →( S L O P)

@@ -1,0 +1,15 @@
+ML derived type inference makes Haskell "feel" dynamically typed
+    But:
+    The strong-static typing,
+    allows for ultra optimization by the compiler.
+    A concision that is 
+    on par with Ruby, 
+    but an execution that is as fast as Java, 
+    (see benchmarks).
+
+Haskell offers, a provable level of correctness.
+  And Parallelization is made easier.    
+
+  Monads provide: 
+    type-safe Action-Blocks 
+    that handle all real world interaction. 

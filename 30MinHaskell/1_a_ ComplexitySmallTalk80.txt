@@ -1,0 +1,13 @@
+from: SmallTalk-80 The Language and its Implementation
+by Adele Goldberg and David Robson
+
+Objects support modularity
+the functioning of any object does not depend
+on the internal details of other objects.
+...
+Complexity is further reduced by grouping together similar components;
+this is achieved through classes in Smalltalk.
+Classes are the chief mechanism for extension in Smalltalk.
+...
+Managing complexity is a key contribution of the Smalltalk approach to software.
+

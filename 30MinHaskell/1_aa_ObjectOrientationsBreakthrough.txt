@@ -1,0 +1,23 @@
+Procedural programming was all Stateful all the time.
+
+Object orientation's  breakthrough
+	was to cluster state into chunks
+
+Messages communicating back-and-forth between chunks
+	the cost = 
+	interactivity altering state.
+
+Instantiation itself is stateful, 
+	forcing perpetual monitoring for change.
+
+Objects get boundup by the procedures they absorb.
+
+Objects are promiscuous, 
+	sometimes able to touch internal members 
+	of others, 
+		without consent.
+
+Inheritance was for specialization, not for code reuse!
+
+
+
