@@ -177,13 +177,3 @@ Lazy as in the (opposite of eager),
   nothing gets called until it can be computed;
   so Haskell can tackle infinite data sets.
 
-
-
-
-
-
-
-
-
-
-

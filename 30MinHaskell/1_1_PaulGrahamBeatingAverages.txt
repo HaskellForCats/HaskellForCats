@@ -1,0 +1,13 @@
+"Beating the Averages"
+... in general, for application software, you want to be using the most powerful (reasonably efficient) language you can get, and using anything else is a mistake, of exactly the same kind, though possibly in a lesser degree, as programming in machine language.
+
+After a certain age, programmers rarely switch languages voluntarily. Whatever language people happen to be used to, they tend to consider just good enough.
+
+"The Roots of Lisp"
+It seems to me that there have been two really clean, consistent models of programming so far: the C model and the Lisp model.
+
+A popular recipe for new programming languages in the past 20 years has been to take the C model of computing and add to it, piecemeal, parts taken from the Lisp model, like runtime typing and garbage collection.
+
+there is hope for a new Lisp
+
+Paul Graham 

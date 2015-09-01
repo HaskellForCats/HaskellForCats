@@ -1,11 +1,11 @@
-module Ch1002 where 
+module HighOrdFunc where 
 ----------------------------------------
 -- HIGHER ORDER FUNCTIONS 
 ------------------------------------
 -- Functions taking Functions as args 
 -- arg order makes a diff in function application 
-
-plus1   = (+) 1 -- adds one to plus1's arg
+-- plus1 :: Double -> Double  
+plus1   = (+) 1.0 -- adds one to plus1's arg
 plus1'  = (1+)  -- here + is param
 plus1'' = (+1)  -- 1 is param
 {-
@@ -53,9 +53,15 @@ removeOdd = filter isEven
 -- ($) Function applicator takes function and a value and applies function to the value.
 -- 	most helpful when you want de-clutter parens 
 
--- compiler is smart about type annotations you usually don't have to declare but can to disambiguate and make it easier to read through the code. Or to keep you from deluding yourself or others about what the code does. Or you might have to optimize with and Int or two but don't until you have to. 
--- repeated type vars like when you see a->a->a means anytype but all the same of that type a->b->a means "b" is different in some respect than a, or indifferent to a.
-  
+-- compiler is smart about type annotations 
+-- you usually don't have to declare 
+-- but can to make it easier to read. 
+-- Or to keep you from deluding yourself or others 
+-- about what the code does. 
+-- repeated type vars like when you see a->a->a 
+-- means anytype but all the same of that type 
+-- a->b->a means "b" is different in some respect 
+-- than a, or indifferent to a.
 -- type is like a class diagam in oop 
 
 {- 

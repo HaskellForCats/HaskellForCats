@@ -14,4 +14,5 @@ factorial' n = n * factorial' (n - 1)
 
 factorial'' n = foldl1 (*) [1..n]
 
-
+fn001 :: (Num a, Enum a) => Integer -> Integer
+fn001 n = foldl1 (*) [1..n]

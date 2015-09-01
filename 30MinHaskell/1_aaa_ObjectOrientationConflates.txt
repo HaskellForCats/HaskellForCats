@@ -2,8 +2,7 @@ Object Orientation conflates:
 	identity
 	value
 	and state;
-		once munged; it's difficult 
-		to extracate anyone of them
+		once munged; it doesn't unmuge
 
 Complexity abounds:
 	Data structures, 
@@ -20,7 +19,7 @@ Complexity abounds:
 	Monitoring a myriad of objects 
 		for continual change super complex.
 
-It's all managable on one core with serial processes.
+It's managable on one core with serial processes.
 
 
 

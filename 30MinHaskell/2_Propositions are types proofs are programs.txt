@@ -2,4 +2,21 @@ Propositions are types;
 	&
 Proofs are programs.
 
+-- AGLEBRA RULES -- 
+
+x + 0 = x 
+x * 1 = x
+x + y = y + x 
+x * y = y * x 
+(x + y) + z = x + (y + z) 
+(x * y) * z = x * (y * z) 
+x * (y + z) = x * y + x * z 
+
+using just these rules 
+we can rewrite: 
+  things that look algebraic,
+  addition 
+  Propositional logic
+  Set Theory 
+  Program evaluation 
 

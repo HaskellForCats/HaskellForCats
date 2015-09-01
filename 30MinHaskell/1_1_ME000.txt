@@ -6,7 +6,6 @@ $$$$
         Ruby
 EXPLORED
         C/C++
-        Clojure
         Erlang
         JavaScript / Php
         Java for Android
@@ -16,7 +15,8 @@ EXPLORED
         Prolog
         Scala
 EMBRACED
-        F#
         Haskell
+        F#
+        Clojure
 
 -------------------------------------------

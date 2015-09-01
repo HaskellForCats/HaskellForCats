@@ -1,0 +1,13 @@
+Who to blame for why I rabbit on about Haskell
+
+Rich Hickey 
+	for Clojure and "Simplicity as a Goal"
+
+Brian Hurt 		
+	"Static v Dynamic typing" talks 
+	Four Horsemen & Team Idiots
+
+Ryan Trinkle  
+	"Shitty programmers can't do Haskell" 
+		and his work at SkedgeMe.
+
