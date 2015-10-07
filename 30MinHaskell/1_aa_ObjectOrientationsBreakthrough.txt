@@ -10,7 +10,7 @@ Messages communicating back-and-forth between chunks
 Instantiation itself is stateful, 
 	forcing perpetual monitoring for change.
 
-Objects get boundup by the procedures they absorb.
+Objects get bound-up by the procedures they absorb.
 
 Objects are promiscuous, 
 	sometimes able to touch internal members 

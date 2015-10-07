@@ -11,8 +11,10 @@ module Dada123 where
 
            dada4                = \x -> \y -> x + y  
 
-           dada5 x y            = x + y
+           dada5  x y  z          = x + y / z 
 
+           dada6 [x] = zip [x] [1,2,3]
+ 
 {- the rule is known as the "monomorphic restriction
 
  - so when there is a type variable such as x or y 

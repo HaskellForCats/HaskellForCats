@@ -294,7 +294,7 @@ prop_pyth x y =
 -- > quickCheck prop_SomeFun 
 
 someFun001 x y = x + y 
-someFun002 a b = a + b 
-
+someFun002 x y = y + x 
+prop_SomeFun x y = someFun001 x y == someFun002 x y
 
 

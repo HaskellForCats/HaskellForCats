@@ -11,3 +11,5 @@ Ryan Trinkle
 	"Shitty programmers can't do Haskell" 
 		and his work at SkedgeMe.
 
+Sandi Metz 
+	Object Composition and Interface Only Testing.

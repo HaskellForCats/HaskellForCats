@@ -2,7 +2,7 @@ Object Orientation conflates:
 	identity
 	value
 	and state;
-		once munged; it doesn't unmuge
+		once munged; it doesn't un-munge
 
 Complexity abounds:
 	Data structures, 
@@ -15,11 +15,12 @@ Complexity abounds:
 	ORM is OMG complex.
 	Messaging objects for their contents is complex.
 	Call chaining is Chaining complexities together.
+	Null defense strategies are complex.
 	Order and sequence are stateful by themselves
 	Monitoring a myriad of objects 
-		for continual change super complex.
+		for continual change = super complex.
 
-It's managable on one core with serial processes.
+It's manageable on one core with serial processes.
 
 
 

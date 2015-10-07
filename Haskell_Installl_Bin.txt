@@ -1,0 +1,80 @@
+Package Control Messages
+========================
+
+Package Control:
+---------------
+
+  Version 3.1 Release Notes
+  
+  Package Control continues its focus on polish and fixing edge-case bugs. Some
+  of the changes in this version include:
+  
+   - quick panel for Install Package now stays open on Windows with recent
+     versions of ST3, even when focus is lost
+   - new "downloader_precedence" setting to allow users to use specific HTTP
+     backend due to network proxy or SSL issues
+   - added Install Local Dependency command for package developers to more
+     easily deal with dependencies during development
+   - improved handling of git/hg package upgrade errors
+   - better handling of locked .sublime-package files on Windows
+   - performance improvements for users with a large number of open windows
+  
+  For package developers, the list of available dependencies has been growing:
+  https://github.com/wbond/package_control_channel/blob/master/repository/dependencies.json
+  76u7
+  Enjoy!
+  
+  echo -- Removing all Haskell directories
+mv /Users/evx001/.cabal/config /Users/evx001/.cabal/config.orig.0
+rm -rf /Library/Frameworks/GHC.framework
+rm -rf /Library/Haskell
+rm -rf /Users/evx001/.cabal/logs
+rm -rf /Users/evx001/.cabal/setup-exe-cache
+rm -rf /Users/evx001/.cabal/where-is-my-stuff.txt
+rm -rf /Users/evx001/.ghc/x86_64-darwin-7.4.2
+rm -rf /Users/evx001/.ghc/x86_64-darwin-7.6.3
+rm -rf /Users/evx001/.ghc/x86_64-darwin-7.8.2
+rm -rf /Users/evx001/.ghc/x86_64-darwin-7.8.3
+rm -rf /Users/evx001/Library/Haskell
+rm -rf /usr/local/lib/ghc-7.8.2
+rm -f /usr/bin/activate-hs
+rm -f /usr/bin/alex
+rm -f /usr/bin/cabal
+rm -f /usr/bin/cabal.real
+rm -f /usr/bin/cabal.wrap
+rm -f /usr/bin/ghc
+rm -f /usr/bin/ghc-7.10.2
+rm -f /usr/bin/ghc-7.6.3
+rm -f /usr/bin/ghc-7.8.3
+rm -f /usr/bin/ghc-clang-wrapper
+rm -f /usr/bin/ghc-pkg
+rm -f /usr/bin/ghc-pkg-7.10.2
+rm -f /usr/bin/ghc-pkg-7.6.3
+rm -f /usr/bin/ghc-pkg-7.8.3
+rm -f /usr/bin/ghci
+rm -f /usr/bin/ghci-7.10.2
+rm -f /usr/bin/ghci-7.6.3
+rm -f /usr/bin/ghci-7.8.3
+rm -f /usr/bin/haddock
+rm -f /usr/bin/haddock-ghc-7.10.2
+rm -f /usr/bin/haddock-ghc-7.6.3
+rm -f /usr/bin/haddock-ghc-7.8.3
+rm -f /usr/bin/happy
+rm -f /usr/bin/hp2ps
+rm -f /usr/bin/hpc
+rm -f /usr/bin/hsc2hs
+rm -f /usr/bin/HsColour
+rm -f /usr/bin/patch-ghc-settings
+rm -f /usr/bin/runghc
+rm -f /usr/bin/runghc-7.10.2
+rm -f /usr/bin/runghc-7.6.3
+rm -f /usr/bin/runghc-7.8.3
+rm -f /usr/bin/runhaskell
+rm -f /usr/bin/uninstall-hs
+rm -f /Users/evx001/Library/Haskell/bin/alex
+rm -f /Users/evx001/Library/Haskell/bin/derive
+rm -f /Users/evx001/Library/Haskell/bin/happy
+rm -f /Users/evx001/Library/Haskell/bin/hoogle
+rm -f /Users/evx001/Library/Haskell/bin/snap-chat-single
+rm -f /Users/evx001/Library/Haskell/bin/vty-interactive-terminal-test
+rm -f /Users/evx001/Library/Haskell/bin/yi

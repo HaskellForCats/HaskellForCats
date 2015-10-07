@@ -28,5 +28,5 @@ An object cannot depend on the internal details of other objects,
 only on the messages to which they respond.
 
 
-MESSAGES insure the modularity of the system because they specify the type of operation desired, but not how that operation should be ac- complished. 
+MESSAGES insure the modularity of the system because they specify the type of operation desired, but not how that operation should be accomplished. 
 ----------------------------------------
