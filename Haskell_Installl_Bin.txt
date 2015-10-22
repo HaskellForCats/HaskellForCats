@@ -78,3 +78,7 @@ rm -f /Users/evx001/Library/Haskell/bin/hoogle
 rm -f /Users/evx001/Library/Haskell/bin/snap-chat-single
 rm -f /Users/evx001/Library/Haskell/bin/vty-interactive-terminal-test
 rm -f /Users/evx001/Library/Haskell/bin/yi
+######
+
+/Library/Frameworks/GHC.framework/Versions/7.10.2-x86_64/usr/bin/ghci
+/Library/Frameworks/GHC.framework/Versions/7.10.2-x86_64/usr/bin
