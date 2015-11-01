@@ -42,8 +42,8 @@ f a = return a
 
 g :: a -> IO a
 g a = do
-	putStrLn "Got here!"
-	return a
+    putStrLn "Got here!"
+    return a
 
  
 dada01 = \a -> (f a) 
@@ -56,7 +56,7 @@ dada03 a = a >>= id
 
 dada04 = (return (\a -> (g a))) >>= (\a -> (f a)) 
 
-{- 		
+{-      
 fn001 = \a -> \b -> (a,b)
 fn011 a = fn001 . f 
 fn022 a =  ((hC.gC).fC)(a) -- >>= hC(gC(fC(a)))

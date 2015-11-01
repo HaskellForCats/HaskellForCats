@@ -9,35 +9,35 @@ fedObligat      = 0.3
 
 -- imported expenses into a list 
 expen = [lics,taxs,docs,materials]
-			where 
-			lics = x + y + z + t 
-					where 
-						x = 0.0 
-						y = 0 
-						z = 0
-						t = 0 
+            where 
+            lics = x + y + z + t 
+                    where 
+                        x = 0.0 
+                        y = 0 
+                        z = 0
+                        t = 0 
 
-			taxs = 533.225
-			docs = 29.39
-			educ = x + y + z 
-				where 
-					x = 0
-					y = 0 
-					z = 0  
-			materials = (offSup + device)
-					where 
-						offSup = x + y + z + t
-							where
-							x = 8.98
-							y = 2.40
-							z = 13.99 
-							t = 0 
-						device = x + y + z + t  
-							where 
-							x =	70.78
-							y = 409.99 
-							z = 19.99  
-							t = 666.00 
+            taxs = 533.225
+            docs = 29.39
+            educ = x + y + z 
+                where 
+                    x = 1000
+                    y = 0 
+                    z = 0  
+            materials = (offSup + device)
+                    where 
+                        offSup = x + y + z + t
+                            where
+                            x = 8.98
+                            y = 2.40
+                            z = 13.99 
+                            t = 0 
+                        device = x + y + z + t  
+                            where 
+                            x = 70.78
+                            y = 409.99 
+                            z = 19.99  
+                            t = 666.00 
 
 -- totaling the list
 sumExpen = sum expen 
