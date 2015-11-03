@@ -3,6 +3,7 @@ module LearnCh3 where
 -- import Data.List
 -- import Data.Ix
 import Math.Factorial 
+import Data.Complex 
 --lucky :: (Eq a, Num a) => a -> [Char]
 
 lucky 7 = "LUCKY NUMBER SEVEN!" 

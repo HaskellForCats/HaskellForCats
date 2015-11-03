@@ -1,0 +1,20 @@
+Default: &defaults
+  database: YesWarpOne00.sqlite3
+  poolsize: 10
+
+Development:
+  <<: *defaults
+
+Testing:
+  database: YesWarpOne00_test.sqlite3
+  <<: *defaults
+
+Staging:
+  database: YesWarpOne00_staging.sqlite3
+  poolsize: 100
+  <<: *defaults
+
+Production:
+  database: YesWarpOne00_production.sqlite3
+  poolsize: 100
+  <<: *defaults

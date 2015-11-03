@@ -1,0 +1,1329 @@
+Last login: Sun Nov  1 17:38:31 on ttys002
+evies-MBP:~ evxyz$ cd HaskellForCats/
+evies-MBP:HaskellForCats evxyz$ echo path 
+path
+evies-MBP:HaskellForCats evxyz$ echo $path 
+
+evies-MBP:HaskellForCats evxyz$ echo $PATH 
+/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+evies-MBP:HaskellForCats evxyz$ vim -N 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+evies-MBP:HaskellForCats evxyz$ vim -N .bash_profile 
+evies-MBP:HaskellForCats evxyz$ ls
+2014-0219pwshell.hs			OptimumPath.hs				inOut
+2014-0225tagSoup.hs			README.md				inOut - Copy.hs
+2014-0311catTheory.txt			ReVerseWord.hs				inOut.hi
+20140507DebbieMaddon.txt		ReviewHutton.txt			inOut.hs
+20140819oopAfterHask.txt		SnakeLadd.hs				inOut.o
+20140822classConstraintShapes.txt	State.hs				ladiesWhoCodeHaskell
+20140822elephantsBlindManLogic.txt	StaticTypingIsTheBeesKnees.hs		lamdaCalc.hs
+20140902alogo.hs			SundayMat.txt				leob00.hs
+20150706AlgoRithims.hs			Symbols.png				linkedList.hs
+20150706AlgoRithims.hs 			TCD-CS-1999-74.pdf			minVariance.hs
+20MinHaskell				Trees					myseq.hs
+30MinHaskell				TypeClassHierarchy.pdf			phunctor.hs
+Applicative				Typeclassopedia-diagram.png		phunctor00.hs
+BankAcountKata				UCB_Mathematical_Operators.png		primes.hs
+CatchingUp-With-HaskellForCats.md	WarpFunctorOne				quickSort.hs
+ChineseBoxTree.png			bmiTell00.hs				readFile.hs
+CtF.hs					client_session_key.aes			readingVonnegut.hs
+EstTaxQrt				collatzConj.hs				rightTriangles.hs
+FixPoint.pdf				conScience				romanNumeral.hs
+GIT.txt					controlMonad.hs				simpSymb.hs
+H-E-D					cooking					simpcondi1.hs
+Haskell_Installl_Bin.txt		dada123.hs				stockBuy.hs
+IO					dataSeq.hs				stockPricesYesterdays.hs
+IOtxt					factorial.hs				unCatExp14.hs
+IdentityMonad.jpg			fbzMixR2.hs				vimUnleashed.txt
+JavaScript-the-good-parts.jpg		fbzPrint.hs				wadler87.pdf
+JetBrainMPS.txt				findAvPrimes2.hs			wadlerFreeTheorems.pdf
+LICENSE					fourStepsToMonad.hs			webScotty.hs
+LearnYouAHaskell			funReact.hs				wrapHello.hs
+MandelB.hs				gold55.hs				xxd.bash
+MenaBeginning				hashtbl.hs				yesNo.hs
+Mod000.hs				haskInstall.bash			yesodHi.hs
+MultDemArr.hs				haskellNatLangProcessing001.hs		yogsothoth
+NOMONOMORPHING.hs			iOMonad.hs				z-days&Occasions.zip
+Nads.hs					images
+evies-MBP:HaskellForCats evxyz$ cd LearnYouAHaskell/
+evies-MBP:LearnYouAHaskell evxyz$ ls
+Ex1.hs		LearnCh2.hs	LearnCh3.hs
+evies-MBP:LearnYouAHaskell evxyz$ ghci Ex1.hs 
+GHCi, version 7.10.2: http://www.haskell.org/ghc/  :? for help
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:3:11: Not in scope: data constructor ‘Undifed’
+Failed, modules loaded: none.
+Prelude> :q
+Leaving GHCi.
+evies-MBP:LearnYouAHaskell evxyz$ ghci Ex1.hs 
+GHCi, version 7.10.2: http://www.haskell.org/ghc/  :? for help
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:3:11:
+    Not in scope: data constructor ‘Undefined’
+    Perhaps you meant variable ‘undefined’ (imported from Prelude)
+Failed, modules loaded: none.
+Prelude> :q
+Leaving GHCi.
+evies-MBP:LearnYouAHaskell evxyz$ ghci Ex1.hs 
+GHCi, version 7.10.2: http://www.haskell.org/ghc/  :? for help
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :q
+Leaving GHCi.
+evies-MBP:LearnYouAHaskell evxyz$ ghci Ex1.hs 
+GHCi, version 7.10.2: http://www.haskell.org/ghc/  :? for help
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :q
+Leaving GHCi.
+evies-MBP:LearnYouAHaskell evxyz$ ghci Ex1.hs 
+GHCi, version 7.10.2: http://www.haskell.org/ghc/  :? for help
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :r
+Ok, modules loaded: Ex1.
+*Ex1> length endList 
+11
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLast 
+[1,2,3,4,5,6,7,8,9,10,11]
+*Ex1> length myLast 
+11
+*Ex1> (length myLast)-1  
+10
+*Ex1> (myLast!!((length myLast)-1))  
+11
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:3:11:
+    Occurs check: cannot construct the infinite type: a ~ [a]
+    Expected type: [[a]]
+      Actual type: [a]
+    Relevant bindings include myLast :: [a] (bound at Ex1.hs:3:1)
+    In the first argument of ‘(!!)’, namely ‘myLast’
+    In the expression: (myLast !! ((length myLast) - 1))
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLast [1..1100] 
+*** Exception: Ex1.hs:3:1-36: Non-exhaustive patterns in function myLast
+
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLast [1..1100] 
+
+<interactive>:13:1:
+    Non type-variable argument in the constraint: Enum [t]
+    (Use FlexibleContexts to permit this)
+    When checking that ‘it’ has the inferred type
+      it :: forall t. (Enum [t], Num [t]) => [t]
+*Ex1> myLast [1..1100] 
+
+<interactive>:14:1:
+    Non type-variable argument in the constraint: Enum [t]
+    (Use FlexibleContexts to permit this)
+    When checking that ‘it’ has the inferred type
+      it :: forall t. (Enum [t], Num [t]) => [t]
+*Ex1> myLast [1..1100] 
+
+<interactive>:15:1:
+    Non type-variable argument in the constraint: Enum [t]
+    (Use FlexibleContexts to permit this)
+    When checking that ‘it’ has the inferred type
+      it :: forall t. (Enum [t], Num [t]) => [t]
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLast [1..1100] 
+*** Exception: Ex1.hs:(3,1)-(4,36): Non-exhaustive patterns in function myLast
+
+*Ex1> myLast [1..1100] 
+*** Exception: Ex1.hs:(3,1)-(4,36): Non-exhaustive patterns in function myLast
+
+*Ex1> myLast [1..1100] 
+*** Exception: Ex1.hs:(3,1)-(4,36): Non-exhaustive patterns in function myLast
+
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> list
+[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111]
+*Ex1> list
+[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111]
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:4:13:
+    Couldn't match expected type ‘t0 -> t0’ with actual type ‘[a]’
+    Relevant bindings include myLast :: a (bound at Ex1.hs:4:1)
+    The lambda expression ‘\ x -> x’ has one argument,
+    but its type ‘[a]’ has none
+    In the first argument of ‘(!!)’, namely ‘(\ x -> x)’
+    In the expression: ((\ x -> x) !! ((length list) - 1))
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLast 
+111
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :t fn001
+
+<interactive>:1:1: Not in scope: ‘fn001’
+*Ex1> :t dada1 
+dada1 :: Int
+*Ex1> dada1 
+110
+*Ex1> myLast 
+
+<interactive>:30:1:
+    No instance for (Show (Int -> Integer))
+      (maybe you haven't applied enough arguments to a function?)
+      arising from a use of ‘print’
+    In a stmt of an interactive GHCi command: print it
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLast 
+111
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:5:67:
+    parse error (possibly incorrect indentation or mismatched brackets)
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:5:19:
+    Couldn't match expected type ‘t0 -> t0’ with actual type ‘Int’
+    The lambda expression ‘\ x -> x’ has one argument,
+    but its type ‘Int’ has none
+    In the first argument of ‘(-)’, namely ‘(\ x -> x)’
+    In the second argument of ‘(!!)’, namely ‘((\ x -> x) - 1)’
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLast dada1 
+110
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :t myLast 
+myLast :: [a] -> Int -> a
+*Ex1> myLast [1..111]  
+
+<interactive>:39:1:
+    No instance for (Show (Int -> a0))
+      (maybe you haven't applied enough arguments to a function?)
+      arising from a use of ‘print’
+    In the first argument of ‘print’, namely ‘it’
+    In a stmt of an interactive GHCi command: print it
+*Ex1> :t myLast [1..111]  
+myLast [1..111] :: (Enum a, Num a) => Int -> a
+*Ex1> :t myLast [1..111] 1 
+myLast [1..111] 1 :: (Enum a, Num a) => a
+*Ex1> myLast [1..111] 1 
+1
+*Ex1> myLast [1..111] 0 
+*** Exception: Prelude.!!: negative index
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:5:13:
+    Couldn't match expected type ‘[a]’ with actual type ‘Int’
+    Relevant bindings include myLast :: Int -> a (bound at Ex1.hs:5:1)
+    In the first argument of ‘(!!)’, namely ‘xs’
+    In the expression: (xs !! (x - 1))
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:4:20:
+    Not in scope: ‘list’
+    Perhaps you meant ‘last’ (imported from Prelude)
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> lastItem 
+110
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :t lastItem 
+lastItem :: Foldable t => t a -> Int
+*Ex1> :t lastItem [1..11] 
+lastItem [1..11] :: Int
+*Ex1> lastItem [1..11] 
+10
+*Ex1> myLast [1,4] 
+
+<interactive>:52:1: Not in scope: ‘myLast’
+*Ex1> lastItem [1,5] 
+1
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> lastItem [1,5] 
+5
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:4:15:
+    Couldn't match type ‘x’ with ‘Int’
+      ‘x’ is a rigid type variable bound by
+          the type signature for lastItem :: [x] -> Int at Ex1.hs:3:13
+    Expected type: [Int]
+      Actual type: [x]
+    Relevant bindings include
+      xs :: [x] (bound at Ex1.hs:4:10)
+      lastItem :: [x] -> Int (bound at Ex1.hs:4:1)
+    In the first argument of ‘(!!)’, namely ‘xs’
+    In the expression: xs !! ((length xs) - 1)
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:4:15:
+    Couldn't match type ‘x’ with ‘Int’
+      ‘x’ is a rigid type variable bound by
+          the type signature for lastItem :: [x] -> Int at Ex1.hs:3:13
+    Expected type: [Int]
+      Actual type: [x]
+    Relevant bindings include
+      xs :: [x] (bound at Ex1.hs:4:10)
+      lastItem :: [x] -> Int (bound at Ex1.hs:4:1)
+    In the first argument of ‘(!!)’, namely ‘xs’
+    In the expression: xs !! ((length xs) - 1)
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :t lastItem [1,5] 
+lastItem [1,5] :: Num a => a
+*Ex1> :t lastItem  
+lastItem :: [a] -> a
+*Ex1> lastItem "abcde" 
+'e'
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> lastItem "abcde" 
+
+<interactive>:64:1:
+    No instance for (Num Char) arising from a use of ‘lastItem’
+    In the expression: lastItem "abcde"
+    In an equation for ‘it’: it = lastItem "abcde"
+*Ex1> :t lastItem [1,5] 
+lastItem [1,5] :: Num a => a
+*Ex1> lastItem [1,5] 
+5
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> nextTolastItem  [1,5] 
+1
+*Ex1> nextTolastItem  [1] 
+*** Exception: Prelude.!!: negative index
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> nextTolastItem  [1,5] 
+
+<interactive>:71:1:
+    Non type-variable argument in the constraint: Num [t]
+    (Use FlexibleContexts to permit this)
+    When checking that ‘it’ has the inferred type
+      it :: forall t. Num [t] => [t]
+*Ex1> :r
+Ok, modules loaded: Ex1.
+*Ex1> nextTolastItem  [1,5] 
+
+<interactive>:73:1:
+    Non type-variable argument in the constraint: Num [t]
+    (Use FlexibleContexts to permit this)
+    When checking that ‘it’ has the inferred type
+      it :: forall t. Num [t] => [t]
+*Ex1> nextTolastItem  [1]
+
+<interactive>:74:1:
+    Non type-variable argument in the constraint: Num [t]
+    (Use FlexibleContexts to permit this)
+    When checking that ‘it’ has the inferred type
+      it :: forall t. Num [t] => [t]
+*Ex1> nextTolastItem  []
+[]
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:7:1: Warning:
+    Pattern match(es) are overlapped
+    In an equation for ‘nextTolastItem’: nextTolastItem [] = ...
+Ok, modules loaded: Ex1.
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> nextTolastItem  []
+0
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> nextTolastItem  []
+0
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:6:1:
+    Duplicate type signatures for ‘lastItem’
+    at Ex1.hs:3:1-8
+       Ex1.hs:6:1-8
+
+Ex1.hs:11:12:
+    Conflicting definitions for ‘x’
+    Bound at: Ex1.hs:11:12
+              Ex1.hs:11:15
+    In an equation for ‘elementAt’
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:6:1:
+    Duplicate type signatures for ‘lastItem’
+    at Ex1.hs:3:1-8
+       Ex1.hs:6:1-8
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:11:31:
+    Couldn't match expected type ‘t0 a1’ with actual type ‘a’
+      ‘a’ is a rigid type variable bound by
+          the type signature for elementAt :: a -> a at Ex1.hs:10:14
+    Relevant bindings include
+      xs :: a (bound at Ex1.hs:11:11)
+      elementAt :: a -> a (bound at Ex1.hs:11:1)
+    In the first argument of ‘length’, namely ‘xs’
+    In the first argument of ‘(-)’, namely ‘(length xs)’
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:11:12:
+    Conflicting definitions for ‘x’
+    Bound at: Ex1.hs:11:12
+              Ex1.hs:11:15
+    In an equation for ‘elementAt’
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> elementAt [1..111] 11 
+102
+*Ex1> elem
+elem       elementAt
+*Ex1> elementAt "A..z" 5
+'A'
+*Ex1> elementAt "A..z" 11
+*** Exception: Prelude.!!: negative index
+*Ex1> "A..z"
+"A..z"
+*Ex1> "A..z"
+"A..z"
+*Ex1> ['A'..'z']
+"ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz"
+*Ex1> elementAt ['A'..'z'] 11  
+'q'
+*Ex1> elementAt ['A'..'z'] 11  
+'q'
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> elementAt ['A'..'z'] 11  
+
+<interactive>:96:12:
+    Couldn't match expected type ‘Int’ with actual type ‘Char’
+    In the expression: 'A'
+    In the first argument of ‘elementAt’, namely ‘['A' .. 'z']’
+    In the expression: elementAt ['A' .. 'z'] 11
+
+<interactive>:96:17:
+    Couldn't match expected type ‘Int’ with actual type ‘Char’
+    In the expression: 'z'
+    In the first argument of ‘elementAt’, namely ‘['A' .. 'z']’
+    In the expression: elementAt ['A' .. 'z'] 11
+*Ex1> elementAt ['A'..'z'] 11  
+
+<interactive>:97:12:
+    Couldn't match expected type ‘Int’ with actual type ‘Char’
+    In the expression: 'A'
+    In the first argument of ‘elementAt’, namely ‘['A' .. 'z']’
+    In the expression: elementAt ['A' .. 'z'] 11
+
+<interactive>:97:17:
+    Couldn't match expected type ‘Int’ with actual type ‘Char’
+    In the expression: 'z'
+    In the first argument of ‘elementAt’, namely ‘['A' .. 'z']’
+    In the expression: elementAt ['A' .. 'z'] 11
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> elementAt ['A'..'z'] 11  
+'p'
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:13:36:
+    Couldn't match expected type ‘Int’ with actual type ‘[a]’
+    Relevant bindings include
+      x :: a (bound at Ex1.hs:13:14)
+      xs :: [a] (bound at Ex1.hs:13:11)
+      elementAt :: [a] -> a -> a (bound at Ex1.hs:13:1)
+    In the second argument of ‘(-)’, namely ‘(tail xs)’
+    In the second argument of ‘(!!)’, namely
+      ‘((length xs) - (tail xs))’
+Failed, modules loaded: none.
+Prelude> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:13:37:
+    Couldn't match expected type ‘Int’ with actual type ‘[a]’
+    Relevant bindings include
+      xs :: [a] (bound at Ex1.hs:13:11)
+      elementAt :: [a] -> Int -> a (bound at Ex1.hs:13:1)
+    In the second argument of ‘(-)’, namely ‘(tail xs)’
+    In the first argument of ‘(+)’, namely ‘((length xs) - (tail xs))’
+Failed, modules loaded: none.
+Prelude> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:13:37:
+    Couldn't match expected type ‘Int’ with actual type ‘[a]’
+    Relevant bindings include
+      xs :: [a] (bound at Ex1.hs:13:11)
+      elementAt :: [a] -> Int -> a (bound at Ex1.hs:13:1)
+    In the second argument of ‘(-)’, namely ‘(tail xs)’
+    In the first argument of ‘(+)’, namely ‘((length xs) - (tail xs))’
+Failed, modules loaded: none.
+Prelude> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:13:34:
+    Couldn't match expected type ‘Int’ with actual type ‘[a]’
+    Relevant bindings include
+      xs :: [a] (bound at Ex1.hs:13:11)
+      elementAt :: [a] -> a (bound at Ex1.hs:13:1)
+    In the second argument of ‘(-)’, namely ‘(tail xs)’
+    In the second argument of ‘(!!)’, namely
+      ‘((length xs) - (tail xs))’
+Failed, modules loaded: none.
+Prelude> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:13:17: parse error on input ‘=’
+Failed, modules loaded: none.
+Prelude> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> elementAt ['A'..'z'] 11  
+*** Exception: Prelude.!!: index too large
+*Ex1> elementAt ['A'..'z'] 11  
+*** Exception: Prelude.!!: index too large
+*Ex1> elementAt ['A'..'z'] 11  
+*** Exception: Prelude.!!: index too large
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> elementAt ['A'..'z'] 11  
+'M'
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> elementAt ['A'..'z'] 11  
+'L'
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :r 
+Ok, modules loaded: Ex1.
+*Ex1> elementAt ['A'..'z'] 11  
+'K'
+*Ex1> elementAt ['A'..'z'] 0  
+*** Exception: Prelude.!!: negative index
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> elementAt ['A'..'z'] 11  
+
+<interactive>:121:1:
+    No instance for (Num Char) arising from a use of ‘elementAt’
+    In the expression: elementAt ['A' .. 'z'] 11
+    In an equation for ‘it’: it = elementAt ['A' .. 'z'] 11
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> elementAt ['A'..'z'] 11  
+'K'
+*Ex1> elementAt ['A'..'z'] 0
+'0'
+*Ex1> elementAt [1..11] 1
+
+<interactive>:125:12:
+    No instance for (Num Char) arising from the literal ‘1’
+    In the expression: 1
+    In the first argument of ‘elementAt’, namely ‘[1 .. 11]’
+    In the expression: elementAt [1 .. 11] 1
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> elementAt [1..11] 1
+[1]
+*Ex1> elementAt [1..11] 0
+[]
+*Ex1> elementAt ['A'..'z'] 0
+""
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:14:1:
+    Couldn't match expected type ‘Int -> [t0]’ with actual type ‘[a]’
+    Relevant bindings include
+      elementAt :: a -> [a] (bound at Ex1.hs:14:1)
+    The equation(s) for ‘elementAt’ have two arguments,
+    but its type ‘a -> [a]’ has only one
+Failed, modules loaded: none.
+Prelude> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:15:59:
+    Couldn't match expected type ‘Int’ with actual type ‘a’
+      ‘a’ is a rigid type variable bound by
+          the type signature for elementAt :: [a] -> a -> [a] at Ex1.hs:13:14
+    Relevant bindings include
+      x :: a (bound at Ex1.hs:15:14)
+      xs :: [a] (bound at Ex1.hs:15:11)
+      elementAt :: [a] -> a -> [a] (bound at Ex1.hs:14:1)
+    In the first argument of ‘(-)’, namely ‘x’
+    In the second argument of ‘(+)’, namely ‘(x - 2)’
+Failed, modules loaded: none.
+Prelude> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:15:59:
+    Couldn't match expected type ‘Int’ with actual type ‘a’
+      ‘a’ is a rigid type variable bound by
+          the type signature for elementAt :: [a] -> a -> [a] at Ex1.hs:13:14
+    Relevant bindings include
+      x :: a (bound at Ex1.hs:15:14)
+      xs :: [a] (bound at Ex1.hs:15:11)
+      elementAt :: [a] -> a -> [a] (bound at Ex1.hs:14:1)
+    In the first argument of ‘(-)’, namely ‘x’
+    In the second argument of ‘(+)’, namely ‘(x - 2)’
+Failed, modules loaded: none.
+Prelude> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> elementAt ['A'..'z'] 0
+""
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:15:18:
+    Couldn't match expected type ‘a’ with actual type ‘[a]’
+      ‘a’ is a rigid type variable bound by
+          the type signature for elementAt :: [a] -> Int -> a at Ex1.hs:13:14
+    Relevant bindings include
+      xs :: [a] (bound at Ex1.hs:15:11)
+      elementAt :: [a] -> Int -> a (bound at Ex1.hs:14:1)
+    In the expression:
+      xs !! (((length xs) - ((length (tail xs)))) + (x - 2)) : []
+    In an equation for ‘elementAt’:
+        elementAt xs x
+          = xs !! (((length xs) - ((length (tail xs)))) + (x - 2)) : []
+Failed, modules loaded: none.
+Prelude> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:15:18:
+    Couldn't match expected type ‘a’ with actual type ‘[a]’
+      ‘a’ is a rigid type variable bound by
+          the type signature for elementAt :: [a] -> Int -> a at Ex1.hs:13:14
+    Relevant bindings include
+      xs :: [a] (bound at Ex1.hs:15:11)
+      elementAt :: [a] -> Int -> a (bound at Ex1.hs:14:1)
+    In the expression:
+      xs !! (((length xs) - ((length (tail xs)))) + (x - 2)) : []
+    In an equation for ‘elementAt’:
+        elementAt xs x
+          = xs !! (((length xs) - ((length (tail xs)))) + (x - 2)) : []
+Failed, modules loaded: none.
+Prelude> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:18:12:
+    Not in scope: ‘undefinded’
+    Perhaps you meant ‘undefined’ (imported from Prelude)
+Failed, modules loaded: none.
+Prelude> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :t myLength 
+myLength :: Num a => [a] -> a
+*Ex1> :t myLength 
+myLength :: Num a => [a] -> a
+*Ex1> :t myLength 
+myLength :: Num a => [a] -> a
+*Ex1> :t myLength 
+myLength :: Num a => [a] -> a
+*Ex1> :t myLength 
+myLength :: Num a => [a] -> a
+*Ex1> :t myLength :r 
+
+<interactive>:1:11: Not in scope: ‘r’
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:18:16:
+    Couldn't match expected type ‘a’ with actual type ‘Int’
+      ‘a’ is a rigid type variable bound by
+          the type signature for myLength :: [a] -> a at Ex1.hs:17:13
+    Relevant bindings include
+      x :: a (bound at Ex1.hs:18:11)
+      myLength :: [a] -> a (bound at Ex1.hs:18:1)
+    In the expression: length [x]
+    In an equation for ‘myLength’: myLength [x] = length [x]
+Failed, modules loaded: none.
+Prelude> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :t myLength :r 
+
+<interactive>:1:11: Not in scope: ‘r’
+*Ex1> :r 
+Ok, modules loaded: Ex1.
+*Ex1> :t myLength [1] 
+myLength [1] :: Int
+*Ex1> :t myLength [] 
+myLength [] :: Int
+*Ex1> myLength [] 
+*** Exception: Ex1.hs:18:1-25: Non-exhaustive patterns in function myLength
+
+*Ex1> myLength [] 
+*** Exception: Ex1.hs:18:1-25: Non-exhaustive patterns in function myLength
+
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:18:15:
+    Couldn't match expected type ‘Int’ with actual type ‘[t0]’
+    In the expression: []
+    In an equation for ‘myLength’: myLength [] = []
+Failed, modules loaded: none.
+Prelude> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLength [] 
+0
+*Ex1> myLength [1] 
+1
+*Ex1> myLength [1..11] 
+*** Exception: Ex1.hs:(18,1)-(19,25): Non-exhaustive patterns in function myLength
+
+*Ex1> myLength [1..11]  
+*** Exception: Ex1.hs:(18,1)-(19,25): Non-exhaustive patterns in function myLength
+
+*Ex1> myLength [1,11]  
+*** Exception: Ex1.hs:(18,1)-(19,25): Non-exhaustive patterns in function myLength
+
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:19:23:
+    Couldn't match expected type ‘t0 a0’ with actual type ‘a’
+      ‘a’ is a rigid type variable bound by
+          the type signature for myLength :: [a] -> Int at Ex1.hs:17:13
+    Relevant bindings include
+      x :: a (bound at Ex1.hs:19:11)
+      myLength :: [a] -> Int (bound at Ex1.hs:18:1)
+    In the first argument of ‘length’, namely ‘x’
+    In the expression: length x
+Failed, modules loaded: none.
+Prelude> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :r 
+Ok, modules loaded: Ex1.
+*Ex1> myLength [1,11]  
+2
+*Ex1> myLength [1..22]  
+22
+*Ex1> myLength [1,11]  
+2
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLength [1,11]  
+1
+*Ex1> myLength [1..22]  
+1
+*Ex1> myLength [1,11]  
+1
+*Ex1> myLength [1..22]  
+1
+*Ex1> myLength [1..22]  
+1
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLength [1..22]  
+*** Exception: Ex1.hs:(18,1)-(19,16): Non-exhaustive patterns in function myLength
+
+*Ex1> myLength [1..22]  
+*** Exception: Ex1.hs:(18,1)-(19,16): Non-exhaustive patterns in function myLength
+
+*Ex1> myLength [1..22]  
+*** Exception: Ex1.hs:(18,1)-(19,16): Non-exhaustive patterns in function myLength
+
+*Ex1> myLength [1..22]  
+*** Exception: Ex1.hs:(18,1)-(19,16): Non-exhaustive patterns in function myLength
+
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLength [1..22]  
+22
+*Ex1> myLength [1..22]  
+22
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLength [1..22]  
+*** Exception: Ex1.hs:(18,1)-(19,27): Non-exhaustive patterns in function myLength
+
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :t length 
+length :: Foldable t => t a -> Int
+*Ex1> :t length [] 
+length [] :: Int
+*Ex1> :t length [[]] 
+length [[]] :: Int
+*Ex1> :t myLength 
+myLength :: [a] -> Int
+*Ex1> :t myLength 
+myLength :: [a] -> Int
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:19:24:
+    Couldn't match expected type ‘t0 a0’ with actual type ‘a’
+      ‘a’ is a rigid type variable bound by
+          the type signature for myLength :: [a] -> Int at Ex1.hs:17:13
+    Relevant bindings include
+      xs :: a (bound at Ex1.hs:19:11)
+      myLength :: [a] -> Int (bound at Ex1.hs:18:1)
+    In the first argument of ‘length’, namely ‘xs’
+    In the expression: length xs
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :t myLength 
+myLength :: [a] -> Int
+*Ex1> :r
+Ok, modules loaded: Ex1.
+*Ex1> :t myLength 
+myLength :: [a] -> Int
+*Ex1> :t myLength []
+myLength [] :: Int
+*Ex1> myLength []
+0
+*Ex1> myLength [1]
+1
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLength [1,1]
+*** Exception: Ex1.hs:(18,1)-(19,27): Non-exhaustive patterns in function myLength
+
+*Ex1> :r
+Ok, modules loaded: Ex1.
+*Ex1> :t myLength []
+myLength [] :: Int
+*Ex1> :t myLength [1..11]
+myLength [1..11] :: Int
+*Ex1> :t myLength []
+myLength [] :: Int
+*Ex1> :t myLength [1..11]
+myLength [1..11] :: Int
+*Ex1> :t myLength []
+myLength [] :: Int
+*Ex1> myLength []
+0
+*Ex1> myLength [1]
+1
+*Ex1> myLength [[1],[2]]
+*** Exception: Ex1.hs:(18,1)-(19,27): Non-exhaustive patterns in function myLength
+
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:18:1:
+    Equations for ‘myLength’ have different numbers of arguments
+      Ex1.hs:18:1-15
+      Ex1.hs:20:1-32
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLength [[1],[2]]
+2
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLength [[1],[2]]
+*** Exception: Ex1.hs:(18,1)-(20,44): Non-exhaustive patterns in function myLength
+
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:20:47:
+    Couldn't match expected type ‘t0 a0’ with actual type ‘a’
+      ‘a’ is a rigid type variable bound by
+          the type signature for myLength :: [a] -> Int at Ex1.hs:17:13
+    Relevant bindings include
+      xs :: a (bound at Ex1.hs:20:11)
+      myLength :: [a] -> Int (bound at Ex1.hs:18:1)
+    In the expression: xs
+    In the first argument of ‘head’, namely ‘[xs]’
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:20:49: parse error on input ‘)’
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:20:40:
+    No instance for (Num [Int]) arising from a use of ‘+’
+    In the expression: c + 1
+    In the first argument of ‘foldl’, namely ‘(\ c _ -> c + 1)’
+    In the first argument of ‘head’, namely
+      ‘((foldl (\ c _ -> c + 1) 0) [xs])’
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:20:33:
+    No instance for (Fractional Int) arising from the literal ‘1.0’
+    In the second argument of ‘(+)’, namely ‘1.0’
+    In the expression: c + 1.0
+    In the first argument of ‘foldl’, namely ‘(\ c _ -> c + 1.0)’
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLength [[1],[2]]
+2
+*Ex1> myLength [[1],[2]]
+2
+*Ex1> myLength [[1],[2]]
+2
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLength [[1],[2]]
+2.0
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:20:33:
+    Could not deduce (Fractional a) arising from the literal ‘1.0’
+    from the context (Num a)
+      bound by the type signature for myLength :: Num a => [a] -> a
+      at Ex1.hs:17:13-29
+    Possible fix:
+      add (Fractional a) to the context of
+        the type signature for myLength :: Num a => [a] -> a
+    In the second argument of ‘(+)’, namely ‘1.0’
+    In the expression: c + 1.0
+    In the first argument of ‘foldl’, namely ‘(\ c _ -> c + 1.0)’
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:18:15:
+    Could not deduce (Fractional a) arising from the literal ‘0.0’
+    from the context (Num a)
+      bound by the type signature for myLength :: Num a => [a] -> a
+      at Ex1.hs:17:13-29
+    Possible fix:
+      add (Fractional a) to the context of
+        the type signature for myLength :: Num a => [a] -> a
+    In the expression: 0.0
+    In an equation for ‘myLength’: myLength [] = 0.0
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:18:15:
+    Could not deduce (Fractional a) arising from the literal ‘0.0’
+    from the context (Num a)
+      bound by the type signature for myLength :: Num a => [a] -> a
+      at Ex1.hs:17:13-29
+    Possible fix:
+      add (Fractional a) to the context of
+        the type signature for myLength :: Num a => [a] -> a
+    In the expression: 0.0
+    In an equation for ‘myLength’: myLength [] = 0.0
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:20:33:
+    No instance for (Fractional Int) arising from the literal ‘1.0’
+    In the second argument of ‘(+)’, namely ‘1.0’
+    In the expression: c + 1.0
+    In the first argument of ‘foldl’, namely ‘(\ c _ -> c + 1.0)’
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:20:33:
+    No instance for (Fractional Int) arising from the literal ‘1.0’
+    In the second argument of ‘(+)’, namely ‘1.0’
+    In the expression: c + 1.0
+    In the first argument of ‘foldl’, namely ‘(\ c _ -> c + 1.0)’
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:20:33:
+    No instance for (Fractional Int) arising from the literal ‘1.0’
+    In the second argument of ‘(+)’, namely ‘1.0’
+    In the expression: c + 1.0
+    In the first argument of ‘foldl’, namely ‘(\ c _ -> c + 1.0)’
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLength [[1],[2]]
+2.0
+*Ex1> :t myLength 
+myLength :: Fractional a => [a1] -> a
+*Ex1> :t myLength 
+myLength :: Fractional a => [a1] -> a
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :t myLength 
+myLength :: Num a => [a1] -> a
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :t myLength 
+myLength :: [a] -> Int
+*Ex1> :t myLength ''
+
+<interactive>:1:12:
+    parse error (possibly incorrect indentation or mismatched brackets)
+*Ex1> :t myLength '1'
+
+<interactive>:1:10:
+    Couldn't match expected type ‘[a0]’ with actual type ‘Char’
+    In the first argument of ‘myLength’, namely ‘'1'’
+    In the expression: myLength '1'
+*Ex1> :t myLength "11"
+myLength "11" :: Int
+*Ex1> 
+*Ex1> :t myLength "11"
+myLength "11" :: Int
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:20:39:
+    Couldn't match expected type ‘t1 a0’ with actual type ‘a’
+      ‘a’ is a rigid type variable bound by
+          the type signature for myLength :: a -> Int at Ex1.hs:17:13
+    Relevant bindings include
+      xs :: a (bound at Ex1.hs:20:10)
+      myLength :: a -> Int (bound at Ex1.hs:18:1)
+    In the third argument of ‘foldl’, namely ‘xs’
+    In the expression: (foldl (\ c _ -> c + 1) 0) xs
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:20:39:
+    Couldn't match expected type ‘t1 a0’ with actual type ‘as’
+      ‘as’ is a rigid type variable bound by
+           the type signature for myLength :: as -> Int at Ex1.hs:17:13
+    Relevant bindings include
+      xs :: as (bound at Ex1.hs:20:10)
+      myLength :: as -> Int (bound at Ex1.hs:18:1)
+    In the third argument of ‘foldl’, namely ‘xs’
+    In the expression: (foldl (\ c _ -> c + 1) 0) xs
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:17:14: parse error on input ‘:’
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:20:1: Parse error in pattern: myLength
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:20:1: Parse error in pattern: myLength
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:20:39:
+    Couldn't match expected type ‘t1 a0’ with actual type ‘a’
+      ‘a’ is a rigid type variable bound by
+          the type signature for myLength :: a -> Int at Ex1.hs:17:13
+    Relevant bindings include
+      xs :: a (bound at Ex1.hs:20:10)
+      myLength :: a -> Int (bound at Ex1.hs:18:1)
+    In the third argument of ‘foldl’, namely ‘xs’
+    In the expression: (foldl (\ c _ -> c + 1) 0) xs
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :r
+Ok, modules loaded: Ex1.
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:20:33:
+    Couldn't match expected type ‘Int’ with actual type ‘[Int]’
+    In the expression: c + 1 : []
+    In the first argument of ‘foldl’, namely ‘(\ c _ -> c + 1 : [])’
+    In the expression: (foldl (\ c _ -> c + 1 : []) 0) [xs]
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myLength 
+
+<interactive>:252:1:
+    No instance for (Show ([a0] -> Int))
+      (maybe you haven't applied enough arguments to a function?)
+      arising from a use of ‘print’
+    In a stmt of an interactive GHCi command: print it
+*Ex1> :t myLength 
+myLength :: [a] -> Int
+*Ex1> myLength 
+
+<interactive>:254:1:
+    No instance for (Show ([a0] -> Int))
+      (maybe you haven't applied enough arguments to a function?)
+      arising from a use of ‘print’
+    In a stmt of an interactive GHCi command: print it
+*Ex1> :t myLength 
+myLength :: [a] -> Int
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:20:44:
+    Couldn't match expected type ‘[t0]’ with actual type ‘a’
+      ‘a’ is a rigid type variable bound by
+          the type signature for myLength :: [a] -> Int at Ex1.hs:17:13
+    Relevant bindings include
+      xs :: a (bound at Ex1.hs:20:11)
+      myLength :: [a] -> Int (bound at Ex1.hs:18:1)
+    In the expression: xs
+    In the third argument of ‘foldl’, namely ‘[xs]’
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:20:30: parse error on input ‘:’
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :t foldl
+foldl :: Foldable t => (b -> a -> b) -> b -> t a -> b
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:22:16: Not in scope: ‘appEndo’
+
+Ex1.hs:22:25: Not in scope: ‘getDual’
+
+Ex1.hs:22:43: Not in scope: data constructor ‘Dual’
+
+Ex1.hs:22:50: Not in scope: data constructor ‘Endo’
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :t foldl'
+
+<interactive>:1:1:
+    Not in scope: ‘foldl'’
+    Perhaps you meant one of these:
+      ‘foldl’ (imported from Prelude), ‘foldl1’ (imported from Prelude),
+      ‘foldl''’ (line 22)
+*Ex1> :t foldl
+foldl :: Foldable t => (b -> a -> b) -> b -> t a -> b
+*Ex1> :t foldl''
+foldl'' :: Foldable t1 => (b -> t -> b) -> b -> t1 t -> b
+*Ex1> :r
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :r
+Ok, modules loaded: Ex1.
+*Ex1> my
+myId      myLength
+*Ex1> myId 3 
+3
+*Ex1> myId [] 
+[]
+*Ex1> myId '1' 
+'1'
+*Ex1> myId [] 
+[]
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myId [] 
+0
+*Ex1> myId 1 
+0
+*Ex1> myId [] 
+0
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myId 1 
+1
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myId 1 
+0
+*Ex1> myId 'a'  
+
+<interactive>:279:1:
+    No instance for (Num Char) arising from a use of ‘myId’
+    In the expression: myId 'a'
+    In an equation for ‘it’: it = myId 'a'
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myId 11  
+11
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> myId 11  
+11
+*Ex1> myId (11+2)  
+13
+*Ex1> let myMaybe a = Just a | Nothing   
+
+<interactive>:285:24: parse error on input ‘|’
+*Ex1> let data myMaybe a = Just a | Nothing 
+
+<interactive>:286:1:
+    parse error in let binding: missing required 'in'
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+Ok, modules loaded: Ex1.
+*Ex1> :t MyMaybe  
+
+<interactive>:1:1: Not in scope: data constructor ‘MyMaybe’
+*Ex1> :t MyMaybe a 
+
+<interactive>:1:1: Not in scope: data constructor ‘MyMaybe’
+
+<interactive>:1:9: Not in scope: ‘a’
+*Ex1> :i MyMaybe 
+data MyMaybe a = Ex1.Just a | Ex1.Nothing
+  	-- Defined at Ex1.hs:25:1
+*Ex1> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:27:20: parse error on input ‘|’
+Failed, modules loaded: none.
+Prelude> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:28:25: parse error on input ‘|’
+Failed, modules loaded: none.
+Prelude> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:28:25: parse error on input ‘|’
+Failed, modules loaded: none.
+Prelude> :r 
+[1 of 1] Compiling Ex1              ( Ex1.hs, interpreted )
+
+Ex1.hs:27:27: parse error on input ‘|’
+Failed, modules loaded: none.
+Prelude> ma
+map       mapM      mapM_     mappend   max       maxBound  maximum   maybe
+Prelude> :t maybe 
+maybe :: b -> (a -> b) -> Maybe a -> b
+Prelude> maybe 6  
+
+<interactive>:296:1:
+    No instance for (Show ((a0 -> b0) -> Maybe a0 -> b0))
+      (maybe you haven't applied enough arguments to a function?)
+      arising from a use of ‘print’
+    In the first argument of ‘print’, namely ‘it’
+    In a stmt of an interactive GHCi command: print it
+Prelude> :t maybe 6  
+maybe 6 :: Num b => (a -> b) -> Maybe a -> b
+Prelude> :t maybe 6 abs  
