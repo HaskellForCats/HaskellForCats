@@ -1,0 +1,1 @@
+Type systems originate from type theory, which is credited to Bertrand Russell who developed the theory in the early 20th century and included it in his three volume Principia Mathematica (Whitehead and Russell, Cambridge University Press, 1910). Type theory is a system in which each term is given a type and operations are restricted based on the types.
