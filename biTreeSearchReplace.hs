@@ -1,5 +1,5 @@
 -- biTreeSearchReplace.hs
-module BiTree where 
+module BiTreeSearch where 
 import Control.Applicative
 import Data.Monoid 
 import Data.Tuple
@@ -11,7 +11,7 @@ data Tree a = Leaf
 
 -- foldTree = foldr (\x tree -> insertInTree x tree) Leaf 
 foldTree = foldr (\x tree -> insertInTree x tree) Leaf 
-{- 
+ 
 insertInTree x Leaf = Node 0 (Leaf) x (Leaf) 
 insertInTree x (Node n t1 val t2) = if h1 < h2 
 						then Node (h2 + 1) (insertInTree x t1) val t2 
@@ -21,7 +21,7 @@ insertInTree x (Node n t1 val t2) = if h1 < h2
 								h2 = heightTree t2 
 heightTree Leaf = 0 
 heightTree (Node n t1 val t2) = n 
--}
+
 -- foldTree "ABCDEFGHIJ"
 -- mytree = [5,[3,[1,4]],7]
 -- giveTree1 = (2,(1),(6,(4,))))
